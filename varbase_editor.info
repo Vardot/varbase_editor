@@ -2,7 +2,6 @@ name = Varbase Editor
 description = Editor profile and settings to be used in most websites.
 core = 7.x
 package = Varbase
-version = 7.x-3.x
 project = varbase_editor
 dependencies[] = ace_editor
 dependencies[] = better_formats
