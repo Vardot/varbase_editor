@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Code for the Varbase CKEditor feature.
+ */
+
+include_once 'varbase_editor.features.inc';
+
+/**
+ * Implements hook_wysiwyg_filter_elements_blacklist_alter().
+ */
+function varbase_editor_wysiwyg_filter_elements_blacklist_alter(&$blacklist) {
+  $blacklist = array_diff($blacklist, array('iframe', 'object', 'embed'));
+}
+
+/**
+ * Implements hook_media_wysiwyg_token_to_markup_alter().
+ */
+function varbase_editor_media_wysiwyg_token_to_markup_alter(&$element, $tag_info, $settings) {
+  if (isset($element['#theme']) && $element['#theme'] == 'image_formatter') {
+    // Add img-responsive class to images added through wysiwyg.
+    $element['#attributes']['class'][] = 'img-responsive';
+  }
+}
