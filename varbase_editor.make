@@ -46,6 +46,9 @@ projects[wysiwyg_filter][patch][1783966] = "http://www.drupal.org/files/wysiwyg_
 ;; Libraries
 ;;;;;;;;;;;;;;;;;;;;;
 
+;libraries[ace][download][type] = "get"
+;libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.0.tar.gz"
+
 libraries[ckeditor][download][type] = "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.3/ckeditor_4.5.3_full.zip"
 
