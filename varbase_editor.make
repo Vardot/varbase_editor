@@ -8,9 +8,8 @@ core = 7.x
 projects[ace_editor][version] = "1.x-dev"
 projects[ace_editor][download][type] = "git"
 projects[ace_editor][download][url] = "http://git.drupal.org/project/ace_editor.git"
-projects[ace_editor][download][revision] = "4780cf5626f93b8bbffc0fac747eab09fa88f24b"
+projects[ace_editor][download][revision] = "418888c6499f316442e5c2d1c76e4e0bf9e36379"
 projects[ace_editor][subdir] = contrib
-projects[ace_editor][patch][2330383] = "http://www.drupal.org/files/issues/multi_site_libraries_path-2330383-7.patch"
 
 projects[better_formats][version] = "1.x-dev"
 projects[better_formats][download][type] = "git"
@@ -46,6 +45,7 @@ projects[wysiwyg_filter][patch][1783966] = "http://www.drupal.org/files/wysiwyg_
 ;; Libraries
 ;;;;;;;;;;;;;;;;;;;;;
 
+# Please follow "Drupal.org Library Packaging Whitelist" project issue number #2580945 for Whitelisting the ace library.
 ;libraries[ace][download][type] = "get"
 ;libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.0.tar.gz"
 
