@@ -45,7 +45,6 @@ projects[wysiwyg_filter][patch][1783966] = "http://www.drupal.org/files/wysiwyg_
 ;; Libraries
 ;;;;;;;;;;;;;;;;;;;;;
 
-# Please follow "Drupal.org Library Packaging Whitelist" project issue number #2580945 for Whitelisting the ace library.
 libraries[ace][download][type] = "get"
 libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.0.tar.gz"
 
