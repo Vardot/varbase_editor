@@ -64,6 +64,36 @@ function varbase_editor_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_file__image';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'filename' => array(
+          'weight' => '0',
+        ),
+        'preview' => array(
+          'weight' => '1',
+        ),
+        'redirect' => array(
+          'weight' => '5',
+        ),
+      ),
+      'display' => array(
+        'file' => array(
+          'wysiwyg' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
+    ),
+  );
+  $export['field_bundle_settings_file__image'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'media_backgroundcolor';
   $strongarm->value = '#000000';
   $export['media_backgroundcolor'] = $strongarm;

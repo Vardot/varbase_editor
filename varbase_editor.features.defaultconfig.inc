@@ -32,13 +32,6 @@ function varbase_editor_defaultconfig_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'maxlength_always_for_uid1';
-  $strongarm->value = 'true';
-  $export['maxlength_always_for_uid1'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'media_icon_base_directory';
   $strongarm->value = 'public://media-icons';
   $export['media_icon_base_directory'] = $strongarm;
@@ -149,18 +142,6 @@ function varbase_editor_defaultconfig_user_default_permissions() {
       'Super Admin' => 'Super Admin',
     ),
     'module' => 'better_formats',
-  );
-
-  // Exported permission: 'use media wysiwyg'.
-  $permissions['use media wysiwyg'] = array(
-    'name' => 'use media wysiwyg',
-    'roles' => array(
-      'Content Admin' => 'Content Admin',
-      'Editor' => 'Editor',
-      'Site Admin' => 'Site Admin',
-      'Super Admin' => 'Super Admin',
-    ),
-    'module' => 'media_wysiwyg',
   );
 
   // Exported permission: 'use text format basic_editor'.
