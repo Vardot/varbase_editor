@@ -20,7 +20,7 @@ projects[better_formats][subdir] = contrib
 projects[ckeditor][version] = "1.x-dev"
 projects[ckeditor][download][type] = "git"
 projects[ckeditor][download][url] = "http://git.drupal.org/project/ckeditor.git"
-projects[ckeditor][download][revision] = "32f09731dcf1ca6ea78c2d9f10a49e59c2baea7b"
+projects[ckeditor][download][revision] = "292de9321db65a606b9e2016251979379a3c6528"
 projects[ckeditor][subdir] = contrib
 
 projects[media_ckeditor][version] = "2.x-dev"
@@ -49,12 +49,12 @@ libraries[ace][download][type] = "get"
 libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.0.tar.gz"
 
 libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.3/ckeditor_4.5.3_full.zip"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.5/ckeditor_4.5.5_full.zip"
 
 libraries[widget][download][type] = "get"
-libraries[widget][download][url] = "http://download.ckeditor.com/widget/releases/widget_4.5.3.zip"
+libraries[widget][download][url] = "http://download.ckeditor.com/widget/releases/widget_4.5.5.zip"
 libraries[widget][destination] = "modules/contrib/ckeditor/plugins/"
 
 libraries[lineutils][download][type] = "get"
-libraries[lineutils][download][url] = "http://download.ckeditor.com/lineutils/releases/lineutils_4.5.3.zip"
+libraries[lineutils][download][url] = "http://download.ckeditor.com/lineutils/releases/lineutils_4.5.5.zip"
 libraries[lineutils][destination] = "modules/contrib/ckeditor/plugins/"
