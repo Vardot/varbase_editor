@@ -5,10 +5,7 @@ core = 7.x
 
 ; WYSIWYG Improvements
 
-projects[ace_editor][version] = "1.x-dev"
-projects[ace_editor][download][type] = "git"
-projects[ace_editor][download][url] = "http://git.drupal.org/project/ace_editor.git"
-projects[ace_editor][download][revision] = "418888c6499f316442e5c2d1c76e4e0bf9e36379"
+projects[ace_editor][version] = 1.3
 projects[ace_editor][subdir] = contrib
 
 projects[better_formats][version] = "1.x-dev"
