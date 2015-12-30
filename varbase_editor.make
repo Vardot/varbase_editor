@@ -5,7 +5,7 @@ core = 7.x
 
 ; WYSIWYG Improvements
 
-projects[ace_editor][version] = 1.3
+projects[ace_editor][version] = 1.4
 projects[ace_editor][subdir] = contrib
 
 projects[better_formats][version] = "1.x-dev"
@@ -14,10 +14,7 @@ projects[better_formats][download][url] = "http://git.drupal.org/project/better_
 projects[better_formats][download][revision] = "3b4a8c92b317add4e218216a002b2bc777fbc736"
 projects[better_formats][subdir] = contrib
 
-projects[ckeditor][version] = "1.x-dev"
-projects[ckeditor][download][type] = "git"
-projects[ckeditor][download][url] = "http://git.drupal.org/project/ckeditor.git"
-projects[ckeditor][download][revision] = "292de9321db65a606b9e2016251979379a3c6528"
+projects[ckeditor][version] = 1.17
 projects[ckeditor][subdir] = contrib
 
 projects[media_ckeditor][version] = "2.x-dev"
