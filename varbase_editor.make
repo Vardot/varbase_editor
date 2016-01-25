@@ -5,8 +5,9 @@ core = 7.x
 
 ; WYSIWYG Improvements
 
-projects[ace_editor][version] = 1.4
+projects[ace_editor][version] = 1.5
 projects[ace_editor][subdir] = contrib
+projects[ace_editor][2645848] = "http://www.drupal.org/files/issues/ace_editor-autocomplete_checkbox_classname_2645848-3.patch"
 
 projects[better_formats][version] = "1.x-dev"
 projects[better_formats][download][type] = "git"
@@ -43,12 +44,12 @@ libraries[ace][download][type] = "get"
 libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.0.tar.gz"
 
 libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.5/ckeditor_4.5.5_full.zip"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.5/ckeditor_4.5.6_full.zip"
 
 libraries[widget][download][type] = "get"
-libraries[widget][download][url] = "http://download.ckeditor.com/widget/releases/widget_4.5.5.zip"
+libraries[widget][download][url] = "http://download.ckeditor.com/widget/releases/widget_4.5.6.zip"
 libraries[widget][destination] = "modules/contrib/ckeditor/plugins/"
 
 libraries[lineutils][download][type] = "get"
-libraries[lineutils][download][url] = "http://download.ckeditor.com/lineutils/releases/lineutils_4.5.5.zip"
+libraries[lineutils][download][url] = "http://download.ckeditor.com/lineutils/releases/lineutils_4.5.6.zip"
 libraries[lineutils][destination] = "modules/contrib/ckeditor/plugins/"
