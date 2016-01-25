@@ -61,6 +61,7 @@ function varbase_editor_default_linkit_profiles() {
         'thumbnail' => 'thumbnail',
         'dimensions' => 'dimensions',
       ),
+      'url_type' => 'entity',
     ),
     'entity:taxonomy_term' => array(
       'result_description' => '',
@@ -163,6 +164,7 @@ function varbase_editor_default_linkit_profiles() {
         'thumbnail' => 'thumbnail',
         'dimensions' => 'dimensions',
       ),
+      'url_type' => 'entity',
     ),
     'entity:taxonomy_term' => array(
       'result_description' => '',

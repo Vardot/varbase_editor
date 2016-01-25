@@ -37,7 +37,7 @@ function varbase_editor_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ace_editor_fontsize';
-  $strongarm->value = '9pt';
+  $strongarm->value = '10pt';
   $export['ace_editor_fontsize'] = $strongarm;
 
   $strongarm = new stdClass();

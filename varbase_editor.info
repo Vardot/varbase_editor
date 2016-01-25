@@ -26,6 +26,7 @@ dependencies[] = pathologic
 dependencies[] = strongarm
 dependencies[] = text
 dependencies[] = token_filter
+dependencies[] = varbase_core
 dependencies[] = wysiwyg_filter
 stylesheets[all][] = css/defaults.css
 features[ckeditor_profile][] = Advanced
