@@ -44,7 +44,7 @@ libraries[ace][download][type] = "get"
 libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.0.tar.gz"
 
 libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.5/ckeditor_4.5.6_full.zip"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.6/ckeditor_4.5.6_full.zip"
 
 libraries[widget][download][type] = "get"
 libraries[widget][download][url] = "http://download.ckeditor.com/widget/releases/widget_4.5.6.zip"
