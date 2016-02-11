@@ -7,7 +7,7 @@ core = 7.x
 
 projects[ace_editor][version] = 1.5
 projects[ace_editor][subdir] = contrib
-projects[ace_editor][2645848] = "http://www.drupal.org/files/issues/ace_editor-autocomplete_checkbox_classname_2645848-3.patch"
+projects[ace_editor][patch][2645848] = "http://www.drupal.org/files/issues/ace_editor-autocomplete_checkbox_classname_2645848-3.patch"
 
 projects[better_formats][version] = "1.x-dev"
 projects[better_formats][download][type] = "git"
