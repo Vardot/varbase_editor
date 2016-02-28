@@ -15,15 +15,16 @@ function varbase_editor_ckeditor_profile_defaults() {
         'ss' => 2,
         'toolbar' => '[
     [\'Source\'],
-    [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'RemoveFormat\',\'-\',\'Undo\',\'Redo\'],
+    [\'Cut\',\'Copy\',\'Paste\',\'PasteFromWord\',\'-\',\'Undo\',\'Redo\'],
+    [\'linkit\',\'-\',\'Link\',\'Anchor\',\'Unlink\'],
     [\'Image\',\'Media\',\'-\',\'MediaEmbed\'],
-    [\'SpecialChar\',\'HorizontalRule\'],
-    [\'DrupalBreak\',\'doksoft_bootstrap_table\',\'Table\',\'Maximize\',\'ShowBlocks\'],
-    [\'linkit\',\'-\',\'Anchor\',\'doksoft_bootstrap_button\',\'-\',\'Link\',\'Unlink\'],
+    [\'SpecialChar\',\'Table\',\'Blockquote\',\'HorizontalRule\'],
+    [\'Maximize\',\'ShowBlocks\'],
     \'/\',
-    [\'Styles\',\'Format\',\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'Blockquote\'],
+    [\'Styles\',\'Format\',\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],
+    [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\'],
-    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\']
+    [\'DrupalBreak\']
 ]',
         'expand' => 't',
         'default' => 't',
@@ -163,13 +164,16 @@ config.basicEntities = false;
       'settings' => array(
         'ss' => 2,
         'toolbar' => '[
-    [\'Bold\',\'Italic\',\'Underline\',\'-\',\'RemoveFormat\'],
+    [\'Cut\',\'Copy\',\'Paste\',\'PasteFromWord\'],
+    [\'linkit\',\'-\',\'Link\',\'Unlink\'],
+    [\'Media\',\'Image\'],
+    
+    \'/\',
+    [\'Styles\'],
+    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],
+    [\'Bold\',\'Italic\',\'-\',\'RemoveFormat\'],
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\'],
-    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'-\',\'BidiLtr\',\'BidiRtl\'],
-    [\'Format\'],
-    [\'linkit\',\'Link\',\'Unlink\'],
-    [\'Cut\',\'Copy\',\'Paste\'],
-    []
+    [\'DrupalBreak\']
 ]',
         'expand' => 't',
         'default' => 't',
