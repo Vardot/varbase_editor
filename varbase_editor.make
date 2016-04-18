@@ -5,9 +5,8 @@ core = 7.x
 
 ; WYSIWYG Improvements
 
-projects[ace_editor][version] = 1.5
+projects[ace_editor][version] = 1.7
 projects[ace_editor][subdir] = contrib
-projects[ace_editor][patch][2645848] = "http://www.drupal.org/files/issues/ace_editor-autocomplete_checkbox_classname_2645848-3.patch"
 
 projects[better_formats][version] = "1.0-beta2"
 projects[better_formats][subdir] = contrib
