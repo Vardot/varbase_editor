@@ -1,0 +1,12 @@
+name: 'Varbase Editor'
+description: 'Editor profile and settings to be used in most websites.'
+type: module
+core: 8.x
+dependencies:
+  - ckeditor
+  - editor
+  - filter
+  - linkit
+  - node
+version: 8.x-1.0
+package: Varbase

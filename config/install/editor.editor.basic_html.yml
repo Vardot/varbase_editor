@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - ckeditor
+format: basic_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - RemoveFormat
+        -
+          name: Lists
+          items:
+            - NumberedList
+            - BulletedList
+            - Outdent
+            - Indent
+        -
+          name: Alignment
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
+          name: Linking
+          items:
+            - Linkit
+            - Link
+            - Unlink
+        -
+          name: Tools
+          items:
+            - Cut
+            - Copy
+            - Paste
+  plugins:
+    stylescombo:
+      styles: ''
+    autoembed:
+      status: ''
+    linkit:
+      linkit_profile: linkit_all_nodes
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

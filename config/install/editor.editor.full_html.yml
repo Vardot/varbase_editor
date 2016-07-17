@@ -1,0 +1,101 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Tools
+          items:
+            - Source
+        -
+          name: 'Block Formatting'
+          items:
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - RemoveFormat
+            - '-'
+            - Undo
+            - Redo
+        -
+          name: Media
+          items:
+            - DrupalImage
+        -
+          name: Special
+          items:
+            - SpecialChar
+            - HorizontalRule
+        -
+          name: Presentation
+          items:
+            - Table
+            - Maximize
+            - ShowBlocks
+        -
+          name: Linking
+          items:
+            - '-'
+            - Linkit
+            - Anchor
+            - '-'
+            - Link
+            - Unlink
+      -
+        -
+          name: Style
+          items:
+            - Styles
+        -
+          name: Format
+          items:
+            - Format
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - Strike
+            - Subscript
+            - Superscript
+            - '-'
+            - Blockquote
+        -
+          name: Lists
+          items:
+            - NumberedList
+            - BulletedList
+            - Outdent
+            - Indent
+        -
+          name: Alignment
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+  plugins:
+    stylescombo:
+      styles: "p.red-background|Red background\r\np.red-underline-border|Red underline border\r\np.red-quote-underline-border|Red quote underline border \r\np.red-rectangle-border|Red rectangle border\r\np.red-exclamation-mark|Red exclamation mark\r\np.side-block.left-side-block|Left side block\r\np.side-block.right-side-block|Right side block"
+    language:
+      language_list: un
+    linkit:
+      linkit_profile: linkit_all_nodes
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null
