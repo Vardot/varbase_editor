@@ -8,5 +8,6 @@ dependencies:
   - filter
   - linkit
   - node
+  - anchor_link
 version: 8.x-1.0
 package: Varbase
