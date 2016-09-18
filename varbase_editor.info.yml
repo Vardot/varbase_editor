@@ -9,6 +9,5 @@ dependencies:
   - linkit
   - node
   - video_embed_wysiwyg
-  - codesnippet
 version: 8.x-1.0
 package: Varbase
