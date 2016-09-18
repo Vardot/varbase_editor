@@ -3,6 +3,7 @@ status: true
 dependencies:
   module:
     - editor
+    - video_embed_wysiwyg
 name: 'Rich editor'
 format: full_html
 weight: -9
@@ -40,3 +41,16 @@ filters:
       allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid data-align data-caption> <hr> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <a href hreflang !href accesskey id rel target title name> <p class="red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <h1> <pre> <u> <s> <sub> <sup>'
       filter_html_help: true
       filter_html_nofollow: false
+  video_embed_wysiwyg:
+    id: video_embed_wysiwyg
+    provider: video_embed_wysiwyg
+    status: true
+    weight: 0
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
