@@ -1,9 +1,9 @@
 langcode: en
 status: true
 dependencies: {  }
-name: 'Restricted HTML'
+name: 'Full HTML'
 format: restricted_html
-weight: 0
+weight: -8
 filters:
   filter_html:
     id: filter_html

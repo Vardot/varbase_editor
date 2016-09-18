@@ -3,9 +3,9 @@ status: true
 dependencies:
   module:
     - editor
-name: 'Visual Editor'
+name: 'Rich editor'
 format: full_html
-weight: 1
+weight: -9
 filters:
   filter_align:
     id: filter_align
@@ -31,3 +31,12 @@ filters:
     status: true
     weight: 11
     settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid data-align data-caption> <hr> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <a href hreflang !href accesskey id rel target title name> <p class="red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <h1> <pre> <u> <s> <sub> <sup>'
+      filter_html_help: true
+      filter_html_nofollow: false

@@ -51,10 +51,15 @@ settings:
   plugins:
     stylescombo:
       styles: ''
-    autoembed:
-      status: ''
     linkit:
       linkit_profile: linkit_all_nodes
+    video_embed:
+      defaults:
+        children:
+          autoplay: true
+          responsive: true
+          width: '854'
+          height: '480'
 image_upload:
   status: true
   scheme: public

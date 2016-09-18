@@ -21,6 +21,7 @@ settings:
             - Cut
             - Copy
             - Paste
+            - PasteFromWord
             - PasteText
             - RemoveFormat
             - '-'
@@ -86,11 +87,16 @@ settings:
             - JustifyBlock
   plugins:
     stylescombo:
-      styles: "p.red-background|Red background\r\np.red-underline-border|Red underline border\r\np.red-quote-underline-border|Red quote underline border \r\np.red-rectangle-border|Red rectangle border\r\np.red-exclamation-mark|Red exclamation mark\r\np.side-block.left-side-block|Left side block\r\np.side-block.right-side-block|Right side block"
-    language:
-      language_list: un
+      styles: "div.bs-callout|Callout\r\ndiv.bs-callout.bs-callout-danger|Callout danger\r\ndiv.bs-callout.bs-callout-warning|Callout warning\r\ndiv.bs-callout.bs-callout-info|Callout Info\r\ndiv.well||Well\r\ndiv.well.well-lg|Well large\r\ndiv.well.well-sm|Well small\r\ndiv.alert.alert-success|Alert success\r\ndiv.alert.alert-info|Alert info\r\ndiv.alert.alert-warning|Alert warning\r\ndiv.alert.alert-danger|Alert danger\r\ndiv.panel.panel-primary| Panel primary\r\ndiv.panel.panel-success| Panel success\r\ndiv.panel.panel-info| Panel info\r\ndiv.panel.panel-warning| Panel warning\r\ndiv.panel.panel-danger| Panel danger\r\ndiv.panel-heading|Panel heading\r\ndiv.panel-title|Panel title\r\ndiv.panel-body|Panel body\r\ndiv.panel-footer|Panel footer"
     linkit:
       linkit_profile: linkit_all_nodes
+    video_embed:
+      defaults:
+        children:
+          autoplay: true
+          responsive: true
+          width: '854'
+          height: '480'
 image_upload:
   status: true
   scheme: public
