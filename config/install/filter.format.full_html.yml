@@ -7,7 +7,7 @@ dependencies:
     - video_embed_wysiwyg
 name: 'Rich editor'
 format: full_html
-weight: -9
+weight: -10
 filters:
   filter_align:
     id: filter_align
@@ -61,6 +61,12 @@ filters:
     status: true
     weight: -50
     settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -40
+    settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
@@ -72,10 +78,4 @@ filters:
     provider: filter
     status: false
     weight: -42
-    settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: false
-    weight: -40
     settings: {  }

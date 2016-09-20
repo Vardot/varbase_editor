@@ -14,8 +14,6 @@ matchers:
     weight: 0
     settings:
       result_description: ''
-      bundles:
-        landing_page: landing_page
-        page: page
+      bundles: {  }
       group_by_bundle: true
       include_unpublished: false

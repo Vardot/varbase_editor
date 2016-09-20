@@ -5,7 +5,7 @@ dependencies:
     - editor
 name: 'Simple editor'
 format: basic_html
-weight: -10
+weight: -9
 filters:
   filter_html:
     id: filter_html
@@ -13,7 +13,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <u> <a href hreflang !href accesskey id rel target title>'
+      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <li> <ol start type> <p> <span> <strong> <u> <ul type>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -27,12 +27,6 @@ filters:
     provider: filter
     status: true
     weight: 8
-    settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: true
-    weight: 9
     settings: {  }
   editor_file_reference:
     id: editor_file_reference

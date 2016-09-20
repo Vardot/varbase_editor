@@ -12,42 +12,38 @@ settings:
     rows:
       -
         -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
           name: Formatting
           items:
             - Bold
             - Italic
             - Underline
+            - '-'
             - RemoveFormat
         -
           name: Lists
           items:
             - NumberedList
             - BulletedList
-            - Outdent
-            - Indent
         -
-          name: Alignment
+          name: Media
           items:
-            - JustifyLeft
-            - JustifyCenter
-            - JustifyRight
-            - JustifyBlock
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
+            - Blockquote
+            - DrupalImage
         -
           name: Linking
           items:
             - Linkit
+            - '-'
             - Link
             - Unlink
         -
           name: Tools
           items:
-            - Cut
-            - Copy
-            - Paste
+            - Source
   plugins:
     stylescombo:
       styles: ''

@@ -12,18 +12,12 @@ settings:
     rows:
       -
         -
-          name: Tools
-          items:
-            - Source
-        -
           name: 'Block Formatting'
           items:
             - Cut
             - Copy
             - Paste
             - PasteFromWord
-            - PasteText
-            - RemoveFormat
             - '-'
             - Undo
             - Redo
@@ -32,34 +26,32 @@ settings:
           items:
             - DrupalImage
             - video_embed
-        -
-          name: Special
-          items:
-            - SpecialChar
+            - '-'
+            - Blockquote
             - HorizontalRule
-        -
-          name: Presentation
-          items:
+            - '-'
             - Table
-            - Maximize
-            - ShowBlocks
         -
           name: Linking
           items:
             - '-'
             - Linkit
-            - Anchor
             - '-'
             - Link
             - Unlink
+            - '-'
+            - Anchor
+        -
+          name: Tools
+          items:
+            - ShowBlocks
+            - Maximize
+            - Source
       -
         -
           name: Style
           items:
             - Styles
-        -
-          name: Format
-          items:
             - Format
         -
           name: Formatting
@@ -68,15 +60,17 @@ settings:
             - Italic
             - Underline
             - Strike
+            - '-'
             - Subscript
             - Superscript
             - '-'
-            - Blockquote
+            - RemoveFormat
         -
           name: Lists
           items:
             - NumberedList
             - BulletedList
+            - '-'
             - Outdent
             - Indent
         -
@@ -85,7 +79,8 @@ settings:
             - JustifyLeft
             - JustifyCenter
             - JustifyRight
-            - JustifyBlock
+            - '-'
+            - Language
   plugins:
     stylescombo:
       styles: "div.bs-callout|Callout\r\ndiv.bs-callout.bs-callout-danger|Callout danger\r\ndiv.bs-callout.bs-callout-warning|Callout warning\r\ndiv.bs-callout.bs-callout-info|Callout Info\r\ndiv.well||Well\r\ndiv.well.well-lg|Well large\r\ndiv.well.well-sm|Well small\r\ndiv.alert.alert-success|Alert success\r\ndiv.alert.alert-info|Alert info\r\ndiv.alert.alert-warning|Alert warning\r\ndiv.alert.alert-danger|Alert danger\r\ndiv.panel.panel-primary| Panel primary\r\ndiv.panel.panel-success| Panel success\r\ndiv.panel.panel-info| Panel info\r\ndiv.panel.panel-warning| Panel warning\r\ndiv.panel.panel-danger| Panel danger\r\ndiv.panel-heading|Panel heading\r\ndiv.panel-title|Panel title\r\ndiv.panel-body|Panel body\r\ndiv.panel-footer|Panel footer"
