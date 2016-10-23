@@ -70,7 +70,7 @@ a[href|target<_blank|title],
 div[align<center?justify?left?right],
 p[align<center?justify?left?right],
 br,span,em,strong,cite,code,blockquote,pre,code,
-h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,bdo
+h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,bdo
 b,u,i,s,del,ins,sub,sup,quote,blockquote,address,cite,strike,hr,
 table,caption,tbody,tr,td[colspan|rowspan],th[colspan|rowspan|border],
 img[width|height|alt|title|!src|vspace|hspace|class],
@@ -415,7 +415,7 @@ a[href|target<_blank|title],
 div[align<center?justify?left?right],
 p[align<center?justify?left?right],
 br,span,em,strong,cite,code,blockquote,pre,code,
-h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,bdo
+h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,bdo
 b,u,i,s,del,ins,sub,sup,quote,blockquote,address,strike,hr,
 table,caption,tbody,tr,td[colspan|rowspan],th[colspan|rowspan|border],
 img[width|height|alt|title|!src|vspace|hspace|class],
