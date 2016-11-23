@@ -21,7 +21,6 @@ dependencies[] = linkit
 dependencies[] = media
 dependencies[] = media_ckeditor
 dependencies[] = media_wysiwyg
-dependencies[] = media_wysiwyg_view_mode
 dependencies[] = pathologic
 dependencies[] = strongarm
 dependencies[] = text

@@ -14,15 +14,10 @@ projects[better_formats][subdir] = contrib
 projects[ckeditor][version] = 1.17
 projects[ckeditor][subdir] = contrib
 
-projects[media_ckeditor][version] = "2.x-dev"
-projects[media_ckeditor][download][type] = "git"
-projects[media_ckeditor][download][url] = "http://git.drupal.org/project/media_ckeditor.git"
-projects[media_ckeditor][download][revision] = "7409f2c0923f7bd81e91303a9d6032505d89d1cf"
+projects[media_ckeditor][version] = 2.0-alpha2
 projects[media_ckeditor][subdir] = contrib
-projects[media_ckeditor][patch][2333855] = "http://www.drupal.org/files/issues/media_ckeditor-module-browser-tabs-2333855-13.patch"
-projects[media_ckeditor][patch][2352573] = "http://www.drupal.org/files/issues/ckeditor_media_wysiwyg-2352573-7.patch"
 
-projects[pathologic][version] = 2.12
+projects[pathologic][version] = 3.1
 projects[pathologic][subdir] = contrib
 
 projects[token_filter][version] = 1.1
