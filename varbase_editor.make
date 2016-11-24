@@ -14,7 +14,7 @@ projects[better_formats][subdir] = contrib
 projects[ckeditor][version] = 1.17
 projects[ckeditor][subdir] = contrib
 
-projects[media_ckeditor][version] = 2.0-alpha2
+projects[media_ckeditor][version] = 2.0-alpha3
 projects[media_ckeditor][subdir] = contrib
 
 projects[pathologic][version] = 3.1
