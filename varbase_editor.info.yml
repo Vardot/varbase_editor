@@ -10,5 +10,7 @@ dependencies:
   - linkit
   - node
   - video_embed_wysiwyg
-version: 8.x-4.0
 package: Varbase
+version: 8.x-4.2
+project: varbase_editor
+datestamp: 1477294763
