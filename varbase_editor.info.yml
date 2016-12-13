@@ -1,7 +1,6 @@
 name: 'Varbase Editor'
 description: 'Editor profile and settings to be used in most websites.'
 type: module
-core: 8.x
 dependencies:
   - ckeditor
   - editor
@@ -11,6 +10,7 @@ dependencies:
   - node
   - video_embed_wysiwyg
 package: Varbase
-version: 8.x-4.2
+version: 8.x-4.3
+core: 8.x
 project: varbase_editor
-datestamp: 1477294763
+datestamp: 1481041723
