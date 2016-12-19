@@ -13,7 +13,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <li> <ol start type> <p> <span> <strong> <u> <ul type>'
+      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt height width data-*> <li> <ol start type> <p> <span> <strong> <u> <ul type>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
