@@ -4,6 +4,7 @@ dependencies:
   module:
     - editor
     - entity_embed
+    - pathologic
     - video_embed_wysiwyg
 name: 'Rich editor'
 format: full_html
@@ -25,13 +26,13 @@ filters:
     id: filter_htmlcorrector
     provider: filter
     status: true
-    weight: -44
+    weight: -43
     settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
     status: true
-    weight: -43
+    weight: -42
     settings: {  }
   filter_html:
     id: filter_html
@@ -52,7 +53,7 @@ filters:
     id: filter_url
     provider: filter
     status: true
-    weight: -45
+    weight: -44
     settings:
       filter_url_length: 72
   entity_embed:
@@ -65,17 +66,27 @@ filters:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -40
+    weight: -39
     settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
-    weight: -41
+    weight: -40
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -42
+    weight: -41
     settings: {  }
+  filter_pathologic:
+    id: filter_pathologic
+    provider: pathologic
+    status: true
+    weight: -45
+    settings:
+      settings_source: global
+      local_settings:
+        protocol_style: full
+        local_paths: ''
