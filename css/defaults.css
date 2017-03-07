@@ -17,20 +17,10 @@
 
 .media-float-right {
   float: right;
-  margin: 0 15px 15px 0;
-}
-
-[dir="rtl"] .media-float-right {
-  float: right;
   margin: 0 0 15px 15px;
 }
 
 .media-float-left {
-  float: left;
-  margin: 0 0 15px 15px;
-}
-
-[dir="rtl"] .media-float-left {
   float: left;
   margin: 0 15px 15px 0;
 }
