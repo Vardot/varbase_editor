@@ -1,0 +1,37 @@
+{
+  "name": "drupal/varbase_editor",
+  "description": "Editor profile and settings to be used in most websites.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Mohammed J. Razem",
+      "homepage": "https://github.com/moerazem",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Rajab Natshah",
+      "homepage": "https://github.com/Natshah",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "http://drupal.org/project/issues/varbase_editor",
+    "source": "http://cgit.drupalcode.org/varbase_editor"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "drupal/linkit": "^4.3",
+    "drupal/entity_embed": "^1.0-beta2",
+    "drupal/pathologic": "1.x-dev#e0473546e51cbeaa3acb34e3208a0c503ca85613",
+    "drupal/video_embed_field": "^1.4",
+    "drupal/anchor_link": "^1.3"
+  }
+}
