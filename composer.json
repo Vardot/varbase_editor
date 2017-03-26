@@ -32,6 +32,7 @@
     "drupal/entity_embed": "^1.0-beta2",
     "drupal/pathologic": "1.x-dev#e0473546e51cbeaa3acb34e3208a0c503ca85613",
     "drupal/video_embed_field": "^1.4",
-    "drupal/anchor_link": "^1.3"
+    "drupal/anchor_link": "^1.3",
+    "drupal/image_resize_filter": "1.x-dev#c3f4b23b02005859092aaff746b9f21b794adc58"
   }
 }

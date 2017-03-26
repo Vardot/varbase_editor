@@ -4,6 +4,7 @@ dependencies:
   module:
     - editor
     - entity_embed
+    - image_resize_filter
     - pathologic
     - video_embed_wysiwyg
 name: 'Simple editor'
@@ -89,4 +90,10 @@ filters:
     provider: video_embed_wysiwyg
     status: false
     weight: -41
+    settings: {  }
+  filter_image_resize:
+    id: filter_image_resize
+    provider: image_resize_filter
+    status: true
+    weight: 0
     settings: {  }

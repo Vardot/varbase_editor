@@ -1,9 +1,2 @@
 bundle: varbase
-required:
-  - editor.editor.basic_html
-  - editor.editor.full_html
-  - filter.format.basic_html
-  - filter.format.full_html
-  - filter.format.plain_text
-  - filter.format.restricted_html
-  - linkit.linkit_profile.linkit_all_nodes
+required: true

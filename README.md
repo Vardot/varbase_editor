@@ -8,10 +8,16 @@ Full Media integration CKEditor including caption and much more.
 
 ## Requirements
   anchor link module
+
   linkit module
+
   entity embed module
+
   pathologic module
+
   video embed field module
+
+  Image Resize Filter module
 
 ## Installation:
 

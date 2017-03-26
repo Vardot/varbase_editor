@@ -26,3 +26,9 @@ projects[video_embed_field][version] = 1.4
 projects[anchor_link][type] = module
 projects[anchor_link][subdir] = "contrib"
 projects[anchor_link][version] = 1.3
+
+projects[image_resize_filter][type] = module
+projects[image_resize_filter][subdir] = "contrib"
+projects[image_resize_filter][download][url] = https://git.drupal.org/project/image_resize_filter.git
+projects[image_resize_filter][download][revision] = c3f4b23b02005859092aaff746b9f21b794adc58
+projects[image_resize_filter][download][branch] = 8.x-1.x

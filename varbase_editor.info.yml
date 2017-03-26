@@ -6,6 +6,7 @@ dependencies:
   - editor
   - entity_embed
   - filter
+  - image_resize_filter
   - linkit
   - node
   - pathologic

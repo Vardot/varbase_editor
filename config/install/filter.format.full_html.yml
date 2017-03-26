@@ -4,6 +4,7 @@ dependencies:
   module:
     - editor
     - entity_embed
+    - image_resize_filter
     - pathologic
     - video_embed_wysiwyg
 name: 'Rich editor'
@@ -90,3 +91,9 @@ filters:
       local_settings:
         protocol_style: full
         local_paths: ''
+  filter_image_resize:
+    id: filter_image_resize
+    provider: image_resize_filter
+    status: true
+    weight: 0
+    settings: {  }
