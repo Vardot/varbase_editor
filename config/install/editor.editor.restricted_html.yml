@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - ace_editor
+format: restricted_html
+editor: ace_editor
+settings:
+  fieldset:
+    theme: chrome
+    syntax: html
+    height: 500px
+    width: 100%
+    font_size: 14pt
+    line_numbers: 1
+    print_margins: 1
+    show_invisibles: 0
+image_upload: {  }

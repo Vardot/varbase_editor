@@ -2,6 +2,7 @@ name: 'Varbase Editor'
 description: 'Editor profile and settings to be used in most websites.'
 type: module
 dependencies:
+  - ace_editor
   - anchor_link
   - ckeditor
   - ckeditor_bidi

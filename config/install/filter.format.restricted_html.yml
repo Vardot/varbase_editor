@@ -1,6 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - ace_editor
 name: 'Full HTML'
 format: restricted_html
 weight: -8
@@ -11,7 +13,7 @@ filters:
     status: false
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src height width alt data-*> <hr> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <a href hreflang !href accesskey id rel target title name> <p class="red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <pre> <u> <s> <sub> <sup> <div class> <drupal-entity * data-*> <figure *> <picture *> <article *> <figcaption>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:
@@ -27,3 +29,17 @@ filters:
     status: true
     weight: 10
     settings: {  }
+  ace_filter:
+    id: ace_filter
+    provider: ace_editor
+    status: true
+    weight: 0
+    settings:
+      theme: chrome
+      syntax: html
+      height: 500px
+      width: 100%
+      font_size: 14pt
+      line_numbers: '1'
+      print_margins: '1'
+      show_invisibles: '0'

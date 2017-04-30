@@ -30,6 +30,11 @@ projects[ckeditor_bidi][download][branch] = 8.x-1.x
 ;; Issue #2874166 by RajabNatshah: Have requirements function on install, and manages to work with libraries module with drupal profiles.
 projects[ckeditor_bidi][patch][] = https://www.drupal.org/files/issues/2874166-3.patch
 
+projects[ace_editor][type] = module
+projects[ace_editor][download][url] = https://git.drupal.org/project/ace_editor.git
+projects[ace_editor][download][revision] = 55dc97d7fcc1aba55a16176f94d72a8ba7002c72
+projects[ace_editor][download][branch] = 8.x-1.x
+
 projects[embed][type] = module
 projects[embed][subdir] = "contrib"
 projects[embed][version] = 1.0-rc3
@@ -43,3 +48,16 @@ projects[image_resize_filter][subdir] = "contrib"
 projects[image_resize_filter][download][url] = https://git.drupal.org/project/image_resize_filter.git
 projects[image_resize_filter][download][revision] = c3f4b23b02005859092aaff746b9f21b794adc58
 projects[image_resize_filter][download][branch] = 8.x-1.x
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Libraries
+;;;;;;;;;;;;;;;;;;;;;
+
+libraries[bidi][download][type] = get
+libraries[bidi][download][url] = "http://download.ckeditor.com/bidi/releases/bidi_4.6.2.zip"
+libraries[bidi][destination] = "libraries"
+
+libraries[ace][directory_name] = "ace"
+libraries[ace][download][type] = "get"
+libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.6.tar.gz"
+libraries[ace][destination] = "modules/contrib/ace_editor/libraries/"
