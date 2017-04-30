@@ -2,7 +2,9 @@ name: 'Varbase Editor'
 description: 'Editor profile and settings to be used in most websites.'
 type: module
 dependencies:
+  - anchor_link
   - ckeditor
+  - ckeditor_bidi
   - editor
   - entity_embed
   - filter
@@ -11,7 +13,6 @@ dependencies:
   - node
   - pathologic
   - video_embed_wysiwyg
-  - anchor_link
 package: Varbase
 version: 8.x-4.x-dev
 core: 8.x

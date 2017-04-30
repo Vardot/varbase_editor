@@ -81,6 +81,9 @@ settings:
             - JustifyCenter
             - JustifyRight
             - '-'
+            - BidiLtr
+            - BidiRtl
+            - '-'
             - Language
   plugins:
     stylescombo:

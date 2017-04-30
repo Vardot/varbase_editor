@@ -41,6 +41,11 @@ settings:
             - Link
             - Unlink
         -
+          name: Direction
+          items:
+            - BidiLtr
+            - BidiRtl
+        -
           name: Tools
           items:
             - Source
