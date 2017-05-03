@@ -44,3 +44,31 @@ function varbase_editor_update_8001() {
   drupal_set_message($update_message, 'warning');
 
 }
+
+/**
+ * Enable pathologic module.
+ * Enable image resize filter module.
+ * Enable ckeditor bidi module.
+ * Enable pathologic module.
+ */
+function varbase_editor_update_8002() {
+  // Enable pathologic module.
+  if (!\Drupal::moduleHandler()->moduleExists('pathologic')) {
+    \Drupal::service('module_installer')->install(['pathologic'], FALSE);
+  }
+
+  // Enable image resize filter module.
+  if (!\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
+    \Drupal::service('module_installer')->install(['image_resize_filter'], FALSE);
+  }
+  
+  // Enable ckeditor bidi module.
+  if (!\Drupal::moduleHandler()->moduleExists('ckeditor_bidi')) {
+    \Drupal::service('module_installer')->install(['ckeditor_bidi'], FALSE);
+  }
+
+  // Enable pathologic module.
+  if (!\Drupal::moduleHandler()->moduleExists('pathologic')) {
+    \Drupal::service('module_installer')->install(['pathologic'], FALSE);
+  }
+}
