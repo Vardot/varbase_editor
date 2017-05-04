@@ -4,6 +4,7 @@
  * Install, update and uninstall functions for the Varbase editor module.
  */
 
+use Symfony\Component\Yaml\Yaml;
 use Drupal\filter\Entity\FilterFormat;
 
 /**
