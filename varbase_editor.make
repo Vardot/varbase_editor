@@ -31,10 +31,10 @@ projects[ace_editor][download][revision] = 55dc97d7fcc1aba55a16176f94d72a8ba7002
 projects[ace_editor][download][branch] = 8.x-1.x
 
 projects[embed][type] = module
-projects[embed][version] = 1.0-rc3
+projects[embed][version] = 1.0
 
 projects[video_embed_field][type] = module
-projects[video_embed_field][version] = 1.4
+projects[video_embed_field][version] = 1.5
 
 projects[image_resize_filter][type] = module
 projects[image_resize_filter][download][url] = https://git.drupal.org/project/image_resize_filter.git
