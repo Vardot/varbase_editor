@@ -9,7 +9,7 @@ defaults[projects][subdir] = "contrib"
 ; WYSIWYG Improvements
 
 projects[anchor_link][type] = module
-projects[anchor_link][version] = 1.3
+projects[anchor_link][version] = 1.4
 
 projects[linkit][type] = module
 projects[linkit][version] = 4.3
