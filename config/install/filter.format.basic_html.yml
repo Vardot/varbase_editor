@@ -104,6 +104,15 @@ filters:
     status: false
     weight: 0
     settings:
+      theme: cobalt
+      syntax: html
+      height: 500px
+      width: 700px
+      font_size: 10pt
+      line_numbers: true
+      show_invisibles: false
+      print_margins: true
+      auto_complete: true
       theme_list:
         cobalt: Cobalt
         ambiance: Ambiance
@@ -139,7 +148,6 @@ filters:
         twilight: Twilight
         vibrant_ink: 'Vibrant Ink'
         xcode: Xcode
-      theme: cobalt
       syntax_list:
         abap: Abap
         abc: Abc
@@ -283,13 +291,5 @@ filters:
         xml: XML
         xquery: Xquery
         yaml: YAML
-      syntax: html
-      height: 500px
-      width: 700px
-      font_size: 10pt
-      line_numbers: true
-      show_invisibles: false
-      print_margins: true
-      auto_complete: true
       _core:
         default_config_hash: 7oTb1GSYNjihMmi2LG-lyj6n3Q4r6JrrjwKPF0fo1PU

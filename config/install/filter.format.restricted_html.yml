@@ -24,8 +24,9 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      print_margins: '1'
       show_invisibles: '0'
+      print_margins: '1'
+      auto_complete: true
   filter_url:
     id: filter_url
     provider: filter
@@ -45,7 +46,7 @@ filters:
     status: false
     weight: -50
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src height width alt data-*> <hr> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <a href hreflang !href accesskey id rel target title name> <p class="text-align-left text-align-center text-align-right text-align-justify red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <pre> <u> <s> <sub> <sup> <div class> <drupal-entity * data-*> <figure *> <picture *> <article *> <figcaption>'
+      allowed_html: '<em * id class> <strong * id class> <cite * id class> <blockquote * id class cite> <code * id class> <ul * id class type> <ol * id class start type> <li * id class> <dl * id class> <dt * id class> <dd * id class> <h2 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 * id class="text-align-left text-align-center text-align-right text-align-justify"> <img src height width alt data-*> <hr * id class> <table * id class> <caption * id class> <tbody * id class> <thead * id class> <tfoot * id class> <th * id class> <td * id class> <tr * id class> <a id class href hreflang !href accesskey id rel target title name> <p class="text-align-left text-align-center text-align-right text-align-justify red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <pre * id class> <u> <s> <sub * id class> <sup * id class> <div * id class> <drupal-entity * data-*> <figure *> <picture *> <article *> <figcaption *>'
       filter_html_help: true
       filter_html_nofollow: false
   editor_file_reference:
