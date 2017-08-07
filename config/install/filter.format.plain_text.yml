@@ -1,8 +1,6 @@
 langcode: en
 status: true
-dependencies:
-  module:
-    - ace_editor
+dependencies: {  }
 name: 'Plain text'
 format: plain_text
 weight: -7
@@ -26,18 +24,3 @@ filters:
     status: true
     weight: 0
     settings: {  }
-  ace_filter:
-    id: ace_filter
-    provider: ace_editor
-    status: false
-    weight: 0
-    settings:
-      theme: cobalt
-      syntax: html
-      height: 500px
-      width: 700px
-      font_size: 10pt
-      line_numbers: true
-      show_invisibles: false
-      print_margins: true
-      auto_complete: true

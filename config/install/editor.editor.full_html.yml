@@ -27,6 +27,7 @@ settings:
             - DrupalImage
             - video_embed
             - media
+            - Embed
             - '-'
             - Blockquote
             - HorizontalRule
@@ -86,10 +87,12 @@ settings:
             - '-'
             - Language
   plugins:
-    stylescombo:
-      styles: "div.bs-callout|Callout\r\ndiv.bs-callout.bs-callout-danger|Callout danger\r\ndiv.bs-callout.bs-callout-warning|Callout warning\r\ndiv.bs-callout.bs-callout-info|Callout Info\r\ndiv.well|Well\r\ndiv.well.well-lg|Well large\r\ndiv.well.well-sm|Well small\r\ndiv.alert.alert-success|Alert success\r\ndiv.alert.alert-info|Alert info\r\ndiv.alert.alert-warning|Alert warning\r\ndiv.alert.alert-danger|Alert danger\r\ndiv.panel.panel-primary|Panel primary\r\ndiv.panel.panel-success|Panel success\r\ndiv.panel.panel-info|Panel info\r\ndiv.panel.panel-warning|Panel warning\r\ndiv.panel.panel-danger|Panel danger\r\ndiv.panel-heading|Panel heading\r\ndiv.panel-title|Panel title\r\ndiv.panel-body|Panel body\r\ndiv.panel-footer|Panel footer"
     language:
       language_list: un
+    stylescombo:
+      styles: "div.bs-callout|Callout\r\ndiv.bs-callout.bs-callout-danger|Callout danger\r\ndiv.bs-callout.bs-callout-warning|Callout warning\r\ndiv.bs-callout.bs-callout-info|Callout Info\r\ndiv.well|Well\r\ndiv.well.well-lg|Well large\r\ndiv.well.well-sm|Well small\r\ndiv.alert.alert-success|Alert success\r\ndiv.alert.alert-info|Alert info\r\ndiv.alert.alert-warning|Alert warning\r\ndiv.alert.alert-danger|Alert danger\r\ndiv.panel.panel-primary|Panel primary\r\ndiv.panel.panel-success|Panel success\r\ndiv.panel.panel-info|Panel info\r\ndiv.panel.panel-warning|Panel warning\r\ndiv.panel.panel-danger|Panel danger\r\ndiv.panel-heading|Panel heading\r\ndiv.panel-title|Panel title\r\ndiv.panel-body|Panel body\r\ndiv.panel-footer|Panel footer"
+    autoembed:
+      status: embed
     linkit:
       linkit_profile: linkit_all_nodes
     video_embed:
