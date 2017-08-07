@@ -41,6 +41,11 @@ projects[image_resize_filter][download][url] = https://git.drupal.org/project/im
 projects[image_resize_filter][download][revision] = c3f4b23b02005859092aaff746b9f21b794adc58
 projects[image_resize_filter][download][branch] = 8.x-1.x
 
+projects[ckeditor_media_embed][type] = module
+projects[ckeditor_media_embed][version] = 1.1
+;; Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG
+projects[ckeditor_media_embed][patch][] = https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch
+
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Libraries
 ;;;;;;;;;;;;;;;;;;;;;
