@@ -53,4 +53,4 @@ projects[ckeditor_media_embed][patch][] = https://www.drupal.org/files/issues/em
 libraries[ace][directory_name] = "ace"
 libraries[ace][download][type] = "get"
 libraries[ace][download][url] = "http://github.com/ajaxorg/ace-builds/archive/v1.2.6.tar.gz"
-libraries[ace][destination] = "modules/contrib/ace_editor/libraries/"
+libraries[ace][destination] = "libraries"

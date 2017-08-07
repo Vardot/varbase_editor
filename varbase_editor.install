@@ -73,3 +73,31 @@ function varbase_editor_update_8002() {
     \Drupal::service('module_installer')->install(['pathologic'], FALSE);
   }
 }
+
+/**
+ * Enable CKEditor media embed module.
+ */
+function varbase_editor_update_8003() {
+  if (!\Drupal::moduleHandler()->moduleExists('ckeditor_media_embed')) {
+    \Drupal::service('module_installer')->install(['ckeditor_media_embed'], FALSE);
+  }
+}
+
+/**
+ * Update "Rich editor" to use the CKEditor media embed button.
+ */
+function varbase_editor_update_8004() {
+  // Update "Rich editor" editor config.
+  $full_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.full_html');
+  $full_html_editor_config_file = \Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/editor.editor.full_html.yml';
+  $full_html_editor_config_content = file_get_contents($full_html_editor_config_file);
+  $full_html_editor_config_content_data = (array) Yaml::parse($full_html_editor_config_content);
+  $full_html_editor_config->setData($full_html_editor_config_content_data)->save();
+
+  // Update "Rich editor" filter format config.
+  $full_html_format_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
+  $full_html_format_config_file = \Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.full_html.yml';
+  $full_html_format_config_content = file_get_contents($full_html_format_config_file);
+  $full_html_format_config_content_data = (array) Yaml::parse($full_html_format_config_content);
+  $full_html_format_config->setData($full_html_format_config_content_data)->save();
+}

@@ -19,4 +19,3 @@ package: Varbase
 version: 8.x-4.x-dev
 core: 8.x
 project: varbase_editor
-
