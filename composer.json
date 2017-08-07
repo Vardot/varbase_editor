@@ -34,6 +34,16 @@
     "drupal/entity_embed": "^1.0-beta2",
     "drupal/pathologic": "1.x-dev#e0473546e51cbeaa3acb34e3208a0c503ca85613",
     "drupal/video_embed_field": "^1.4",
-    "drupal/image_resize_filter": "1.x-dev#c3f4b23b02005859092aaff746b9f21b794adc58"
+    "drupal/image_resize_filter": "1.x-dev#c3f4b23b02005859092aaff746b9f21b794adc58",
+    "drupal/ckeditor_media_embed": "1.1"
+  },
+  "extra": {
+  "enable-patching": true,
+    "patches": {
+    	"drupal/ckeditor_media_embed": {
+        "Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG":
+        "https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch"
+    	}
+  	}
   }
 }
