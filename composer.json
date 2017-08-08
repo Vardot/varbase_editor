@@ -7,13 +7,8 @@
   "prefer-stable": true,
   "authors": [
     {
-      "name": "Mohammed J. Razem",
-      "homepage": "https://github.com/moerazem",
-      "role": "Maintainer"
-    },
-    {
-      "name": "Rajab Natshah",
-      "homepage": "https://github.com/Natshah",
+      "name": "Vardot",
+      "homepage": "https://www.drupal.org/vardot",
       "role": "Maintainer"
     }
   ],
@@ -40,11 +35,17 @@
     "drupal/ckeditor_media_embed": "^1.1"
   },
   "extra": {
-  "enable-patching": true,
+    "drupal-libraries": {
+      "library-directory": "docroot/libraries",
+      "libraries": [
+          {"name": "ace", "package": "vardot/ace-builds"}
+      ]
+    },
+    "enable-patching": true,
     "patches": {
       "drupal/ace_editor": {
-        "Issue #2886356 by Niklan, RajabNatshah, joey91133: Updated the requirements on installation for [ACE Editor] to make it work if the library was in the installation profile":
-        "https://www.drupal.org/files/issues/2886356-13.patch"
+        "Issue #2886356 by Niklan, joey91133: Library must be moved from module folder":
+        "https://www.drupal.org/files/issues/library_must_be_moved_from_module_folder_with_composer.patch"
       },
     	"drupal/ckeditor_media_embed": {
         "Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG":
