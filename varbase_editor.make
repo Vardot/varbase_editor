@@ -27,8 +27,10 @@ projects[ckeditor_bidi][version] = 2.0
 
 projects[ace_editor][type] = module
 projects[ace_editor][download][url] = https://git.drupal.org/project/ace_editor.git
-projects[ace_editor][download][revision] = 55dc97d7fcc1aba55a16176f94d72a8ba7002c72
+projects[ace_editor][download][revision] = 7136cf96509e82a00b56a2908108aaee37a6cb98
 projects[ace_editor][download][branch] = 8.x-1.x
+;; Issue #2886356 by Niklan, RajabNatshah, joey91133: Updated the requirements on installation for [ACE Editor] to make it work if the library was in the installation profile
+projects[ace_editor][patch][] = https://www.drupal.org/files/issues/2886356-13.patch
 
 projects[embed][type] = module
 projects[embed][version] = 1.0

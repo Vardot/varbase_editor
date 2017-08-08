@@ -33,13 +33,19 @@
     "drupal/embed": "^1.0",
     "drupal/entity_embed": "^1.0-beta2",
     "drupal/pathologic": "1.x-dev#e0473546e51cbeaa3acb34e3208a0c503ca85613",
+    "drupal/ckeditor_bidi": "2.0",
+    "drupal/ace_editor": "1.x-dev#7136cf96509e82a00b56a2908108aaee37a6cb98",
     "drupal/video_embed_field": "^1.4",
     "drupal/image_resize_filter": "1.x-dev#c3f4b23b02005859092aaff746b9f21b794adc58",
-    "drupal/ckeditor_media_embed": "1.1"
+    "drupal/ckeditor_media_embed": "^1.1"
   },
   "extra": {
   "enable-patching": true,
     "patches": {
+      "drupal/ace_editor": {
+        "Issue #2886356 by Niklan, RajabNatshah, joey91133: Updated the requirements on installation for [ACE Editor] to make it work if the library was in the installation profile":
+        "https://www.drupal.org/files/issues/2886356-13.patch"
+      },
     	"drupal/ckeditor_media_embed": {
         "Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG":
         "https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch"
