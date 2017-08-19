@@ -27,23 +27,24 @@ function varbase_editor_update_8001() {
   $code_html_format_config->setData($code_html_format_config_content_data)->save();
 
 
-  // Disable Full HTML text format (restricted_html).
-  $restricted_html_format_config = \Drupal::service('config.factory')->getEditable('filter.format.restricted_html');
-  $restricted_html_format_config_file = \Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.restricted_html.yml';
-  $restricted_html_format_config_content = file_get_contents($restricted_html_format_config_file);
-  $restricted_html_format_config_content_data = (array) Yaml::parse($restricted_html_format_config_content);
-  $restricted_html_format_config->setData($restricted_html_format_config_content_data)->save();
+  if (file_exists(\Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.restricted_html.yml') {
+    // Disable Full HTML text format (restricted_html).
+    $restricted_html_format_config = \Drupal::service('config.factory')->getEditable('filter.format.restricted_html');
+    $restricted_html_format_config_file = \Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.restricted_html.yml';
+    $restricted_html_format_config_content = file_get_contents($restricted_html_format_config_file);
+    $restricted_html_format_config_content_data = (array) Yaml::parse($restricted_html_format_config_content);
+    $restricted_html_format_config->setData($restricted_html_format_config_content_data)->save();
 
-  $restricted_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.restricted_html');
-  $restricted_html_editor_config_file = \Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/editor.editor.restricted_html.yml';
-  $restricted_html_editor_config_content = file_get_contents($restricted_html_editor_config_file);
-  $restricted_html_editor_config_content_data = (array) Yaml::parse($restricted_html_editor_config_content);
-  $restricted_html_editor_config->setData($restricted_html_editor_config_content_data)->save();
+    $restricted_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.restricted_html');
+    $restricted_html_editor_config_file = \Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/editor.editor.restricted_html.yml';
+    $restricted_html_editor_config_content = file_get_contents($restricted_html_editor_config_file);
+    $restricted_html_editor_config_content_data = (array) Yaml::parse($restricted_html_editor_config_content);
+    $restricted_html_editor_config->setData($restricted_html_editor_config_content_data)->save();
 
-  $update_message = t('<b>WARNING:</b><br /><p>The "Full HTML" text format was mistakenly referred to by its machine name (restricted_html), this is confusing and wrong. Therefore, this filter has been deprecated in favor of better naming to become "HTML code" (code_html).</p><p>Please make sure to revise your content if it was using the "Full HTML" text format. You can enable it again if you like, or switch to use the new "HTML code" text format.</p>');
-  \Drupal::logger('varbase_editor')->notice($update_message);
-  drupal_set_message($update_message, 'warning');
-
+    $update_message = t('<b>WARNING:</b><br /><p>The "Full HTML" text format was mistakenly referred to by its machine name (restricted_html), this is confusing and wrong. Therefore, this filter has been deprecated in favor of better naming to become "HTML code" (code_html).</p><p>Please make sure to revise your content if it was using the "Full HTML" text format. You can enable it again if you like, or switch to use the new "HTML code" text format.</p>');
+    \Drupal::logger('varbase_editor')->notice($update_message);
+    drupal_set_message($update_message, 'warning');
+  }
 }
 
 /**
