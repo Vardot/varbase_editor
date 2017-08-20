@@ -27,7 +27,7 @@ function varbase_editor_update_8001() {
   $code_html_format_config->setData($code_html_format_config_content_data)->save();
 
 
-  if (file_exists(\Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.restricted_html.yml') {
+  if (file_exists(\Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.restricted_html.yml')) {
     // Disable Full HTML text format (restricted_html).
     $restricted_html_format_config = \Drupal::service('config.factory')->getEditable('filter.format.restricted_html');
     $restricted_html_format_config_file = \Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.restricted_html.yml';
