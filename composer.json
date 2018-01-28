@@ -2,7 +2,7 @@
   "name": "drupal/varbase_editor",
   "description": "Editor profile and settings to be used in most websites.",
   "type": "drupal-module",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "authors": [
     {
