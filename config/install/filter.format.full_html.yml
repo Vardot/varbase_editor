@@ -111,8 +111,10 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      print_margins: '1'
       show_invisibles: '0'
+      print_margins: '1'
+      auto_complete: true
+      use_wrap_mode: true
   filter_ckeditor_media_embed:
     id: filter_ckeditor_media_embed
     provider: ckeditor_media_embed
