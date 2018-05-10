@@ -16,7 +16,7 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
-    status: true
+    status: false
     weight: -48
     settings: {  }
   filter_caption:
@@ -49,7 +49,7 @@ filters:
   video_embed_wysiwyg:
     id: video_embed_wysiwyg
     provider: video_embed_wysiwyg
-    status: true
+    status: false
     weight: -46
     settings: {  }
   filter_url:
@@ -96,7 +96,7 @@ filters:
   filter_image_resize:
     id: filter_image_resize
     provider: image_resize_filter
-    status: true
+    status: false
     weight: -40
     settings: {  }
   ace_filter:
@@ -111,10 +111,9 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      show_invisibles: '0'
       print_margins: '1'
-      auto_complete: true
-      use_wrap_mode: true
+      show_invisibles: '0'
+      use_wrap_mode: '1'
   filter_ckeditor_media_embed:
     id: filter_ckeditor_media_embed
     provider: ckeditor_media_embed

@@ -32,7 +32,7 @@ settings:
           name: Media
           items:
             - Blockquote
-            - DrupalImage
+            - media
         -
           name: Linking
           items:
@@ -54,6 +54,8 @@ settings:
       styles: ''
     language:
       language_list: un
+    autoembed:
+      status: ''
     linkit:
       linkit_profile: linkit_all_nodes
     video_embed:
