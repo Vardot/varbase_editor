@@ -18,5 +18,5 @@ dependencies:
   - image_resize_filter:image_resize_filter
   - linkit:linkit
   - pathologic:pathologic
-  - video_embed_wysiwyg:video_embed_wysiwyg
+  - video_embed_field:video_embed_wysiwyg
 
