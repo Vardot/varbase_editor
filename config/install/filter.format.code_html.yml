@@ -7,7 +7,6 @@ dependencies:
     - entity_embed
     - image_resize_filter
     - pathologic
-    - video_embed_wysiwyg
 name: 'HTML code'
 format: code_html
 weight: -8
@@ -113,10 +112,4 @@ filters:
     provider: image_resize_filter
     status: false
     weight: -38
-    settings: {  }
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
-    status: false
-    weight: -37
     settings: {  }

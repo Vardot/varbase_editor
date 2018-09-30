@@ -93,7 +93,7 @@ settings:
       status: embed
     linkit:
       linkit_profile: linkit_all_nodes
-    video_embed:
+    remote_video:
       defaults:
         children:
           autoplay: false

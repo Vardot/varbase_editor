@@ -7,7 +7,6 @@ dependencies:
     - entity_embed
     - image_resize_filter
     - pathologic
-    - video_embed_wysiwyg
 name: 'Simple editor'
 format: basic_html
 weight: -9
@@ -85,12 +84,6 @@ filters:
     provider: filter
     status: false
     weight: -40
-    settings: {  }
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
-    status: false
-    weight: -41
     settings: {  }
   filter_image_resize:
     id: filter_image_resize
