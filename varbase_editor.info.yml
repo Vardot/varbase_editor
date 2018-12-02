@@ -6,15 +6,16 @@ version: 8.x-6.x-dev
 core: 8.x
 project: varbase_editor
 dependencies:
-  - varbase_core:varbase_core
+  - drupal:node
   - drupal:editor
   - drupal:ckeditor
   - drupal:filter
-  - ace_editor:ace_editor
-  - anchor_link:anchor_link
-  - ckeditor_bidi:ckeditor_bidi
-  - ckeditor_media_embed:ckeditor_media_embed
-  - entity_embed:entity_embed
-  - image_resize_filter:image_resize_filter
-  - linkit:linkit
-  - pathologic:pathologic
+install:
+  - ace_editor
+  - ckeditor_bidi
+  - ckeditor_media_embed
+  - entity_embed
+  - image_resize_filter
+  - linkit
+  - anchor_link
+  - pathologic
