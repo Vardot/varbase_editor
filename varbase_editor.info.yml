@@ -6,7 +6,7 @@ version: 8.x-5.x-dev
 core: 8.x
 project: varbase_editor
 dependencies:
-  - varbase_core:varbase_core
+  - varbase_media:varbase_media
   - drupal:editor
   - drupal:ckeditor
   - drupal:filter
