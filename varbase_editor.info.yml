@@ -16,6 +16,7 @@ install:
   - ckeditor_media_embed
   - entity_embed
   - image_resize_filter
+  - extlink
   - linkit
   - anchor_link
   - pathologic
