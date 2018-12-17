@@ -26,19 +26,19 @@
     }
   },
   "require": {
-    "composer/installers": "~1",
-    "oomphinc/composer-installers-extender": "~1",
-    "cweagans/composer-patches": "~1",
+    "composer/installers": "~1.0",
+    "oomphinc/composer-installers-extender": "~1.0",
+    "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "npm-asset/ace-builds": "~1",
-    "drupal/pathologic": "~1",
-    "drupal/ckeditor_bidi": "~2",
-    "drupal/ace_editor": "~1",
-    "drupal/extlink": "~1",
-    "drupal/linkit": "~4",
+    "npm-asset/ace-builds": "~1.0",
+    "drupal/pathologic": "~1.0",
+    "drupal/ckeditor_bidi": "~2.0",
+    "drupal/ace_editor": "~1.0",
+    "drupal/extlink": "~1.0",
+    "drupal/linkit": "~4.0",
     "drupal/image_resize_filter": "1.x-dev#c3f4b23b02005859092aaff746b9f21b794adc58",
-    "drupal/ckeditor_media_embed": "~1",
-    "drupal/anchor_link": "~1"
+    "drupal/ckeditor_media_embed": "~1.0",
+    "drupal/anchor_link": "~1.0"
   },
   "extra": {
     "branch-alias": {
