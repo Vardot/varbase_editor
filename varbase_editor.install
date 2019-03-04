@@ -173,7 +173,7 @@ function varbase_editor_update_8005() {
     //        remote: true
     //
     //
-    $full_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.full_html');
+    $full_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
     if (isset($full_html_editor_config)) {
       $full_html_editor_config_data = $full_html_editor_config->get();
       $full_html_editor_config_data['filters']['filter_image_resize']['status'] = true;
