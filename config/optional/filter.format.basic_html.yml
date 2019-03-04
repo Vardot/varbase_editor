@@ -90,7 +90,10 @@ filters:
     provider: image_resize_filter
     status: true
     weight: 0
-    settings: {  }
+    settings:
+      image_locations:
+        local: true
+        remote: true
   ace_filter:
     id: ace_filter
     provider: ace_editor

@@ -86,9 +86,12 @@ filters:
   filter_image_resize:
     id: filter_image_resize
     provider: image_resize_filter
-    status: true
+    status: false
     weight: -42
-    settings: {  }
+    settings:
+      image_locations:
+        local: false
+        remote: false
   filter_autop:
     id: filter_autop
     provider: filter

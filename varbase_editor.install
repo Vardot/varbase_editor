@@ -150,3 +150,95 @@ function varbase_editor_update_8004() {
   $full_html_format_config_content_data = (array) Yaml::parse($full_html_format_config_content);
   $full_html_format_config->setData($full_html_format_config_content_data)->save();
 }
+
+/**
+ * Issue #3037311: Update [Image Resize Filter] module and update [Varbase
+ * Editor] to configure [Rich editor, Simple editor] to
+ * use for local and remote images and not to use for [HTML coder]. 
+ */
+function varbase_editor_update_8005() {
+
+  if (\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
+
+    // Update "Rich editor" editor config.
+    // ---------------------------------------------------------------------------
+    //  filter_image_resize:
+    //    id: filter_image_resize
+    //    provider: image_resize_filter
+    //    status: true
+    //    weight: -40
+    //    settings:
+    //      image_locations:
+    //        local: true
+    //        remote: true
+    //
+    //
+    $full_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.full_html');
+    if (isset($full_html_editor_config)) {
+      $full_html_editor_config_data = $full_html_editor_config->get();
+      $full_html_editor_config_data['filters']['filter_image_resize']['status'] = true;
+      $full_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
+        'image_locations' => [
+          'local' => true,
+          'remote' => true,
+        ]
+      ];
+
+      $full_html_editor_config->setData($full_html_editor_config_data)->save(TRUE);
+    }
+
+    // Update "Simple editor" editor config.
+    // ---------------------------------------------------------------------------
+    //  filter_image_resize:
+    //    id: filter_image_resize
+    //    provider: image_resize_filter
+    //    status: true
+    //    weight: 0
+    //    settings:
+    //      image_locations:
+    //        local: true
+    //        remote: true
+    //
+    //
+    $basic_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.basic_html');
+    if (isset($basic_html_editor_config)) {
+      $basic_html_editor_config_data = $basic_html_editor_config->get();
+      $basic_html_editor_config_data['filters']['filter_image_resize']['status'] = true;
+      $basic_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
+        'image_locations' => [
+          'local' => true,
+          'remote' => true,
+        ]
+      ];
+
+      $basic_html_editor_config->setData($basic_html_editor_config_data)->save(TRUE);
+    }
+
+    // Update "HTML code" editor config.
+    // ---------------------------------------------------------------------------
+    //  filter_image_resize:
+    //    id: filter_image_resize
+    //    provider: image_resize_filter
+    //    status: false
+    //    weight: -42
+    //    settings:
+    //      image_locations:
+    //        local: false
+    //        remote: false
+    //
+    //
+    $code_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
+    if (isset($code_html_editor_config)) {
+      $code_html_editor_config_data = $code_html_editor_config->get();
+      $code_html_editor_config_data['filters']['filter_image_resize']['status'] = false;
+      $code_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
+        'image_locations' => [
+          'local' => false,
+          'remote' => false,
+        ]
+      ];
+
+      $code_html_editor_config->setData($code_html_editor_config_data)->save(TRUE);
+    }
+  }
+}

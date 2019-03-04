@@ -36,7 +36,7 @@
     "drupal/ace_editor": "~1.0",
     "drupal/extlink": "~1.0",
     "drupal/linkit": "~4.0",
-    "drupal/image_resize_filter": "1.x-dev#c3f4b23b02005859092aaff746b9f21b794adc58",
+    "drupal/image_resize_filter": "~1.0",
     "drupal/ckeditor_media_embed": "~1.0",
     "drupal/anchor_link": "~1.0"
   },
