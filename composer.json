@@ -40,6 +40,9 @@
     "drupal/ckeditor_media_embed": "~1.0",
     "drupal/anchor_link": "~1.0"
   },
+  "replace": {
+    "ajaxorg/ace-builds": "*"
+  },
   "extra": {
     "branch-alias": {
       "dev-8.x-6.x": "8.6.x-dev"
