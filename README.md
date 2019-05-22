@@ -17,7 +17,7 @@ Full Media integration CKEditor including caption and much more.
 ## Installation:
 
 Varbase Editor comes with Varbase by default.
-If you have installed Varbase 8.6.x, no need to do farther steps.
+If you have installed Varbase 8.7.x, no need to do farther steps.
 
 ## Stand alone installation:
 
