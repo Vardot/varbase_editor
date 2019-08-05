@@ -1,15 +1,14 @@
 <?php
+
 /**
  * @file
  * Install, update and uninstall functions for the Varbase editor module.
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
-use Drupal\filter\Entity\FilterFormat;
 
 /**
  * Implements hook_install().
@@ -20,8 +19,8 @@ function varbase_editor_install() {
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  // ---------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
@@ -52,13 +51,18 @@ function varbase_editor_install() {
     }
   }
   // ---------------------------------------------------------------------------
-
 }
 
 /**
- * WARNING:
- * The "Full HTML" text format was mistakenly referred to by its machine name (restricted_html), this is confusing and wrong. Therefore, this filter has been deprecated in favor of better naming to become "HTML code" (code_html).
- * Please make sure to revise your content if it was using the "Full HTML" text format. You can enable it again if you like, or switch to use the new "HTML code" text format.
+ * WARNING: The "Full HTML" text format was mistakenly referred to by its.
+ *
+ * Machine name (restricted_html), this is confusing and wrong. Therefore,
+ * this filter has been deprecated in favor of better naming to become
+ * "HTML code" (code_html).
+ *
+ * Please make sure to revise your content if it was using the "Full HTML"
+ * text format. You can enable it again if you like, or switch to use the
+ * new "HTML code" text format.
  */
 function varbase_editor_update_8001() {
   // Enable HTML code text format (code_html).
@@ -73,7 +77,6 @@ function varbase_editor_update_8001() {
   $code_html_format_config_content = file_get_contents($code_html_format_config_file);
   $code_html_format_config_content_data = (array) Yaml::parse($code_html_format_config_content);
   $code_html_format_config->setData($code_html_format_config_content_data)->save();
-
 
   if (file_exists(\Drupal::root() . '/' . drupal_get_path('module', 'varbase_editor') . '/config/install/filter.format.restricted_html.yml')) {
     // Disable Full HTML text format (restricted_html).
@@ -97,6 +100,7 @@ function varbase_editor_update_8001() {
 
 /**
  * Enable pathologic module.
+ *
  * Enable image resize filter module.
  * Enable ckeditor bidi module.
  * Enable pathologic module.
@@ -111,7 +115,7 @@ function varbase_editor_update_8002() {
   if (!\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
     \Drupal::service('module_installer')->install(['image_resize_filter'], FALSE);
   }
-  
+
   // Enable ckeditor bidi module.
   if (!\Drupal::moduleHandler()->moduleExists('ckeditor_bidi')) {
     \Drupal::service('module_installer')->install(['ckeditor_bidi'], FALSE);
@@ -152,90 +156,91 @@ function varbase_editor_update_8004() {
 }
 
 /**
- * Issue #3037311: Update [Image Resize Filter] module and update [Varbase
- * Editor] to configure [Rich editor, Simple editor] to
- * use for local and remote images and not to use for [HTML coder]. 
+ * Issue #3037311: Update [Image Resize Filter] module.
+ *
+ * And update [Varbase Editor] to configure [Rich editor, Simple editor] to
+ * use for local and remote images and not to use for [HTML coder].
  */
 function varbase_editor_update_8005() {
 
   if (\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
 
     // Update "Rich editor" editor config.
-    // ---------------------------------------------------------------------------
-    //  filter_image_resize:
-    //    id: filter_image_resize
-    //    provider: image_resize_filter
-    //    status: true
-    //    weight: -40
-    //    settings:
-    //      image_locations:
-    //        local: true
-    //        remote: true
-    //
-    //
+    // ------------------------------------------------------------------------.
+    // # filter_image_resize:
+    // #   id: filter_image_resize
+    // #   provider: image_resize_filter
+    // #   status: true
+    // #   weight: -40
+    // #   settings:
+    // #     image_locations:
+    // #       local: true
+    // #       remote: true
+    // #
+    // # .
     $full_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
     if (isset($full_html_editor_config)) {
       $full_html_editor_config_data = $full_html_editor_config->get();
-      $full_html_editor_config_data['filters']['filter_image_resize']['status'] = true;
+      $full_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
       $full_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
         'image_locations' => [
-          'local' => true,
-          'remote' => true,
-        ]
+          'local' => TRUE,
+          'remote' => TRUE,
+        ],
       ];
 
       $full_html_editor_config->setData($full_html_editor_config_data)->save(TRUE);
     }
 
     // Update "Simple editor" editor config.
-    // ---------------------------------------------------------------------------
-    //  filter_image_resize:
-    //    id: filter_image_resize
-    //    provider: image_resize_filter
-    //    status: true
-    //    weight: 0
-    //    settings:
-    //      image_locations:
-    //        local: true
-    //        remote: true
-    //
-    //
+    // ------------------------------------------------------------------------.
+    // # filter_image_resize:
+    // #   id: filter_image_resize
+    // #   provider: image_resize_filter
+    // #   status: true
+    // #   weight: 0
+    // #   settings:
+    // #     image_locations:
+    // #       local: true
+    // #       remote: true
+    // #
+    // # .
     $basic_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.basic_html');
     if (isset($basic_html_editor_config)) {
       $basic_html_editor_config_data = $basic_html_editor_config->get();
-      $basic_html_editor_config_data['filters']['filter_image_resize']['status'] = true;
+      $basic_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
       $basic_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
         'image_locations' => [
-          'local' => true,
-          'remote' => true,
-        ]
+          'local' => TRUE,
+          'remote' => TRUE,
+        ],
       ];
 
       $basic_html_editor_config->setData($basic_html_editor_config_data)->save(TRUE);
     }
 
     // Update "HTML code" editor config.
-    // ---------------------------------------------------------------------------
-    //  filter_image_resize:
-    //    id: filter_image_resize
-    //    provider: image_resize_filter
-    //    status: false
-    //    weight: -42
-    //    settings:
-    //      image_locations:
-    //        local: false
-    //        remote: false
-    //
-    //
+    // ------------------------------------------------------------------------.
+    // # filter_image_resize:
+    // #   id: filter_image_resize
+    // #   provider: image_resize_filter
+    // #   status: false
+    // #   weight: -42
+    // #   settings:
+    // #     image_locations:
+    // #       local: false
+    // #       remote: false
+    // #
+    // # .
     $code_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
     if (isset($code_html_editor_config)) {
       $code_html_editor_config_data = $code_html_editor_config->get();
-      $code_html_editor_config_data['filters']['filter_image_resize']['status'] = false;
+      $code_html_editor_config_data['filters']['filter_image_resize']['status'] = FALSE;
       $code_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
         'image_locations' => [
-          'local' => false,
-          'remote' => false,
-        ]
+          'local' => FALSE,
+          'remote' => FALSE,
+        ],
       ];
 
       $code_html_editor_config->setData($code_html_editor_config_data)->save(TRUE);
