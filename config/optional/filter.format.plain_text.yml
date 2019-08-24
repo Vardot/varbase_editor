@@ -1,9 +1,13 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - ace_editor
+    - blazy
+    - image_resize_filter
 name: 'Plain text'
 format: plain_text
-weight: -7
+weight: 10
 filters:
   filter_html_escape:
     id: filter_html_escape
@@ -24,3 +28,38 @@ filters:
     status: true
     weight: 0
     settings: {  }
+  ace_filter:
+    id: ace_filter
+    provider: ace_editor
+    status: false
+    weight: 0
+    settings:
+      theme: cobalt
+      syntax: html
+      height: 500px
+      width: 700px
+      font_size: 12pt
+      line_numbers: '1'
+      print_margins: '1'
+      show_invisibles: '0'
+      use_wrap_mode: '1'
+  blazy_filter:
+    id: blazy_filter
+    provider: blazy
+    status: false
+    weight: 3
+    settings:
+      filter_tags:
+        img: img
+        iframe: iframe
+      media_switch: ''
+      use_data_uri: '0'
+  filter_image_resize:
+    id: filter_image_resize
+    provider: image_resize_filter
+    status: false
+    weight: 0
+    settings:
+      image_locations:
+        local: false
+        remote: false

@@ -50,21 +50,14 @@ settings:
           items:
             - Source
   plugins:
-    stylescombo:
-      styles: ''
     language:
       language_list: un
+    stylescombo:
+      styles: ''
     autoembed:
       status: ''
     linkit:
       linkit_profile: linkit_all_nodes
-    remote_video:
-      defaults:
-        children:
-          autoplay: true
-          responsive: true
-          width: '854'
-          height: '480'
 image_upload:
   status: true
   scheme: public

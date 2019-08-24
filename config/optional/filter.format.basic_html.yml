@@ -3,6 +3,8 @@ status: true
 dependencies:
   module:
     - ace_editor
+    - blazy
+    - ckeditor_media_embed
     - editor
     - entity_embed
     - image_resize_filter
@@ -17,7 +19,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button>'
+      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -36,7 +38,7 @@ filters:
     id: editor_file_reference
     provider: editor
     status: true
-    weight: -45
+    weight: -44
     settings: {  }
   filter_url:
     id: filter_url
@@ -58,20 +60,20 @@ filters:
   entity_embed:
     id: entity_embed
     provider: entity_embed
-    status: false
-    weight: -43
+    status: true
+    weight: -45
     settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
-    weight: -42
+    weight: -41
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -44
+    weight: -42
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
@@ -89,7 +91,7 @@ filters:
     id: filter_image_resize
     provider: image_resize_filter
     status: true
-    weight: 0
+    weight: -43
     settings:
       image_locations:
         local: true
@@ -98,7 +100,7 @@ filters:
     id: ace_filter
     provider: ace_editor
     status: false
-    weight: 0
+    weight: -38
     settings:
       theme: cobalt
       syntax: html
@@ -106,7 +108,29 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      show_invisibles: '0'
       print_margins: '1'
-      auto_complete: true
+      show_invisibles: '0'
       use_wrap_mode: '1'
+  blazy_filter:
+    id: blazy_filter
+    provider: blazy
+    status: false
+    weight: -35
+    settings:
+      filter_tags:
+        img: img
+        iframe: iframe
+      media_switch: ''
+      use_data_uri: '0'
+  filter_ckeditor_media_embed:
+    id: filter_ckeditor_media_embed
+    provider: ckeditor_media_embed
+    status: false
+    weight: -37
+    settings: {  }
+  filter_image_link_to_source:
+    id: filter_image_link_to_source
+    provider: image_resize_filter
+    status: false
+    weight: -36
+    settings: {  }
