@@ -84,7 +84,6 @@ settings:
             - BidiLtr
             - BidiRtl
             - '-'
-            - Language
   plugins:
     language:
       language_list: un
