@@ -20,3 +20,5 @@ install:
   - linkit
   - anchor_link
   - pathologic
+  - token
+  - token_filter

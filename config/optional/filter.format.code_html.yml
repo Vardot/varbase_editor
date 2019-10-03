@@ -9,6 +9,7 @@ dependencies:
     - entity_embed
     - image_resize_filter
     - pathologic
+    - token_filter
 name: 'HTML code'
 format: code_html
 weight: -8
@@ -134,3 +135,10 @@ filters:
     status: false
     weight: -36
     settings: {  }
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: true
+    weight: 0
+    settings:
+      replace_empty: '1'

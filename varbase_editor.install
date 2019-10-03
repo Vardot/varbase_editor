@@ -247,3 +247,47 @@ function varbase_editor_update_8005() {
     }
   }
 }
+
+/**
+ * Issue #3085555: Have the [Replaces global and entity tokens
+ * with their values] filter only for HTML Editor (code filter) text format 
+ */
+function varbase_editor_update_8701() {
+  if (!\Drupal::moduleHandler()->moduleExists('token_filter')) {
+    \Drupal::service('module_installer')->install(['token_filter'], FALSE);
+  }
+
+  // Update "HTML code" editor config.
+  // ------------------------------------------------------------------------.
+  // #  token_filter:
+  // #    id: token_filter
+  // #    provider: token_filter
+  // #    status: true
+  // #    weight: 0
+  // #    settings:
+  // #      replace_empty: '1'
+  // #
+  // # .
+  $code_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
+  if (isset($code_html_editor_config)) {
+    $code_html_editor_config_data = $code_html_editor_config->get();
+
+    if (!isset($code_html_editor_config_data['filters']['token_filter'])) {
+
+      $code_html_editor_config_data['dependencies']['module'][] = 'token_filter';
+
+      $code_html_editor_config_data['filters']['token_filter'] = [
+        'id' => 'token_filter',
+        'provider' => 'token_filter',
+        'status' => true,
+        'weight' => 0,
+        'settings' => [
+          'replace_empty' => '1',    
+        ],
+      ];
+
+      $code_html_editor_config->setData($code_html_editor_config_data)->save(TRUE);
+
+    }
+  }
+}
