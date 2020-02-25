@@ -40,7 +40,7 @@ function varbase_editor_install() {
     $config_installer->installOptionalConfig($storage, '');
 
     // Have the .settings.yml configs into the active config.
-    $settings_config_files = file_scan_directory($optional_install_path, '/^.*\\.(settings.yml)$/i');
+    $settings_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^.*\\.(settings.yml)$/i');
     if (isset($settings_config_files) && is_array($settings_config_files)) {
       foreach ($settings_config_files as $settings_config_file) {
         $settings_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $settings_config_file->uri);
@@ -249,8 +249,9 @@ function varbase_editor_update_8005() {
 }
 
 /**
- * Issue #3085555: Have the [Replaces global and entity tokens
- * with their values] filter only for HTML Editor (code filter) text format 
+ * Issue #3085555: Have the [Replaces global and entity tokens.
+ *
+ * With their values] filter only for HTML Editor (code filter) text format.
  */
 function varbase_editor_update_8701() {
   if (!\Drupal::moduleHandler()->moduleExists('token_filter')) {
@@ -279,10 +280,10 @@ function varbase_editor_update_8701() {
       $code_html_editor_config_data['filters']['token_filter'] = [
         'id' => 'token_filter',
         'provider' => 'token_filter',
-        'status' => true,
+        'status' => TRUE,
         'weight' => 0,
         'settings' => [
-          'replace_empty' => '1',    
+          'replace_empty' => '1',
         ],
       ];
 
