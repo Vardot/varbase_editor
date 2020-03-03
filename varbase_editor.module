@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains varbase_editor.module.
+ */
+
+/**
+ * Implements hook_editor_js_settings_alter().
+ */
+function varbase_editor_editor_js_settings_alter(array &$settings) {
+
+  // Remove h1 from Editor formats in the Full HTML (Rich editor) Text format.
+  if (isset($settings['editor'])
+    && isset($settings['editor']['formats'])
+    && isset($settings['editor']['formats']['full_html'])
+    && isset($settings['editor']['formats']['full_html']['editorSettings'])
+    && isset($settings['editor']['formats']['full_html']['editorSettings']['format_tags'])
+    && strpos($settings['editor']['formats']['full_html']['editorSettings']['format_tags'], 'h1;')) {
+
+    $format_tags = str_replace('h1;', '', $settings['editor']['formats']['full_html']['editorSettings']['format_tags']);
+    $settings['editor']['formats']['full_html']['editorSettings']['format_tags'] = $format_tags;
+  }
+}
