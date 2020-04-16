@@ -2,6 +2,8 @@
   "name": "drupal/varbase_editor",
   "description": "Editor profile and settings to be used in most websites.",
   "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/varbase_editor",
+  "notification-url": "https://packages.drupal.org/8/downloads",
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "authors": [
@@ -31,7 +33,6 @@
     "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
     "drupal/core": "^8.8.0 || ~9.0.0",
-    "npm-asset/ace-builds": "~1.0",
     "drupal/pathologic": "~1.0",
     "drupal/ckeditor_bidi": "~2.0",
     "drupal/ace_editor": "~1.0",
@@ -42,6 +43,9 @@
     "drupal/anchor_link": "~1.0",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~1.0"
+  },
+  "suggest": {
+    "npm-asset/ace-builds": "~1.0: Provides JavaScript library necessary for ACE code Editor"
   },
   "extra": {
     "branch-alias": {
