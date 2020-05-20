@@ -2,10 +2,7 @@ name: 'Varbase Editor'
 description: 'Editor profile and settings to be used in most websites.'
 type: module
 package: Varbase
-version: 8.x-7.x-dev
-core: 8.x
-project: varbase_editor
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^8.7.0 || ^9
 dependencies:
   - drupal:node
   - drupal:editor
