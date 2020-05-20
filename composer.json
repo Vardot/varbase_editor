@@ -36,7 +36,7 @@
     "drupal/pathologic": "~1.0",
     "drupal/ckeditor_bidi": "~2.0",
     "drupal/ace_editor": "~1.0",
-    "drupal/extlink": "1.2",
+    "drupal/extlink": "~1.0",
     "drupal/linkit": "~4.0",
     "drupal/image_resize_filter": "~1.0",
     "drupal/ckeditor_media_embed": "~1.0",
@@ -74,10 +74,6 @@
       "drupal/ckeditor_media_embed": {
         "Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG":
         "https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch"
-      },
-      "drupal/extlink": {
-        "Issue #3110139: Fix Notice: Undefined index: extlink_target_no_override in extlink_page_attachments()":
-        "https://www.drupal.org/files/issues/2020-01-30/3110139-3.patch"
       }
     }
   }
