@@ -34,7 +34,7 @@
     "drupal/drupal-library-installer-plugin": "^0.3",
     "drupal/core": "^8.8.0 || ~9.0.0",
     "drupal/pathologic": "~1.0",
-    "drupal/ckeditor_bidi": "~2.0",
+    "drupal/ckeditor_bidi": "~3.0",
     "drupal/ace_editor": "~1.0",
     "drupal/extlink": "~1.0",
     "drupal/linkit": "~4.0",
