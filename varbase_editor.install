@@ -292,3 +292,17 @@ function varbase_editor_update_8701() {
     }
   }
 }
+
+/**
+ * Issue #3157438: Fix CKEditor Media Embed not working on any https env.
+ */
+function varbase_editor_update_8702() {
+  if (\Drupal::moduleHandler()->moduleExists('ckeditor_media_embed')) {
+    $ckeditor_media_embed_settings = \Drupal::service('config.factory')->getEditable('ckeditor_media_embed.settings');
+    $embed_provider = $ckeditor_media_embed_settings->get('embed_provider');
+    if (isset($embed_provider) && !empty($embed_provider)) {
+      $embed_provider = str_replace("http:", "", $embed_provider);
+      $ckeditor_media_embed_settings->set('embed_provider', $embed_provider)->save(TRUE);
+    }
+  }
+}
