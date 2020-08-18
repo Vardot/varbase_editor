@@ -206,6 +206,5 @@ settings:
   show_invisibles: true
   print_margins: true
   auto_complete: true
-  _core:
-    default_config_hash: MXWhmW_WMpYFgV8c9O0eAsJmREegCqcqe9WljMN8Ev0
+  use_wrap_mode: true
 image_upload: {  }

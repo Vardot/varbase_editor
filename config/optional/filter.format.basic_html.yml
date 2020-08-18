@@ -1,6 +1,11 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.large
+    - core.entity_view_mode.media.medium
+    - core.entity_view_mode.media.original
+    - core.entity_view_mode.media.small
   module:
     - ace_editor
     - blazy
@@ -8,7 +13,9 @@ dependencies:
     - editor
     - entity_embed
     - image_resize_filter
+    - media
     - pathologic
+    - token_filter
 name: 'Simple editor'
 format: basic_html
 weight: -9
@@ -19,7 +26,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title>'
+      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -134,3 +141,28 @@ filters:
     status: false
     weight: -36
     settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: original
+      allowed_media_types:
+        audio: audio
+        file: file
+        image: image
+        remote_video: remote_video
+        video: video
+      allowed_view_modes:
+        large: large
+        medium: medium
+        original: original
+        small: small
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: false
+    weight: 0
+    settings:
+      replace_empty: '0'

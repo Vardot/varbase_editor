@@ -32,7 +32,7 @@ settings:
           name: Media
           items:
             - Blockquote
-            - media
+            - DrupalMediaLibrary
         -
           name: Linking
           items:
@@ -58,6 +58,8 @@ settings:
       status: ''
     linkit:
       linkit_profile: linkit_all_nodes
+    tokenbrowser:
+      token_types: {  }
 image_upload:
   status: true
   scheme: public

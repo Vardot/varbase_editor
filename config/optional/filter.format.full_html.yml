@@ -1,6 +1,11 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.large
+    - core.entity_view_mode.media.medium
+    - core.entity_view_mode.media.original
+    - core.entity_view_mode.media.small
   module:
     - ace_editor
     - blazy
@@ -8,7 +13,9 @@ dependencies:
     - editor
     - entity_embed
     - image_resize_filter
+    - media
     - pathologic
+    - token_filter
 name: 'Rich editor'
 format: full_html
 weight: -10
@@ -134,3 +141,28 @@ filters:
         iframe: iframe
       media_switch: ''
       use_data_uri: '0'
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: original
+      allowed_media_types:
+        audio: audio
+        file: file
+        image: image
+        remote_video: remote_video
+        video: video
+      allowed_view_modes:
+        large: large
+        medium: medium
+        original: original
+        small: small
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: false
+    weight: 0
+    settings:
+      replace_empty: '0'
