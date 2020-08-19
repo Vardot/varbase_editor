@@ -133,7 +133,7 @@ filters:
   blazy_filter:
     id: blazy_filter
     provider: blazy
-    status: false
+    status: true
     weight: -35
     settings:
       filter_tags:
@@ -147,7 +147,7 @@ filters:
     status: true
     weight: 100
     settings:
-      default_view_mode: original
+      default_view_mode: large
       allowed_media_types:
         audio: audio
         file: file
@@ -155,10 +155,10 @@ filters:
         remote_video: remote_video
         video: video
       allowed_view_modes:
-        large: large
-        medium: medium
-        original: original
         small: small
+        medium: medium
+        large: large
+        original: original
   token_filter:
     id: token_filter
     provider: token_filter

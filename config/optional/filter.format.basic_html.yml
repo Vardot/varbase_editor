@@ -26,7 +26,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title>'
+      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media alt title data-entity-type data-entity-uuid data-view-mode data-align data-caption>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -121,7 +121,7 @@ filters:
   blazy_filter:
     id: blazy_filter
     provider: blazy
-    status: false
+    status: true
     weight: -35
     settings:
       filter_tags:
@@ -147,7 +147,7 @@ filters:
     status: true
     weight: 100
     settings:
-      default_view_mode: original
+      default_view_mode: large
       allowed_media_types:
         audio: audio
         file: file
@@ -155,10 +155,10 @@ filters:
         remote_video: remote_video
         video: video
       allowed_view_modes:
-        large: large
-        medium: medium
-        original: original
         small: small
+        medium: medium
+        large: large
+        original: original
   token_filter:
     id: token_filter
     provider: token_filter
