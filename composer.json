@@ -37,7 +37,7 @@
     "drupal/ckeditor_bidi": "~3.0",
     "drupal/ace_editor": "~1.0",
     "drupal/extlink": "~1.0",
-    "drupal/linkit": "~4.0",
+    "drupal/linkit": "~5.0",
     "drupal/image_resize_filter": "~1.0",
     "drupal/ckeditor_media_embed": "~1.0",
     "drupal/anchor_link": "~1.0",
