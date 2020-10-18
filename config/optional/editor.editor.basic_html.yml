@@ -36,10 +36,8 @@ settings:
         -
           name: Linking
           items:
-            - Linkit
-            - '-'
-            - Link
-            - Unlink
+            - DrupalLink
+            - DrupalUnlink
         -
           name: Direction
           items:
@@ -50,14 +48,15 @@ settings:
           items:
             - Source
   plugins:
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: linkit_all_nodes
     language:
       language_list: un
     stylescombo:
       styles: ''
     autoembed:
       status: ''
-    linkit:
-      linkit_profile: linkit_all_nodes
     tokenbrowser:
       token_types: {  }
 image_upload:
