@@ -42,7 +42,7 @@
     "drupal/anchor_link": "~1.0",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~1.0",
-    "vardot/ckeditor_media_embed": "~2.0"
+    "drupal/ckeditor_media_embed": "1.x-dev"
   },
   "suggest": {
     "npm-asset/ace-builds": "~1.0: Provides JavaScript library necessary for ACE code Editor"
@@ -68,7 +68,7 @@
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patches": {
-      "vardot/ckeditor_media_embed": {
+      "drupal/ckeditor_media_embed": {
         "Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG":
         "https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch"
       }
