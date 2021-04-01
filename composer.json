@@ -3,7 +3,6 @@
   "description": "Editor profile and settings to be used in most websites.",
   "type": "drupal-module",
   "homepage": "https://www.drupal.org/project/varbase_editor",
-  "notification-url": "https://packages.drupal.org/8/downloads",
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "authors": [
@@ -41,6 +40,7 @@
     "drupal/ace_editor": "~1.0",
     "drupal/extlink": "~1.0",
     "drupal/linkit": "~6.0",
+    "drupal/editor_advanced_link": "~1.0",
     "drupal/image_resize_filter": "~1.0",
     "drupal/ckeditor_media_embed": "~1.0",
     "drupal/anchor_link": "3.0.x-dev",

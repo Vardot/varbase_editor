@@ -16,6 +16,7 @@ install:
   - image_resize_filter
   - extlink
   - linkit
+  - editor_advanced_link
   - anchor_link
   - pathologic
   - token
