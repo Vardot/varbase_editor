@@ -2,18 +2,26 @@ langcode: en
 status: true
 dependencies:
   module:
+    - anchor_link
     - node
 id: linkit_all_nodes
 label: 'Linkit: All Nodes'
 description: ''
-attributes: {  }
 matchers:
   bc3b1ccd-ac4e-4c5c-901d-d90449d9d974:
     uuid: bc3b1ccd-ac4e-4c5c-901d-d90449d9d974
     id: 'entity:node'
-    weight: 0
+    weight: -10
     settings:
       result_description: ''
       bundles: {  }
       group_by_bundle: true
       include_unpublished: false
+      metadata: ''
+      substitution_type: canonical
+      limit: 100
+  2a0add39-e714-45d8-9574-202c90db4ef4:
+    uuid: 2a0add39-e714-45d8-9574-202c90db4ef4
+    id: ckeditor_anchor_link
+    weight: 0
+    settings: {  }

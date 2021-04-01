@@ -39,7 +39,7 @@
     "drupal/linkit": "~6.0",
     "drupal/image_resize_filter": "~1.0",
     "drupal/ckeditor_media_embed": "~1.0",
-    "drupal/anchor_link": "~1.0",
+    "drupal/anchor_link": "3.0.x-dev",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~1.0"
   },
