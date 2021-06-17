@@ -11,7 +11,7 @@ matchers:
   bc3b1ccd-ac4e-4c5c-901d-d90449d9d974:
     uuid: bc3b1ccd-ac4e-4c5c-901d-d90449d9d974
     id: 'entity:node'
-    weight: -10
+    weight: 0
     settings:
       result_description: ''
       bundles: {  }
@@ -20,8 +20,4 @@ matchers:
       metadata: ''
       substitution_type: canonical
       limit: 100
-  2a0add39-e714-45d8-9574-202c90db4ef4:
-    uuid: 2a0add39-e714-45d8-9574-202c90db4ef4
-    id: ckeditor_anchor_link
-    weight: 0
-    settings: {  }
+
