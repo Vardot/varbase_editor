@@ -1,5 +1,5 @@
-name: 'Varbase Editor'
-description: 'Editor profile and settings to be used in most websites.'
+name: "Varbase Editor"
+description: "Editor profile and settings to be used in most websites."
 type: module
 package: Varbase
 core_version_requirement: ^9

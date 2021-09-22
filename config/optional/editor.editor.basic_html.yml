@@ -10,41 +10,33 @@ editor: ckeditor
 settings:
   toolbar:
     rows:
-      -
-        -
-          name: 'Block Formatting'
+      - - name: "Block Formatting"
           items:
             - Format
-        -
-          name: Formatting
+        - name: Formatting
           items:
             - Bold
             - Italic
             - Underline
-            - '-'
+            - "-"
             - RemoveFormat
-        -
-          name: Lists
+        - name: Lists
           items:
             - NumberedList
             - BulletedList
-        -
-          name: Media
+        - name: Media
           items:
             - Blockquote
             - DrupalMediaLibrary
-        -
-          name: Linking
+        - name: Linking
           items:
             - DrupalLink
             - DrupalUnlink
-        -
-          name: Direction
+        - name: Direction
           items:
             - BidiLtr
             - BidiRtl
-        -
-          name: Tools
+        - name: Tools
           items:
             - Source
   plugins:
@@ -54,16 +46,16 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: ''
+      styles: ""
     autoembed:
-      status: ''
+      status: ""
     tokenbrowser:
-      token_types: {  }
+      token_types: {}
 image_upload:
   status: true
   scheme: public
   directory: inline-images
-  max_size: ''
+  max_size: ""
   max_dimensions:
     width: null
     height: null

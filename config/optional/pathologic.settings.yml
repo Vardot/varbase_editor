@@ -4,4 +4,4 @@ scheme_whitelist:
   - files
   - internal
 protocol_style: path
-local_paths: ''
+local_paths: ""

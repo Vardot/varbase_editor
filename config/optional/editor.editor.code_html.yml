@@ -25,45 +25,45 @@ settings:
     chaos: Chaos
     chrome: Chrome
     clouds: Clouds
-    clouds_midnight: 'Clouds Midnight'
-    crimson_editor: 'Crimson Editor'
+    clouds_midnight: "Clouds Midnight"
+    crimson_editor: "Crimson Editor"
     dawn: Dawn
     dreamweaver: Dreamweaver
     eclipse: Eclipse
     github: Github
-    idle_fingers: 'Idle Fingers'
+    idle_fingers: "Idle Fingers"
     iplastic: Iplastic
     katzenmilch: Katzenmilch
-    kr_theme: 'Kr Theme'
+    kr_theme: "Kr Theme"
     kuroir: Kuroir
     merbivore: Merbivore
-    merbivore_soft: 'Merbivore Soft'
-    mono_industrial: 'Mono Industrial'
+    merbivore_soft: "Merbivore Soft"
+    mono_industrial: "Mono Industrial"
     monokai: Monokal
-    pastel_on_dark: 'Pastel On Dark'
-    solarized_dark: 'Solarized Dark'
-    solarized_light: 'Solarized Light'
-    sqlserver: 'Sql Server'
+    pastel_on_dark: "Pastel On Dark"
+    solarized_dark: "Solarized Dark"
+    solarized_light: "Solarized Light"
+    sqlserver: "Sql Server"
     terminal: Terminal
     textmate: Textmate
-    tomorrow: 'Tomorrow Night'
-    tomorrow_night: 'Tomorrow Night'
-    tomorrow_night_blue: 'Tomorrow Night Blue'
-    tomorrow_night_bright: 'Tomorrow Night Bright'
-    tomorrow_night_eighties: 'Tomorrow Night Eighties'
+    tomorrow: "Tomorrow Night"
+    tomorrow_night: "Tomorrow Night"
+    tomorrow_night_blue: "Tomorrow Night Blue"
+    tomorrow_night_bright: "Tomorrow Night Bright"
+    tomorrow_night_eighties: "Tomorrow Night Eighties"
     twilight: Twilight
-    vibrant_ink: 'Vibrant Ink'
+    vibrant_ink: "Vibrant Ink"
     xcode: Xcode
   theme: idle_fingers
   syntax_list:
     abap: Abap
     abc: Abc
-    actionscript: 'Action Script'
+    actionscript: "Action Script"
     ada: Ada
-    apache_conf: 'Apache Conf'
-    applescript: 'Apple Script'
+    apache_conf: "Apache Conf"
+    applescript: "Apple Script"
     asciidoc: Asciidoc
-    assembly_x86: 'Assembly x86'
+    assembly_x86: "Assembly x86"
     autohotkey: Autohotkey
     batchfile: Batchfile
     bro: Bro
@@ -74,7 +74,7 @@ settings:
     cobol: Cobol
     coffee: Coffee
     coldfusion: Coldfusion
-    csharp: 'C#'
+    csharp: "C#"
     css: CSS
     curly: Curly
     d: D
@@ -102,12 +102,12 @@ settings:
     haml: Haml
     handlebars: Handlebars
     haskell: Haskell
-    haskell_cabal: 'Haskel Cabal'
+    haskell_cabal: "Haskel Cabal"
     haxe: Haxe
     hjson: HJSON
     html: HTML
-    html_elixir: 'Html Elixir'
-    html_ruby: 'Html Ruby'
+    html_elixir: "Html Elixir"
+    html_ruby: "Html Ruby"
     ini: Ini
     io: Io
     jack: Jack
@@ -125,7 +125,7 @@ settings:
     less: LESS
     liquid: Liquid
     lisp: Lisp
-    live_script: 'Live Script'
+    live_script: "Live Script"
     livescript: Livescript
     logiql: Logiql
     lsl: Lsl
@@ -138,20 +138,20 @@ settings:
     matlab: Matlab
     maze: Maze
     mel: Mel
-    mips_assembler: 'Mips Assembler'
-    mipsassembler: 'Mips Assembler'
+    mips_assembler: "Mips Assembler"
+    mipsassembler: "Mips Assembler"
     mushcode: Mushcode
     mysql: Mysql
     nix: Nix
     nsis: Nsis
-    objectivec: 'Objective C'
+    objectivec: "Objective C"
     ocaml: Ocaml
     pascal: Pascal
     perl: Perl
     pgsql: Pgsql
     php: PHP
-    plain_text: 'Plain Text'
-    powershell: 'Power Shell'
+    plain_text: "Plain Text"
+    powershell: "Power Shell"
     praat: Praat
     prolog: Prolog
     properties: Properties
@@ -173,7 +173,7 @@ settings:
     sjs: Sjs
     smarty: Smarty
     snippets: Snippets
-    soy_template: 'Soy Template'
+    soy_template: "Soy Template"
     space: Space
     sql: Sql
     sqlserver: Sqlserver
@@ -207,4 +207,4 @@ settings:
   print_margins: true
   auto_complete: true
   use_wrap_mode: true
-image_upload: {  }
+image_upload: {}

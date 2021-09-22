@@ -16,7 +16,7 @@ dependencies:
     - media
     - pathologic
     - token_filter
-name: 'Simple editor'
+name: "Simple editor"
 format: basic_html
 weight: -9
 filters:
@@ -26,7 +26,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media alt title data-entity-type data-entity-uuid data-view-mode data-align data-caption>'
+      allowed_html: "<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media alt title data-entity-type data-entity-uuid data-view-mode data-align data-caption>"
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -34,19 +34,19 @@ filters:
     provider: filter
     status: true
     weight: -47
-    settings: {  }
+    settings: {}
   filter_caption:
     id: filter_caption
     provider: filter
     status: true
     weight: -46
-    settings: {  }
+    settings: {}
   editor_file_reference:
     id: editor_file_reference
     provider: editor
     status: true
     weight: -44
-    settings: {  }
+    settings: {}
   filter_url:
     id: filter_url
     provider: filter
@@ -63,37 +63,37 @@ filters:
       settings_source: global
       local_settings:
         protocol_style: full
-        local_paths: ''
+        local_paths: ""
   entity_embed:
     id: entity_embed
     provider: entity_embed
     status: true
     weight: -45
-    settings: {  }
+    settings: {}
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
     weight: -41
-    settings: {  }
+    settings: {}
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
     weight: -42
-    settings: {  }
+    settings: {}
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: false
     weight: -39
-    settings: {  }
+    settings: {}
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
     weight: -40
-    settings: {  }
+    settings: {}
   filter_image_resize:
     id: filter_image_resize
     provider: image_resize_filter
@@ -114,10 +114,10 @@ filters:
       height: 500px
       width: 700px
       font_size: 10pt
-      line_numbers: '1'
-      print_margins: '1'
-      show_invisibles: '0'
-      use_wrap_mode: '1'
+      line_numbers: "1"
+      print_margins: "1"
+      show_invisibles: "0"
+      use_wrap_mode: "1"
   blazy_filter:
     id: blazy_filter
     provider: blazy
@@ -127,20 +127,20 @@ filters:
       filter_tags:
         img: img
         iframe: iframe
-      media_switch: ''
-      use_data_uri: '0'
+      media_switch: ""
+      use_data_uri: "0"
   filter_ckeditor_media_embed:
     id: filter_ckeditor_media_embed
     provider: ckeditor_media_embed
     status: false
     weight: -37
-    settings: {  }
+    settings: {}
   filter_image_link_to_source:
     id: filter_image_link_to_source
     provider: image_resize_filter
     status: false
     weight: -36
-    settings: {  }
+    settings: {}
   media_embed:
     id: media_embed
     provider: media
@@ -165,4 +165,4 @@ filters:
     status: false
     weight: 0
     settings:
-      replace_empty: '0'
+      replace_empty: "0"

@@ -10,77 +10,67 @@ editor: ckeditor
 settings:
   toolbar:
     rows:
-      -
-        -
-          name: 'Block Formatting'
+      - - name: "Block Formatting"
           items:
             - Cut
             - Copy
             - Paste
             - PasteFromWord
-            - '-'
+            - "-"
             - Undo
             - Redo
-        -
-          name: Media
+        - name: Media
           items:
             - DrupalMediaLibrary
             - gallery
             - Embed
-            - '-'
+            - "-"
             - Blockquote
             - HorizontalRule
-            - '-'
+            - "-"
             - Table
-        -
-          name: Linking
+        - name: Linking
           items:
             - DrupalLink
-            - '-'
+            - "-"
             - DrupalUnlink
             - Anchor
-        -
-          name: Tools
+        - name: Tools
           items:
             - ShowBlocks
             - Maximize
             - Source
-      -
-        -
-          name: Style
+      - - name: Style
           items:
             - Styles
             - Format
-        -
-          name: Formatting
+        - name: Formatting
           items:
             - Bold
             - Italic
             - Underline
             - Strike
-            - '-'
+            - "-"
             - Subscript
             - Superscript
-            - '-'
+            - "-"
             - RemoveFormat
-        -
-          name: Lists
+        - name: Lists
           items:
             - NumberedList
             - BulletedList
-            - '-'
+            - "-"
             - Outdent
             - Indent
-        -
-          name: Alignment
+        - name: Alignment
           items:
             - JustifyLeft
             - JustifyCenter
             - JustifyRight
-            - '-'
+            - "-"
             - BidiLtr
             - BidiRtl
-            - '-'
+            - "-"
   plugins:
     stylescombo:
       styles: "h2.display-1|Display 1\r\nh2.display-2|Display 2\r\nh3.display-3|Display 3\r\nh4.display-4|Display 4\r\ndiv.bs-callout|Callout\r\ndiv.bs-callout.bs-callout-danger|Callout danger\r\ndiv.bs-callout.bs-callout-warning|Callout warning\r\ndiv.bs-callout.bs-callout-info|Callout Info\r\ndiv.well|Well\r\ndiv.well.well-lg|Well large\r\ndiv.well.well-sm|Well small\r\ndiv.alert.alert-success|Alert success\r\ndiv.alert.alert-info|Alert info\r\ndiv.alert.alert-warning|Alert warning\r\ndiv.alert.alert-danger|Alert danger\r\ndiv.panel.panel-primary|Panel primary\r\ndiv.panel.panel-success|Panel success\r\ndiv.panel.panel-info|Panel info\r\ndiv.panel.panel-warning|Panel warning\r\ndiv.panel.panel-danger|Panel danger\r\ndiv.panel-heading|Panel heading\r\ndiv.panel-title|Panel title\r\ndiv.panel-body|Panel body\r\ndiv.panel-footer|Panel footer"
@@ -92,12 +82,12 @@ settings:
     autoembed:
       status: embed
     tokenbrowser:
-      token_types: {  }
+      token_types: {}
 image_upload:
   status: true
   scheme: public
   directory: inline-images
-  max_size: ''
+  max_size: ""
   max_dimensions:
     width: null
     height: null

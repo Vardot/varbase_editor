@@ -1,7 +1,7 @@
 langcode: en
 status: true
-dependencies: {  }
-name: 'Plain text'
+dependencies: {}
+name: "Plain text"
 format: plain_text
 weight: 10
 filters:
@@ -10,7 +10,7 @@ filters:
     provider: filter
     status: true
     weight: -10
-    settings: {  }
+    settings: {}
   filter_url:
     id: filter_url
     provider: filter
@@ -23,4 +23,4 @@ filters:
     provider: filter
     status: true
     weight: 0
-    settings: {  }
+    settings: {}
