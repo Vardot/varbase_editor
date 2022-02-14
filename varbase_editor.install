@@ -306,3 +306,44 @@ function varbase_editor_update_8702() {
     }
   }
 }
+
+/**
+ * Issue #3264253: Disable Blazy per individual Video iframe.
+ *
+ * For the Rich editor and Simple editor text formats.
+ */
+function varbase_editor_update_90001() {
+  if (\Drupal::moduleHandler()->moduleExists('ckeditor_media_embed')
+    && \Drupal::moduleHandler()->moduleExists('blazy')) {
+
+    $filter_format_basic_html = \Drupal::service('config.factory')->getEditable('filter.format.basic_html');
+    $filter_format_basic_html_filters = $filter_format_basic_html->get('filters');
+    if (isset($filter_format_basic_html_filters['blazy_filter'])
+      && isset($filter_format_basic_html_filters['blazy_filter']['settings'])
+      && isset($filter_format_basic_html_filters['blazy_filter']['settings']['filter_tags'])
+      && isset($filter_format_basic_html_filters['blazy_filter']['settings']['filter_tags']['iframe'])) {
+      $filter_format_basic_html_filters['blazy_filter']['settings']['filter_tags']['iframe'] = 0;
+      $filter_format_basic_html->set('filters', $filter_format_basic_html_filters)->save(TRUE);
+    }
+
+    $filter_format_full_html = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
+    $filter_format_full_html_filters = $filter_format_full_html->get('filters');
+    if (isset($filter_format_full_html_filters['blazy_filter'])
+      && isset($filter_format_full_html_filters['blazy_filter']['settings'])
+      && isset($filter_format_full_html_filters['blazy_filter']['settings']['filter_tags'])
+      && isset($filter_format_full_html_filters['blazy_filter']['settings']['filter_tags']['iframe'])) {
+      $filter_format_full_html_filters['blazy_filter']['settings']['filter_tags']['iframe'] = 0;
+      $filter_format_full_html->set('filters', $filter_format_full_html_filters)->save(TRUE);
+    }
+
+    $filter_format_code_html = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
+    $filter_format_code_html_filters = $filter_format_code_html->get('filters');
+    if (isset($filter_format_code_htmll_filters['blazy_filter'])
+      && isset($filter_format_code_html_filters['blazy_filter']['settings'])
+      && isset($filter_format_code_html_filters['blazy_filter']['settings']['filter_tags'])
+      && isset($filter_format_code_html_filters['blazy_filter']['settings']['filter_tags']['iframe'])) {
+      $filter_format_code_html_filters['blazy_filter']['settings']['filter_tags']['iframe'] = 0;
+      $filter_format_code_html->set('filters', $filter_format_code_html_filters)->save(TRUE);
+    }
+  }
+}
