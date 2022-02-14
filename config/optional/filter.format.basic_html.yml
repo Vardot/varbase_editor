@@ -124,10 +124,13 @@ filters:
     status: true
     weight: -35
     settings:
+      media_switch: ""
+      hybrid_style: ""
+      box_style: ""
+      box_caption: ""
       filter_tags:
         img: img
-        iframe: iframe
-      media_switch: ""
+        iframe: "0"
       use_data_uri: "0"
   filter_ckeditor_media_embed:
     id: filter_ckeditor_media_embed
