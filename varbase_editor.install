@@ -347,3 +347,12 @@ function varbase_editor_update_90001() {
     }
   }
 }
+
+/**
+ * Issue #3264445: Add and enable CKEditor Paste Filter module.
+ */
+function varbase_editor_update_90002() {
+  if (!\Drupal::moduleHandler()->moduleExists('ckeditor_paste_filter')) {
+    \Drupal::service('module_installer')->install(['ckeditor_paste_filter'], FALSE);
+  }
+}
