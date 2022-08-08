@@ -27,10 +27,10 @@
     }
   },
   "require": {
-    "composer/installers": "~1.0 || ~2.0",
-    "oomphinc/composer-installers-extender": "~1.0 || ~2.0",
+    "composer/installers": "~2.0",
+    "oomphinc/composer-installers-extender": "~2.0",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "~9.0",
+    "drupal/core": "~9.0 || ~10.0",
     "vardot/module-installer-factory": "~1.0",
     "drupal/pathologic": "~1.0",
     "drupal/ckeditor_bidi": "~3.0",
