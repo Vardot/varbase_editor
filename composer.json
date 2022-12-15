@@ -43,7 +43,7 @@
     "drupal/ckeditor_media_embed": "~1.0",
     "drupal/anchor_link": "~1.0",
     "drupal/token": "~1.0",
-    "drupal/token_filter": "~1.0"
+    "drupal/token_filter": "~2.0"
   },
   "suggest": {
     "npm-asset/ace-builds": "~1.0: Provides JavaScript library necessary for ACE code Editor"
