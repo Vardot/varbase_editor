@@ -35,7 +35,6 @@
     "drupal/pathologic": "~1.0",
     "drupal/ckeditor_bidi": "~3.0",
     "drupal/ace_editor": "~1.0",
-    "drupal/ckeditor_paste_filter": "~1.0",
     "drupal/extlink": "~1.0",
     "drupal/linkit": "6.0.0-beta3",
     "drupal/editor_advanced_link": "~2.0",
