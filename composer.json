@@ -34,7 +34,7 @@
     "vardot/module-installer-factory": "~1.0",
     "drupal/pathologic": "~1.0",
     "drupal/ckeditor_bidi": "4.0.x-dev",
-    "drupal/ace_editor": "~1.0",
+    "drupal/ace_editor": "~2.0",
     "drupal/extlink": "~1.0",
     "drupal/linkit": "6.0.x-dev",
     "drupal/editor_advanced_link": "~2.0",
