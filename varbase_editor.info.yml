@@ -11,7 +11,6 @@ dependencies:
 install:
   - ace_editor
   - ckeditor_bidi
-  - ckeditor_media_embed
   - entity_embed
   - image_resize_filter
   - extlink
