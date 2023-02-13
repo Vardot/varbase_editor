@@ -2,21 +2,20 @@ langcode: en
 status: true
 dependencies:
   module:
-    - anchor_link
     - node
+label: 'Linkit: All Nodes'
 id: linkit_all_nodes
-label: "Linkit: All Nodes"
-description: ""
+description: ''
 matchers:
   bc3b1ccd-ac4e-4c5c-901d-d90449d9d974:
+    id: 'entity:node'
     uuid: bc3b1ccd-ac4e-4c5c-901d-d90449d9d974
-    id: "entity:node"
-    weight: 0
     settings:
-      result_description: ""
-      bundles: {}
+      result_description: ''
+      bundles: {  }
       group_by_bundle: true
       include_unpublished: false
-      metadata: ""
+      metadata: ''
       substitution_type: canonical
       limit: 100
+    weight: 0

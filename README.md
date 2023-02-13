@@ -17,7 +17,6 @@ Integrates a rich editor into Varbase distribution.
 * [External Links](https://www.drupal.org/project/extlink)
 * [Editor Advanced link](https://www.drupal.org/project/editor_advanced_link)
 * [Pathologic](https://www.drupal.org/project/pathologic)
-* [Image Resize Filter](https://www.drupal.org/project/image_resize_filter)
 * [Embed](https://www.drupal.org/project/embed)
 * [Entity Embed](https://www.drupal.org/project/entity_embed)
 * [CKEditor BiDi Buttons](https://www.drupal.org/project/ckeditor_bidi)

@@ -80,9 +80,9 @@ function varbase_editor_update_8002() {
   }
 
   // Enable image resize filter module.
-  if (!\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
-    \Drupal::service('module_installer')->install(['image_resize_filter'], FALSE);
-  }
+  // if (!\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
+  //   \Drupal::service('module_installer')->install(['image_resize_filter'], FALSE);
+  // }
 
   // Enable ckeditor bidi module.
   if (!\Drupal::moduleHandler()->moduleExists('ckeditor_bidi')) {
@@ -131,7 +131,7 @@ function varbase_editor_update_8004() {
  */
 function varbase_editor_update_8005() {
 
-  if (\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
+  // if (\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
 
     // Update "Rich editor" editor config.
     // ------------------------------------------------------------------------.
@@ -146,19 +146,19 @@ function varbase_editor_update_8005() {
     // #       remote: true
     // #
     // # .
-    $full_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
-    if (isset($full_html_editor_config)) {
-      $full_html_editor_config_data = $full_html_editor_config->get();
-      $full_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
-      $full_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
-        'image_locations' => [
-          'local' => TRUE,
-          'remote' => TRUE,
-        ],
-      ];
+    // $full_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
+    // if (isset($full_html_editor_config)) {
+    //   $full_html_editor_config_data = $full_html_editor_config->get();
+    //   $full_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
+    //   $full_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
+    //     'image_locations' => [
+    //       'local' => TRUE,
+    //       'remote' => TRUE,
+    //     ],
+    //   ];
 
-      $full_html_editor_config->setData($full_html_editor_config_data)->save(TRUE);
-    }
+    //   $full_html_editor_config->setData($full_html_editor_config_data)->save(TRUE);
+    // }
 
     // Update "Simple editor" editor config.
     // ------------------------------------------------------------------------.
@@ -173,19 +173,19 @@ function varbase_editor_update_8005() {
     // #       remote: true
     // #
     // # .
-    $basic_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.basic_html');
-    if (isset($basic_html_editor_config)) {
-      $basic_html_editor_config_data = $basic_html_editor_config->get();
-      $basic_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
-      $basic_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
-        'image_locations' => [
-          'local' => TRUE,
-          'remote' => TRUE,
-        ],
-      ];
+    // $basic_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.basic_html');
+    // if (isset($basic_html_editor_config)) {
+    //   $basic_html_editor_config_data = $basic_html_editor_config->get();
+    //   $basic_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
+    //   $basic_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
+    //     'image_locations' => [
+    //       'local' => TRUE,
+    //       'remote' => TRUE,
+    //     ],
+    //   ];
 
-      $basic_html_editor_config->setData($basic_html_editor_config_data)->save(TRUE);
-    }
+    //   $basic_html_editor_config->setData($basic_html_editor_config_data)->save(TRUE);
+    // }
 
     // Update "HTML code" editor config.
     // ------------------------------------------------------------------------.
@@ -200,20 +200,20 @@ function varbase_editor_update_8005() {
     // #       remote: false
     // #
     // # .
-    $code_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
-    if (isset($code_html_editor_config)) {
-      $code_html_editor_config_data = $code_html_editor_config->get();
-      $code_html_editor_config_data['filters']['filter_image_resize']['status'] = FALSE;
-      $code_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
-        'image_locations' => [
-          'local' => FALSE,
-          'remote' => FALSE,
-        ],
-      ];
+  //   $code_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
+  //   if (isset($code_html_editor_config)) {
+  //     $code_html_editor_config_data = $code_html_editor_config->get();
+  //     $code_html_editor_config_data['filters']['filter_image_resize']['status'] = FALSE;
+  //     $code_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
+  //       'image_locations' => [
+  //         'local' => FALSE,
+  //         'remote' => FALSE,
+  //       ],
+  //     ];
 
-      $code_html_editor_config->setData($code_html_editor_config_data)->save(TRUE);
-    }
-  }
+  //     $code_html_editor_config->setData($code_html_editor_config_data)->save(TRUE);
+  //   }
+  // }
 }
 
 /**

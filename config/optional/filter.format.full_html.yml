@@ -11,11 +11,11 @@ dependencies:
     - blazy
     - editor
     - entity_embed
-    - image_resize_filter
     - media
     - pathologic
+    - slick
     - token_filter
-name: "Rich editor"
+name: 'Rich editor'
 format: full_html
 weight: -10
 filters:
@@ -24,32 +24,32 @@ filters:
     provider: filter
     status: true
     weight: -50
-    settings: {}
+    settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
     status: true
     weight: -49
-    settings: {}
+    settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: true
     weight: -44
-    settings: {}
+    settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
     status: true
     weight: -43
-    settings: {}
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
     status: false
     weight: -41
     settings:
-      allowed_html: '<em * id class> <strong * id class> <cite * id class> <blockquote * id class cite> <code * id class> <ul * id class type> <ol * id class start type> <li * id class> <dl * id class> <dt * id class> <dd * id class> <h2 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 * id class="text-align-left text-align-center text-align-right text-align-justify"> <img src height width alt data-*> <hr * id class> <table * id class> <caption * id class> <tbody * id class> <thead * id class> <tfoot * id class> <th * id class> <td * id class> <tr * id class> <a id class href hreflang !href accesskey id rel target title name> <p class="text-align-left text-align-center text-align-right text-align-justify red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <pre * id class> <u> <s> <sub * id class> <sup * id class> <div * id class> <drupal-entity * data-*> <figure *> <picture *> <article *> <figcaption *>'
+      allowed_html: '<em * id class> <strong * id class> <cite * id class> <blockquote * id cite class> <code * id class> <ul * id type class> <ol * id start type class> <li * id class> <dl * id class> <dt * id class> <dd * id class> <h5 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 * id class="text-align-left text-align-center text-align-right text-align-justify"> <img src height width alt data-*> <hr * id class> <table * id class> <caption * id class> <tbody * id class> <thead * id class> <tfoot * id class> <th * id class> <td * id class> <tr * id class> <a id href hreflang !href accesskey rel target title name class> <p class="text-align-left text-align-center text-align-right text-align-justify red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <pre * id class> <u> <s> <sub * id class> <sup * id class> <div * id class> <figure *> <picture *> <article *> <figcaption *> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <drupal-entity * data-* data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <h2 * id class="text-align-left text-align-center text-align-right text-align-justify display-1 display-2"> <h3 * id class="text-align-left text-align-center text-align-right text-align-justify display-3"> <h4 * id class="text-align-left text-align-center text-align-right text-align-justify display-4"> <h1>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:
@@ -64,25 +64,25 @@ filters:
     provider: entity_embed
     status: true
     weight: -48
-    settings: {}
+    settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
     weight: -38
-    settings: {}
+    settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
     weight: -39
-    settings: {}
+    settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
     weight: -40
-    settings: {}
+    settings: {  }
   filter_pathologic:
     id: filter_pathologic
     provider: pathologic
@@ -92,16 +92,7 @@ filters:
       settings_source: global
       local_settings:
         protocol_style: full
-        local_paths: ""
-  filter_image_resize:
-    id: filter_image_resize
-    provider: image_resize_filter
-    status: true
-    weight: -42
-    settings:
-      image_locations:
-        local: true
-        remote: true
+        local_paths: ''
   ace_filter:
     id: ace_filter
     provider: ace_editor
@@ -113,30 +104,25 @@ filters:
       height: 500px
       width: 700px
       font_size: 10pt
-      line_numbers: "1"
-      print_margins: "1"
-      show_invisibles: "0"
-      use_wrap_mode: "1"
-  filter_image_link_to_source:
-    id: filter_image_link_to_source
-    provider: image_resize_filter
-    status: false
-    weight: -36
-    settings: {}
+      line_numbers: '1'
+      show_invisibles: '0'
+      print_margins: '1'
+      auto_complete: '1'
+      use_wrap_mode: '1'
   blazy_filter:
     id: blazy_filter
     provider: blazy
     status: true
     weight: -35
     settings:
-      media_switch: ""
-      hybrid_style: ""
-      box_style: ""
-      box_caption: ""
+      media_switch: ''
+      hybrid_style: ''
+      box_style: ''
+      box_caption: ''
       filter_tags:
         img: img
-        iframe: "0"
-      use_data_uri: "0"
+        iframe: '0'
+      use_data_uri: '0'
   media_embed:
     id: media_embed
     provider: media
@@ -144,21 +130,52 @@ filters:
     weight: 100
     settings:
       default_view_mode: large
+      allowed_view_modes:
+        large: large
+        medium: medium
+        original: original
+        small: small
       allowed_media_types:
         audio: audio
         file: file
         image: image
         remote_video: remote_video
         video: video
-      allowed_view_modes:
-        small: small
-        medium: medium
-        large: large
-        original: original
   token_filter:
     id: token_filter
     provider: token_filter
     status: false
     weight: 0
     settings:
-      replace_empty: "0"
+      replace_empty: '0'
+  slick_filter:
+    id: slick_filter
+    provider: slick
+    status: false
+    weight: 4
+    settings:
+      optionset: default
+      layout: ''
+      skin: ''
+      background: false
+      loading: ''
+      preload: false
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
