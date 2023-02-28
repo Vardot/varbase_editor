@@ -14,10 +14,12 @@ use Vardot\Installer\ModuleInstallerFactory;
 function varbase_editor_install() {
 
   // Processor for install: in varbase_editor.info.yml file.
-  // --------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_editor');
 
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^.*(settings.yml)$/i');
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_editor');
 
 }
 
@@ -79,11 +81,6 @@ function varbase_editor_update_8002() {
     \Drupal::service('module_installer')->install(['pathologic'], FALSE);
   }
 
-  // Enable image resize filter module.
-  // if (!\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
-  //   \Drupal::service('module_installer')->install(['image_resize_filter'], FALSE);
-  // }
-
   // Enable ckeditor bidi module.
   if (!\Drupal::moduleHandler()->moduleExists('ckeditor_bidi')) {
     \Drupal::service('module_installer')->install(['ckeditor_bidi'], FALSE);
@@ -99,9 +96,7 @@ function varbase_editor_update_8002() {
  * Enable CKEditor media embed module.
  */
 function varbase_editor_update_8003() {
-  // if (!\Drupal::moduleHandler()->moduleExists('ckeditor_media_embed')) {
-  //   \Drupal::service('module_installer')->install(['ckeditor_media_embed'], FALSE);
-  // }
+
 }
 
 /**
@@ -131,89 +126,6 @@ function varbase_editor_update_8004() {
  */
 function varbase_editor_update_8005() {
 
-  // if (\Drupal::moduleHandler()->moduleExists('image_resize_filter')) {
-
-    // Update "Rich editor" editor config.
-    // ------------------------------------------------------------------------.
-    // # filter_image_resize:
-    // #   id: filter_image_resize
-    // #   provider: image_resize_filter
-    // #   status: true
-    // #   weight: -40
-    // #   settings:
-    // #     image_locations:
-    // #       local: true
-    // #       remote: true
-    // #
-    // # .
-    // $full_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
-    // if (isset($full_html_editor_config)) {
-    //   $full_html_editor_config_data = $full_html_editor_config->get();
-    //   $full_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
-    //   $full_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
-    //     'image_locations' => [
-    //       'local' => TRUE,
-    //       'remote' => TRUE,
-    //     ],
-    //   ];
-
-    //   $full_html_editor_config->setData($full_html_editor_config_data)->save(TRUE);
-    // }
-
-    // Update "Simple editor" editor config.
-    // ------------------------------------------------------------------------.
-    // # filter_image_resize:
-    // #   id: filter_image_resize
-    // #   provider: image_resize_filter
-    // #   status: true
-    // #   weight: 0
-    // #   settings:
-    // #     image_locations:
-    // #       local: true
-    // #       remote: true
-    // #
-    // # .
-    // $basic_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.basic_html');
-    // if (isset($basic_html_editor_config)) {
-    //   $basic_html_editor_config_data = $basic_html_editor_config->get();
-    //   $basic_html_editor_config_data['filters']['filter_image_resize']['status'] = TRUE;
-    //   $basic_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
-    //     'image_locations' => [
-    //       'local' => TRUE,
-    //       'remote' => TRUE,
-    //     ],
-    //   ];
-
-    //   $basic_html_editor_config->setData($basic_html_editor_config_data)->save(TRUE);
-    // }
-
-    // Update "HTML code" editor config.
-    // ------------------------------------------------------------------------.
-    // # filter_image_resize:
-    // #   id: filter_image_resize
-    // #   provider: image_resize_filter
-    // #   status: false
-    // #   weight: -42
-    // #   settings:
-    // #     image_locations:
-    // #       local: false
-    // #       remote: false
-    // #
-    // # .
-  //   $code_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
-  //   if (isset($code_html_editor_config)) {
-  //     $code_html_editor_config_data = $code_html_editor_config->get();
-  //     $code_html_editor_config_data['filters']['filter_image_resize']['status'] = FALSE;
-  //     $code_html_editor_config_data['filters']['filter_image_resize']['settings'] = [
-  //       'image_locations' => [
-  //         'local' => FALSE,
-  //         'remote' => FALSE,
-  //       ],
-  //     ];
-
-  //     $code_html_editor_config->setData($code_html_editor_config_data)->save(TRUE);
-  //   }
-  // }
 }
 
 /**
@@ -265,14 +177,7 @@ function varbase_editor_update_8701() {
  * Issue #3157438: Fix CKEditor Media Embed not working on any https env.
  */
 function varbase_editor_update_8702() {
-  // if (\Drupal::moduleHandler()->moduleExists('ckeditor_media_embed')) {
-  //   $ckeditor_media_embed_settings = \Drupal::service('config.factory')->getEditable('ckeditor_media_embed.settings');
-  //   $embed_provider = $ckeditor_media_embed_settings->get('embed_provider');
-  //   if (isset($embed_provider) && !empty($embed_provider)) {
-  //     $embed_provider = str_replace("http:", "", $embed_provider);
-  //     $ckeditor_media_embed_settings->set('embed_provider', $embed_provider)->save(TRUE);
-  //   }
-  // }
+
 }
 
 /**
@@ -281,39 +186,7 @@ function varbase_editor_update_8702() {
  * For the Rich editor and Simple editor text formats.
  */
 function varbase_editor_update_90001() {
-  // if (\Drupal::moduleHandler()->moduleExists('ckeditor_media_embed')
-  //   && \Drupal::moduleHandler()->moduleExists('blazy')) {
 
-  //   $filter_format_basic_html = \Drupal::service('config.factory')->getEditable('filter.format.basic_html');
-  //   $filter_format_basic_html_filters = $filter_format_basic_html->get('filters');
-  //   if (isset($filter_format_basic_html_filters['blazy_filter'])
-  //     && isset($filter_format_basic_html_filters['blazy_filter']['settings'])
-  //     && isset($filter_format_basic_html_filters['blazy_filter']['settings']['filter_tags'])
-  //     && isset($filter_format_basic_html_filters['blazy_filter']['settings']['filter_tags']['iframe'])) {
-  //     $filter_format_basic_html_filters['blazy_filter']['settings']['filter_tags']['iframe'] = 0;
-  //     $filter_format_basic_html->set('filters', $filter_format_basic_html_filters)->save(TRUE);
-  //   }
-
-  //   $filter_format_full_html = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
-  //   $filter_format_full_html_filters = $filter_format_full_html->get('filters');
-  //   if (isset($filter_format_full_html_filters['blazy_filter'])
-  //     && isset($filter_format_full_html_filters['blazy_filter']['settings'])
-  //     && isset($filter_format_full_html_filters['blazy_filter']['settings']['filter_tags'])
-  //     && isset($filter_format_full_html_filters['blazy_filter']['settings']['filter_tags']['iframe'])) {
-  //     $filter_format_full_html_filters['blazy_filter']['settings']['filter_tags']['iframe'] = 0;
-  //     $filter_format_full_html->set('filters', $filter_format_full_html_filters)->save(TRUE);
-  //   }
-
-  //   $filter_format_code_html = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
-  //   $filter_format_code_html_filters = $filter_format_code_html->get('filters');
-  //   if (isset($filter_format_code_htmll_filters['blazy_filter'])
-  //     && isset($filter_format_code_html_filters['blazy_filter']['settings'])
-  //     && isset($filter_format_code_html_filters['blazy_filter']['settings']['filter_tags'])
-  //     && isset($filter_format_code_html_filters['blazy_filter']['settings']['filter_tags']['iframe'])) {
-  //     $filter_format_code_html_filters['blazy_filter']['settings']['filter_tags']['iframe'] = 0;
-  //     $filter_format_code_html->set('filters', $filter_format_code_html_filters)->save(TRUE);
-  //   }
-  // }
 }
 
 /**

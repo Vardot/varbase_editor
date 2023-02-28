@@ -1,0 +1,3 @@
+id: editor
+permissions:
+  - 'use text format full_html'
