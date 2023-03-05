@@ -15,7 +15,6 @@ install:
   - extlink
   - linkit
   - editor_advanced_link
-  - anchor_link
   - pathologic
   - token
   - token_filter

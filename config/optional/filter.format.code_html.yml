@@ -109,14 +109,14 @@ filters:
     status: false
     weight: -35
     settings:
-      media_switch: ''
-      hybrid_style: ''
-      box_style: ''
-      box_caption: ''
       filter_tags:
         img: img
         iframe: '0'
+      media_switch: ''
+      box_style: ''
+      hybrid_style: ''
       use_data_uri: '0'
+      box_caption: ''
   token_filter:
     id: token_filter
     provider: token_filter

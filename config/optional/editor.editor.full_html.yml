@@ -4,89 +4,151 @@ dependencies:
   config:
     - filter.format.full_html
   module:
-    - ckeditor
+    - ckeditor5
 format: full_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: 'Block Formatting'
-          items:
-            - Cut
-            - Copy
-            - Paste
-            - PasteFromWord
-            - '-'
-            - Undo
-            - Redo
-        -
-          name: Media
-          items:
-            - DrupalMediaLibrary
-            - gallery
-            - Embed
-            - '-'
-            - Blockquote
-            - HorizontalRule
-            - '-'
-            - Table
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - '-'
-            - DrupalUnlink
-            - Anchor
-        -
-          name: Tools
-          items:
-            - ShowBlocks
-            - Maximize
-            - Source
-      -
-        -
-          name: Style
-          items:
-            - Styles
-            - Format
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-            - Underline
-            - Strike
-            - '-'
-            - Subscript
-            - Superscript
-            - '-'
-            - RemoveFormat
-        -
-          name: Lists
-          items:
-            - NumberedList
-            - BulletedList
-            - '-'
-            - Outdent
-            - Indent
-        -
-          name: Alignment
-          items:
-            - JustifyLeft
-            - JustifyCenter
-            - JustifyRight
-            - '-'
-            - BidiLtr
-            - BidiRtl
-            - '-'
+    items:
+      - undo
+      - redo
+      - '|'
+      - drupalMedia
+      - blockQuote
+      - horizontalLine
+      - insertTable
+      - '|'
+      - link
+      - '|'
+      - sourceEditing
+      - '|'
+      - style
+      - heading
+      - codeBlock
+      - '|'
+      - bold
+      - italic
+      - underline
+      - strikethrough
+      - subscript
+      - superscript
+      - removeFormat
+      - '|'
+      - numberedList
+      - bulletedList
+      - outdent
+      - indent
+      - '|'
+      - alignment
+      - direction
   plugins:
-    stylescombo:
-      styles: "h2.display-1|Display 1\r\nh2.display-2|Display 2\r\nh3.display-3|Display 3\r\nh4.display-4|Display 4\r\ndiv.bs-callout|Callout\r\ndiv.bs-callout.bs-callout-danger|Callout danger\r\ndiv.bs-callout.bs-callout-warning|Callout warning\r\ndiv.bs-callout.bs-callout-info|Callout Info\r\ndiv.well|Well\r\ndiv.well.well-lg|Well large\r\ndiv.well.well-sm|Well small\r\ndiv.alert.alert-success|Alert success\r\ndiv.alert.alert-info|Alert info\r\ndiv.alert.alert-warning|Alert warning\r\ndiv.alert.alert-danger|Alert danger\r\ndiv.card.bg-primary|Card primary\r\ndiv.card.bg-success|Card success\r\ndiv.card.bg-info|Card info\r\ndiv.card.bg-warning|Card warning\r\ndiv.card.bg-danger|Card danger\r\ndiv.card-header|Card header\r\ndiv.card-title|Card title\r\ndiv.card-body|Card body\r\ndiv.card-footer|Card footer"
-    drupallink:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      reversed: true
+      startIndex: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Display 1'
+          element: '<h2 class="display-1">'
+        -
+          label: 'Display 2'
+          element: '<h2 class="display-2">'
+        -
+          label: 'Display 3'
+          element: '<h3 class="display-3">'
+        -
+          label: 'Display 4'
+          element: '<h4 class="display-4">'
+        -
+          label: Callout
+          element: '<div class="bs-callout">'
+        -
+          label: 'Callout danger'
+          element: '<div class="bs-callout bs-callout-danger">'
+        -
+          label: 'Callout warning'
+          element: '<div class="bs-callout bs-callout-warning">'
+        -
+          label: 'Callout Info'
+          element: '<div class="bs-callout bs-callout-info">'
+        -
+          label: Well
+          element: '<div class="well">'
+        -
+          label: 'Well large'
+          element: '<div class="well well-lg">'
+        -
+          label: 'Well small'
+          element: '<div class="well well-sm">'
+        -
+          label: 'Alert success'
+          element: '<div class="alert alert-success">'
+        -
+          label: 'Alert info'
+          element: '<div class="alert alert-info">'
+        -
+          label: 'Alert warning'
+          element: '<div class="alert alert-warning">'
+        -
+          label: 'Alert danger'
+          element: '<div class="alert alert-danger">'
+        -
+          label: 'Card primary'
+          element: '<div class="card bg-primary">'
+        -
+          label: 'Card success'
+          element: '<div class="card bg-success">'
+        -
+          label: 'Card info'
+          element: '<div class="card bg-info">'
+        -
+          label: 'Card warning'
+          element: '<div class="card bg-warning">'
+        -
+          label: 'Card danger'
+          element: '<div class="card bg-danger">'
+        -
+          label: 'Card header'
+          element: '<div class="card-header">'
+        -
+          label: 'Card title'
+          element: '<div class="card-title">'
+        -
+          label: 'Card body'
+          element: '<div class="card-body">'
+        -
+          label: 'Card footer'
+          element: '<div class="card-footer">'
+    ckeditor_bidi_ckeditor5:
+      rtl_default: false
+    editor_advanced_link_link:
+      enabled_attributes:
+        - aria-label
+        - class
+        - id
+        - rel
+        - target
+        - title
+    linkit_extension:
       linkit_enabled: true
       linkit_profile: linkit_all_nodes
+    media_media:
+      allow_view_mode_override: false
 image_upload:
   status: true
   scheme: public

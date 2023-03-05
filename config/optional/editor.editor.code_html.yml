@@ -207,4 +207,6 @@ settings:
   print_margins: true
   auto_complete: true
   use_wrap_mode: true
+  _core:
+    default_config_hash: z7BcNFCDCtXwr4-Gea5wfcns2KMG9BzL96hWfZMvUDQ
 image_upload: {  }

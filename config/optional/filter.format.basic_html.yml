@@ -25,7 +25,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media alt title data-entity-type data-entity-uuid data-view-mode data-align data-caption>'
+      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dd> <dl> <dt> <span> <img src alt height width data-*> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <a hreflang accesskey target href title id rel data-entity-type data-entity-uuid data-entity-substitution> <blockquote cite> <ol type start> <ul type> <drupal-media title data-entity-type data-entity-uuid alt data-view-mode data-caption data-align> <strong> <em> <u> <code> <li>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -105,9 +105,8 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      show_invisibles: '0'
       print_margins: '1'
-      auto_complete: '1'
+      show_invisibles: '0'
       use_wrap_mode: '1'
   blazy_filter:
     id: blazy_filter

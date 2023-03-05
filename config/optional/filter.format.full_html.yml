@@ -49,7 +49,7 @@ filters:
     status: false
     weight: -41
     settings:
-      allowed_html: '<em * id class> <strong * id class> <cite * id class> <blockquote * id cite class> <code * id class> <ul * id type class> <ol * id start type class> <li * id class> <dl * id class> <dt * id class> <dd * id class> <h5 * id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 * id class="text-align-left text-align-center text-align-right text-align-justify"> <img src height width alt data-*> <hr * id class> <table * id class> <caption * id class> <tbody * id class> <thead * id class> <tfoot * id class> <th * id class> <td * id class> <tr * id class> <a id href hreflang !href accesskey rel target title name class> <p class="text-align-left text-align-center text-align-right text-align-justify red-background red-underline-border red-quote-underline-border red-rectangle-border red-exclamation-mark side-block left-side-block right-side-block"> <pre * id class> <u> <s> <sub * id class> <sup * id class> <div * id class> <figure *> <picture *> <article *> <figcaption *> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <drupal-entity * data-* data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <h2 * id class="text-align-left text-align-center text-align-right text-align-justify display-1 display-2"> <h3 * id class="text-align-left text-align-center text-align-right text-align-justify display-3"> <h4 * id class="text-align-left text-align-center text-align-right text-align-justify display-4"> <h1>'
+      allowed_html: '<h2 class="display-1 display-2"> <h3 class="display-3"> <h4 class="display-4"> <div class="bs-callout bs-callout-danger bs-callout-warning bs-callout-info well well-lg well-sm alert alert-success alert-info alert-warning alert-danger card bg-primary bg-success bg-info bg-warning bg-danger card-header card-title card-body card-footer">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:
@@ -105,9 +105,8 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      show_invisibles: '0'
       print_margins: '1'
-      auto_complete: '1'
+      show_invisibles: '0'
       use_wrap_mode: '1'
   blazy_filter:
     id: blazy_filter
