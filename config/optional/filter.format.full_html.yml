@@ -11,6 +11,7 @@ dependencies:
     - blazy
     - editor
     - entity_embed
+    - linkit
     - media
     - pathologic
     - slick
@@ -49,7 +50,7 @@ filters:
     status: false
     weight: -41
     settings:
-      allowed_html: '<h2 class="display-1 display-2"> <h3 class="display-3"> <h4 class="display-4"> <div class="bs-callout bs-callout-danger bs-callout-warning bs-callout-info well well-lg well-sm alert alert-success alert-info alert-warning alert-danger card bg-primary bg-success bg-info bg-warning bg-danger card-header card-title card-body card-footer">'
+      allowed_html: '<div class="bs-callout bs-callout-danger bs-callout-warning bs-callout-info well well-lg well-sm alert alert-success alert-info alert-warning alert-danger card bg-primary bg-success bg-info bg-warning bg-danger card-header card-title card-body card-footer"> <span> <h2 class="display-1 display-2"> <h3 class="display-3"> <h4 class="display-4">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:
@@ -178,3 +179,10 @@ filters:
       thumbnail_effect: ''
       thumbnail_position: ''
       override: false
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: 0
+    settings:
+      title: true

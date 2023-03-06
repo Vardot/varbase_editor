@@ -105,8 +105,9 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      print_margins: '1'
       show_invisibles: '0'
+      print_margins: '1'
+      auto_complete: true
       use_wrap_mode: '1'
   blazy_filter:
     id: blazy_filter
@@ -114,14 +115,14 @@ filters:
     status: true
     weight: -35
     settings:
-      media_switch: ''
-      hybrid_style: ''
-      box_style: ''
-      box_caption: ''
       filter_tags:
         img: img
         iframe: '0'
+      media_switch: ''
+      box_style: ''
+      hybrid_style: ''
       use_data_uri: '0'
+      box_caption: ''
   media_embed:
     id: media_embed
     provider: media
@@ -154,13 +155,13 @@ filters:
     weight: 4
     settings:
       optionset: default
+      media_switch: ''
       layout: ''
       skin: ''
       background: false
       loading: ''
       preload: false
       image_style: ''
-      media_switch: ''
       ratio: ''
       thumbnail_style: ''
       overridables:

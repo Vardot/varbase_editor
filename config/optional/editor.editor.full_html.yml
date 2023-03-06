@@ -20,11 +20,12 @@ settings:
       - '|'
       - link
       - '|'
+      - code
+      - codeBlock
       - sourceEditing
-      - '|'
+      - '-'
       - style
       - heading
-      - codeBlock
       - '|'
       - bold
       - italic
@@ -59,7 +60,9 @@ settings:
       reversed: true
       startIndex: true
     ckeditor5_sourceEditing:
-      allowed_tags: {  }
+      allowed_tags:
+        - '<div>'
+        - '<span>'
     ckeditor5_style:
       styles:
         -
@@ -148,7 +151,7 @@ settings:
       linkit_enabled: true
       linkit_profile: linkit_all_nodes
     media_media:
-      allow_view_mode_override: false
+      allow_view_mode_override: true
 image_upload:
   status: true
   scheme: public
