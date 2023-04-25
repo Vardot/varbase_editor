@@ -75,7 +75,7 @@
       },
       "drupal/linkit": {
         "Issue #3158783: Links around media images break when edited, using Linkit and CKeditor":
-        "https://www.drupal.org/files/issues/2022-08-01/links_around_media_images_break_ckeditor-3158783-21.patch",
+        "https://www.drupal.org/files/issues/2023-04-25/3158783-24.patch",
         "Issue #3201405: Edit internal link and remove the URL breaks layout builder":
         "https://www.drupal.org/files/issues/2021-03-03/3201405-2.patch"
       }
