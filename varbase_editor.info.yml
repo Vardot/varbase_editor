@@ -14,7 +14,6 @@ install:
   - entity_embed
   - extlink
   - linkit
-  - editor_advanced_link
   - pathologic
   - token
   - token_filter

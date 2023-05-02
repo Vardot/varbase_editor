@@ -62,12 +62,6 @@ settings:
         - '<drupal-media title>'
     ckeditor_bidi_ckeditor5:
       rtl_default: false
-    editor_advanced_link_link:
-      enabled_attributes:
-        - id
-        - rel
-        - target
-        - title
     linkit_extension:
       linkit_enabled: true
       linkit_profile: linkit_all_nodes
