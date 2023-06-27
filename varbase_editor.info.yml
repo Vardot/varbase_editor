@@ -13,6 +13,7 @@ install:
   - ckeditor_bidi
   - entity_embed
   - extlink
+  - editor_advanced_link
   - linkit
   - pathologic
   - token
