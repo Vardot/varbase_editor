@@ -13,11 +13,14 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_editor_install() {
 
-  // Processer for install: in varbase_editor.info.yml file.
-  // --------------------------------------------------------------------------.
+  // Processor for install: in varbase_editor.info.yml file.
   ModuleInstallerFactory::installList('varbase_editor');
 
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^.*(settings.yml)$/i');
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_editor');
+
 }
 
 /**
