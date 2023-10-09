@@ -18,7 +18,6 @@ function varbase_editor_install() {
   ModuleInstallerFactory::installList('varbase_editor');
 
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^.*(settings.yml)$/i');
-
 }
 
 /**
