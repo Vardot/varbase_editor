@@ -1,0 +1,4 @@
+id: seo_admin
+permissions:
+  - 'use text format code_html'
+  - 'use text format full_html'
