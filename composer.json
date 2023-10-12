@@ -41,7 +41,7 @@
     "drupal/linkit": "6.1.2",
     "drupal/editor_advanced_link": "~2.0",
     "drupal/image_resize_filter": "~1.0",
-    "drupal/ckeditor_media_embed": "~1.0",
+    "drupal/ckeditor_media_embed": "1.12.0",
     "drupal/anchor_link": "~1.0",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~2.0"
@@ -76,7 +76,9 @@
       },
       "drupal/ckeditor_media_embed": {
         "Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG":
-        "https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch"
+        "https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch",
+        "Issue #3393693: Add Drush 12 compatibility for custom CKEditor Media Embed Plugin commands":
+        "https://www.drupal.org/files/issues/2023-10-12/ckeditor_media_embed-1-x-3393693-5.patch"
       },
       "drupal/linkit": {
         "Issue #3158783: Links around media images break when edited, using Linkit and CKeditor":
