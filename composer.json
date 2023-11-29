@@ -27,10 +27,10 @@
     }
   },
   "require": {
-    "composer/installers": "~2.0",
-    "oomphinc/composer-installers-extender": "~2.0",
-    "cweagans/composer-patches": "~1.0",
-    "drupal/core": "~10.1.0",
+    "composer/installers": "~2",
+    "oomphinc/composer-installers-extender": "~2",
+    "cweagans/composer-patches": "~1",
+    "drupal/core": "~10",
     "drupal/ckeditor": "1.0.2",
     "vardot/module-installer-factory": "~1.0",
     "drupal/pathologic": "~1.0 || ~2.0",
@@ -64,7 +64,7 @@
     },
     "drupal-libraries": {
       "libraries": [
-          {"name": "ace", "package": "npm-asset/ace-builds"}
+        {"name": "ace", "package": "npm-asset/ace-builds"}
       ]
     },
     "enable-patching": true,
