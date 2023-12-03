@@ -18,3 +18,4 @@ install:
   - pathologic
   - token
   - token_filter
+  - anchor_link

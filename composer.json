@@ -33,17 +33,19 @@
     "drupal/core": "~10",
     "vardot/entity-definition-update-manager": "~1",
     "vardot/module-installer-factory": "~1",
-    "drupal/pathologic": "~2.0",
-    "drupal/ckeditor_bidi": "~4.0",
-    "drupal/ace_editor": "~2.0",
-    "drupal/extlink": "~1.0",
+    "drupal/pathologic": "~2",
+    "drupal/ckeditor_bidi": "~4",
+    "drupal/ace_editor": "~2",
+    "drupal/extlink": "~1",
     "drupal/linkit": "~6.1.0",
     "drupal/editor_advanced_link": "~2.2.0",
-    "drupal/token": "~1.0",
-    "drupal/token_filter": "~2.0"
+    "drupal/token": "~1",
+    "drupal/token_filter": "~2",
+    "drupal/anchor_link": "~3"
   },
   "suggest": {
-    "npm-asset/ace-builds": "~1.0: Provides JavaScript library necessary for ACE code Editor"
+    "npm-asset/ace-builds": "~1.0: Provides JavaScript library necessary for ACE code Editor",
+    "npm-asset/northernco--ckeditor5-anchor-drupal": "^0.4.0: Implements the anchor feature for CKEditor 5."
   },
   "extra": {
     "installer-types": [
