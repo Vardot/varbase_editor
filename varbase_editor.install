@@ -20,6 +20,8 @@ function varbase_editor_install() {
   ModuleInstallerFactory::installList('varbase_editor');
 
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^.*(settings.yml)$/i');
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^filter.format.*(.yml)$/i');
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^editor.editor.*(.yml)$/i');
 
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_editor');

@@ -8,14 +8,18 @@ dependencies:
   - drupal:editor
   - drupal:ckeditor5
   - drupal:filter
+  - drupal:media
+  - drupal:media_library
 install:
+  - anchor_link
   - ace_editor
   - ckeditor_bidi
   - entity_embed
+  - blazy
+  - slick
   - extlink
   - editor_advanced_link
   - linkit
   - pathologic
   - token
   - token_filter
-  - anchor_link

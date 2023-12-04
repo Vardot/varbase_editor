@@ -39,13 +39,18 @@
     "drupal/extlink": "~1",
     "drupal/linkit": "~6.1.0",
     "drupal/editor_advanced_link": "~2.2.0",
+    "drupal/anchor_link": "~3",
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
-    "drupal/anchor_link": "~3"
+    "drupal/blazy": "~2",
+    "drupal/slick": "~2",
+    "drupal/entity_embed": "~1"
   },
   "suggest": {
-    "npm-asset/ace-builds": "~1.0: Provides JavaScript library necessary for ACE code Editor",
-    "npm-asset/northernco--ckeditor5-anchor-drupal": "^0.4.0: Implements the anchor feature for CKEditor 5."
+    "npm-asset/ace-builds": "~1 : Provides JavaScript library necessary for ACE code Editor",
+    "npm-asset/northernco--ckeditor5-anchor-drupal": "^0.4.0 : Implements the anchor feature for CKEditor 5.",
+    "npm-asset/blazy": "~1 : Provides JavaScript library necessary for Blazy loading",
+    "npm-asset/slick-carousel": "~1 : Provides JavaScript library necessary for Slick Carousel"
   },
   "extra": {
     "installer-types": [
@@ -54,6 +59,9 @@
     ],
     "installer-paths": {
       "libraries/ace": ["npm-asset/ace-builds"],
+      "libraries/blazy": ["npm-asset/blazy"],
+      "libraries/slick": ["npm-asset/slick-carousel"],
+      "libraries/ckeditor5-anchor-drupal": ["npm-asset/northernco--ckeditor5-anchor-drupal"],
       "libraries/{$name}": [
         "type:drupal-library",
         "type:bower-asset",
@@ -62,7 +70,10 @@
     },
     "drupal-libraries": {
       "libraries": [
-          {"name": "ace", "package": "npm-asset/ace-builds"}
+        {"name": "ace", "package": "npm-asset/ace-builds"},
+        {"name": "ckeditor5-anchor-drupal", "package": "npm-asset/northernco--ckeditor5-anchor-drupal"},
+        {"name": "blazy", "package": "npm-asset/blazy"},
+        {"name": "slick", "package": "npm-asset/slick-carousel"}
       ]
     },
     "enable-patching": true,
