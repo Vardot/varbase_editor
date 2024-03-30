@@ -23,13 +23,8 @@ Integrates a rich editor into Varbase distribution.
 * [Ace Code Editor](https://www.drupal.org/project/ace_editor)
 
 ### Rich editor
-![](https://www.drupal.org/files/issues/2019-08-25/varbase-editor--rich-editor--dev-varbase7c-ordered.png)
-
 ### Simple editor
-![](https://www.drupal.org/files/issues/2019-08-24/varbase-editor--sample-editor--dev-varbase7c.png)
-
 ### HTML code
-![](https://www.drupal.org/files/issues/varbase_editor-text-format--code_html.png)
 
 
 
