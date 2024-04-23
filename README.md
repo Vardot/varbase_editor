@@ -23,21 +23,13 @@ Integrates a rich editor into Varbase distribution.
 * [CKEditor BiDi Buttons](https://www.drupal.org/project/ckeditor_bidi)
 * [Ace Code Editor](https://www.drupal.org/project/ace_editor)
 
-### Rich editor
-![](https://www.drupal.org/files/issues/2019-08-25/varbase-editor--rich-editor--dev-varbase7c-ordered.png)
-
-### Simple editor
-![](https://www.drupal.org/files/issues/2019-08-24/varbase-editor--sample-editor--dev-varbase7c.png)
-
-### HTML code
-![](https://www.drupal.org/files/issues/varbase_editor-text-format--code_html.png)
 
 
 
 ## Use With [Varbase](https://www.drupal.org/project/varbase) Distribution:
 This module is best used with [Varbase](https://www.drupal.org/project/varbase) distribution.
 
-Can be installed with any Drupal 8/9 site.
+Can be installed with any Drupal site.
  Even if installed with the Minimal or Standard profile.
 However, using it with [Varbase](https://www.drupal.org/project/varbase) gives you way much more cool stuff!
 

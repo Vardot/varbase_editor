@@ -6,10 +6,10 @@ core_version_requirement: ~10
 dependencies:
   - drupal:node
   - drupal:editor
+  - drupal:ckeditor5
   - drupal:filter
 install:
   - ace_editor
-  - ckeditor
   - ckeditor_bidi
   - ckeditor_media_embed
   - entity_embed
