@@ -27,7 +27,6 @@
     "vardot/varbase-patches": "~9.2.0",
     "vardot/entity-definition-update-manager": "~1",
     "vardot/module-installer-factory": "~1",
-    "drupal/ckeditor": "~1",
     "drupal/pathologic": "~2",
     "drupal/ckeditor_bidi": "~4",
     "drupal/ckeditor_paste_filter": "~1",
