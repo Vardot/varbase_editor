@@ -12,9 +12,7 @@ install:
   - ckeditor
   - ckeditor_bidi
   - ckeditor_media_embed
-  - ckeditor_paste_filter
   - entity_embed
-  - image_resize_filter
   - extlink
   - linkit
   - editor_advanced_link
