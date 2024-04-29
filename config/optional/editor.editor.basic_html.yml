@@ -15,6 +15,7 @@ settings:
       - bold
       - italic
       - underline
+      - '|'
       - removeFormat
       - '|'
       - numberedList
@@ -28,8 +29,6 @@ settings:
       - direction
       - '|'
       - sourceEditing
-      - '|'
-      - code
   plugins:
     ckeditor5_heading:
       enabled_headings:
