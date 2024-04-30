@@ -15,14 +15,19 @@ settings:
       - '|'
       - drupalMedia
       - gallery
+      - MediaEmbed
+      - '|'
       - blockQuote
       - horizontalLine
+      - '|'
       - insertTable
       - '|'
       - link
+      - anchor
       - '|'
       - showBlocks
       - sourceEditing
+      - '-'
       - '|'
       - style
       - heading
@@ -32,16 +37,20 @@ settings:
       - italic
       - underline
       - strikethrough
+      - '|'
       - subscript
       - superscript
+      - '|'
       - removeFormat
       - '|'
       - numberedList
       - bulletedList
+      - '|'
       - outdent
       - indent
       - '|'
       - alignment
+      - '|'
       - direction
   plugins:
     ckeditor5_alignment:
