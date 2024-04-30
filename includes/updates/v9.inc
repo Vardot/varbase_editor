@@ -58,3 +58,36 @@ function varbase_editor_update_90003() {
   // after all used modules.
   ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_editor');
 }
+
+/**
+ * Issue #3442854: Add CKEditor 5 Paste Filter module to Varbase Editor.
+ */
+function varbase_editor_update_90004() {
+  if (!\Drupal::moduleHandler()->moduleExists('ckeditor5_paste_filter')) {
+    \Drupal::service('module_installer')->install(['ckeditor5_paste_filter'], FALSE);
+    $editors = [
+      'editor.editor.full_html',
+      'editor.editor.basic_html',
+    ];
+
+    $manager = \Drupal::service('plugin.manager.ckeditor5.plugin');
+    $paste_filter = $manager->getPlugin('ckeditor5_paste_filter_pasteFilter', null);
+    $paste_filter_config = $paste_filter->defaultConfiguration();
+    $paste_filter_config['enabled'] = TRUE;
+
+    foreach ($editors as $editor) {
+      $editor_config = \Drupal::service('config.factory')->getEditable($editor);
+      if ($editor_config) {
+        $editor_data = $editor_config->get();
+        if (isset($editor_data['settings']['plugins'])) {
+          $editor_data['settings']['plugins']['ckeditor5_paste_filter_pasteFilter'] = $paste_filter_config;
+        } else {
+          $editor_data['settings']['plugins'] = [
+              'ckeditor5_paste_filter_pasteFilter' => $paste_filter_config,
+          ];
+        }
+        $editor_config->setData($editor_data)->save(TRUE);
+      }
+    }
+  }
+}

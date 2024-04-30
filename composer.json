@@ -38,6 +38,7 @@
     "drupal/token_filter": "~2",
     "drupal/blazy": "~2",
     "drupal/slick": "~2",
-    "drupal/entity_embed": "~1"
+    "drupal/entity_embed": "~1",
+    "drupal/ckeditor5_paste_filter": "~1"
   }
 }
