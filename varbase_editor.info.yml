@@ -20,3 +20,4 @@ install:
   - pathologic
   - token
   - token_filter
+  - ckeditor5_paste_filter
