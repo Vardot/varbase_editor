@@ -1,0 +1,69 @@
+name: Varbase Editor - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+install:
+  - anchor_link
+  - ace_editor
+  - ckeditor_bidi
+  - entity_embed
+  - blazy
+  - slick
+  - extlink
+  - editor_advanced_link
+  - ckeditor_media_embed
+  - linkit
+  - pathologic
+  - token
+  - token_filter
+  - ckeditor5_paste_filter
+config:
+  import:
+    ace_editor: '*'
+    editor_advanced_link: '*'
+    ckeditor_media_embed: '*'
+    ckeditor5_paste_filter: '*'
+    varbase_editor:
+      - filter.format.basic_html
+      - filter.format.code_html
+      - filter.format.full_html
+      - filter.format.plain_text
+      - editor.editor.basic_html
+      - editor.editor.code_html
+      - editor.editor.full_html
+      - linkit.linkit_profile.linkit_all_nodes
+  actions:
+    extlink.settings:
+      simple_config_update:
+        extlink_alert_text: ''
+        extlink_target: true
+        extlink_mailto_class: '0'
+        extlink_class: '0'
+    pathologic.settings:
+      simple_config_update:
+        protocol_style: path
+    ace_editor.settings:
+      simple_config_update:
+        theme: idle_fingers
+        syntax: html
+        height: auto
+        width: '700px'
+        font_size: '9pt'
+        show_invisibles: false
+    user.role.editor:
+      grantPermissions:
+        - 'use text format basic_html'
+        - 'use text format full_html'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'use text format basic_html'
+        - 'use text format full_html'
+        - 'use text format code_html'
+    user.role.content_admin:
+      grantPermissions:
+        - 'use text format basic_html'
+        - 'use text format full_html'
+    user.role.site_admin:
+      grantPermissions:
+        - 'use text format basic_html'
+        - 'use text format full_html'
+        - 'use text format code_html'

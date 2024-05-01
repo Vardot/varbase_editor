@@ -5,7 +5,8 @@
  * Install, update and uninstall functions for the Varbase editor module.
  */
 
-use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 // Include all helpers and updates.
 include_once __DIR__ . '/includes/helpers.inc';
@@ -16,14 +17,7 @@ include_once __DIR__ . '/includes/updates.inc';
  */
 function varbase_editor_install() {
 
-  // Processor for install: in varbase_editor.info.yml file.
-  ModuleInstallerFactory::installList('varbase_editor');
-
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^.*(settings.yml)$/i');
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^filter.format.*(.yml)$/i');
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_editor', '/^editor.editor.*(.yml)$/i');
-
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_editor');
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
 }

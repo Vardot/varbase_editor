@@ -1,4 +1,0 @@
-id: content_admin
-permissions:
-  - 'use text format basic_html'
-  - 'use text format full_html'
