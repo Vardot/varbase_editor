@@ -33,6 +33,7 @@
     "drupal/extlink": "~1",
     "drupal/linkit": "~6.1.0",
     "drupal/editor_advanced_link": "~2.2.0",
+    "drupal/ckeditor_media_embed": "~2",
     "drupal/anchor_link": "~3",
     "drupal/token": "~1",
     "drupal/token_filter": "~2",

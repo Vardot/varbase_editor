@@ -1,3 +1,2 @@
 id: authenticated
-permissions:
-  - 'use text format basic_html'
+permissions: {  }

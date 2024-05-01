@@ -19,6 +19,7 @@ install:
   - slick
   - extlink
   - editor_advanced_link
+  - ckeditor_media_embed
   - linkit
   - pathologic
   - token
