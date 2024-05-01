@@ -1,3 +1,4 @@
+uuid: a42c52f3-f11f-477f-9446-ffad7f1a7e8a
 langcode: en
 status: true
 dependencies:
@@ -12,9 +13,9 @@ dependencies:
     - ckeditor_media_embed
     - editor
     - entity_embed
-    - image_resize_filter
     - media
     - pathologic
+    - slick
     - token_filter
 name: 'Rich editor'
 format: full_html
@@ -32,8 +33,9 @@ filters:
       width: 700px
       font_size: 10pt
       line_numbers: '1'
-      print_margins: '1'
       show_invisibles: '0'
+      print_margins: '1'
+      auto_complete: '1'
       use_wrap_mode: '1'
   blazy_filter:
     id: blazy_filter
@@ -148,6 +150,14 @@ filters:
         image: image
         remote_video: remote_video
         video: video
+  slick_filter:
+    id: slick_filter
+    provider: slick
+    status: false
+    weight: 4
+    settings:
+      optionset: default
+      media_switch: ''
   token_filter:
     id: token_filter
     provider: token_filter
