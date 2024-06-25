@@ -27,10 +27,8 @@
     }
   },
   "require": {
-    "drupal/core": "~10",
+    "drupal/core": "~10.3.0 || ~11.0.0",
     "vardot/varbase-patches": "~10",
-    "vardot/entity-definition-update-manager": "~1",
-    "vardot/module-installer-factory": "~1",
     "drupal/pathologic": "~2",
     "drupal/ckeditor_bidi": "~4",
     "drupal/ace_editor": "~2",
