@@ -16,6 +16,7 @@ install:
   - token
   - token_filter
   - ckeditor5_paste_filter
+  - ckeditor_emoji
 config:
   import:
     ace_editor: '*'
