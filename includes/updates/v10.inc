@@ -158,3 +158,27 @@ function varbase_editor_update_100003() {
   }
 
 }
+
+/**
+ * Issue #3462267: Add CKEditor(5) Emoji module to CKEditor 5 in Varbase Editor.
+ *
+ * And enable it by default.
+ */
+function varbase_editor_update_100004() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_editor')->getPath();
+
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_editor_update_100004');
+  RecipeRunner::processRecipe($recipe);
+
+  if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'Emoji')) {
+    // Get the postion for thespecialCharacters button.
+    $special_characters_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', 'specialCharacters');
+
+    // Add a divider as (vertical separator) after removeFormat in the Rich Editor.
+    $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-emoji-to-rich-editor');
+    VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $special_characters_position + 1);
+    $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
+    RecipeRunner::processRecipe($recipe);
+  }
+
+}

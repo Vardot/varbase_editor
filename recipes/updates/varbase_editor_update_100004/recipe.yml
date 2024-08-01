@@ -1,0 +1,8 @@
+name: varbase_editor_update_100004
+description: 'Issue #3462267: Add CKEditor(5) Emoji module to CKEditor 5 in Varbase Editor and enable it by default'
+type: update
+install:
+  - ckeditor_emoji
+config:
+  import:
+    ckeditor_emoji: '*'
