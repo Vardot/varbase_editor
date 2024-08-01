@@ -26,6 +26,8 @@ settings:
       - code
       - codeBlock
       - sourceEditing
+      - showBlocks
+      - fullScreen
       - '-'
       - style
       - heading
@@ -37,6 +39,8 @@ settings:
       - subscript
       - superscript
       - removeFormat
+      - '|'
+      - specialCharacters
       - Emoji
       - '|'
       - numberedList
@@ -46,6 +50,9 @@ settings:
       - '|'
       - alignment
       - direction
+      - '|'
+      - wproofreader
+      - findAndReplace
   plugins:
     ckeditor5_alignment:
       enabled_alignments:

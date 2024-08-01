@@ -16,6 +16,12 @@ install:
   - token
   - token_filter
   - ckeditor5_paste_filter
+  - ckeditor5_plugin_pack
+  - ckeditor5_plugin_pack_find_and_replace
+  - ckeditor5_premium_features_fullscreen
+  - ckeditor5_premium_features
+  - ckeditor5_premium_features_wproofreader
+  - ckeditor5_plugin_pack_free_wproofreader
   - ckeditor_emoji
 config:
   import:

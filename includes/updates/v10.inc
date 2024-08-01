@@ -5,6 +5,9 @@
  * Contains varbase_editor_update_10###(s) hook updates.
  */
 
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
+
 /**
  * Issue #3405819: Add the Anchor Link ~3 module.
  *
@@ -77,4 +80,33 @@ function varbase_editor_update_100002() {
       }
     }
   }
+}
+
+/**
+ * Issue #3460065: Install and Enable the CKEditor Plug-in Pack.
+ */
+function varbase_editor_update_100003() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_editor')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_editor_update_100003');
+  RecipeRunner::processRecipe($recipe);
+
+  // Add showBlocks to Rich Editor.
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-showblocks-to-rich-editor');
+  RecipeRunner::processRecipe($recipe);
+
+  // Add fullScreen to Rich Editor.
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-fullscreen-to-rich-editor');
+  RecipeRunner::processRecipe($recipe);
+
+  // Add specialCharacters to Rich Editor.
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-specialcharacters-to-rich-editor');
+  RecipeRunner::processRecipe($recipe);
+
+  // Add wproofreader to Rich Editor.
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-wproofreader-to-rich-editor');
+  RecipeRunner::processRecipe($recipe);
+
+  // Add findAndReplace to Rich Editor.
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-findandreplace-to-rich-editor');
+  RecipeRunner::processRecipe($recipe);
 }

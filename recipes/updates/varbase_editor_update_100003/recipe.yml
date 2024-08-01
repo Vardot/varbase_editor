@@ -1,0 +1,10 @@
+name: varbase_editor_update_100003
+description: 'Issue #3460065: Install and Enable the CKEditor Plug-in Pack.'
+type: update
+install:
+  - ckeditor5_plugin_pack
+  - ckeditor5_plugin_pack_find_and_replace
+  - ckeditor5_premium_features_fullscreen
+  - ckeditor5_premium_features
+  - ckeditor5_premium_features_wproofreader
+  - ckeditor5_plugin_pack_free_wproofreader

@@ -1,0 +1,9 @@
+name: Add wproofreader to Rich Editor
+description: 'A recipe to manage default wproofreader button and plugin settings for the Rich Editor with CKEditor 5'
+type: optional
+config:
+  actions:
+    editor.editor.full_html:
+      addItemToToolbar:
+        item_name: wproofreader
+        position: 39
