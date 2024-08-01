@@ -1,9 +1,10 @@
-name: Add specialCharacters to Rich Editor
+name: Add Special Characters to Rich Editor
 description: 'A recipe to manage default specialCharacters button and plugin settings for the Rich Editor with CKEditor 5'
 type: optional
+install:
+  - ckeditor5_premium_features
 config:
   actions:
     editor.editor.full_html:
       addItemToToolbar:
         item_name: specialCharacters
-        position: 28

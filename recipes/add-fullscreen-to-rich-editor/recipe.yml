@@ -1,9 +1,10 @@
-name: Add fullScreen to Rich Editor
+name: Add Full Screen to Rich Editor
 description: 'A recipe to manage default fullScreen button and plugin settings for the Rich Editor with CKEditor 5'
 type: optional
+install:
+  - ckeditor5_premium_features_fullscreen
 config:
   actions:
     editor.editor.full_html:
       addItemToToolbar:
         item_name: fullScreen
-        position: 17

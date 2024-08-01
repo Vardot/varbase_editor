@@ -7,6 +7,7 @@
 
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
+use Drupal\varbase_editor\Recipe\VarbaseEditorRecipe;
 
 /**
  * Issue #3405819: Add the Anchor Link ~3 module.
@@ -73,7 +74,7 @@ function varbase_editor_update_100002() {
         }
         else {
           $editor_data['settings']['plugins'] = [
-              'ckeditor5_paste_filter_pasteFilter' => $paste_filter_config,
+            'ckeditor5_paste_filter_pasteFilter' => $paste_filter_config,
           ];
         }
         $editor_config->setData($editor_data)->save(TRUE);
@@ -83,30 +84,64 @@ function varbase_editor_update_100002() {
 }
 
 /**
- * Issue #3460065: Install and Enable the CKEditor Plug-in Pack.
+ * Issue #3460065: Add CKEditor Plug-in Pack module and enable,
+ *
+ * The fullscreen, find and replace, show blocks, and wproof reader plugins.
  */
 function varbase_editor_update_100003() {
   $module_path = Drupal::service('module_handler')->getModule('varbase_editor')->getPath();
+
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_editor_update_100003');
   RecipeRunner::processRecipe($recipe);
 
-  // Add showBlocks to Rich Editor.
-  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-showblocks-to-rich-editor');
+  // Get the first postion for wrapping.
+  $first_wrapping_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', '-');
+
+  // Add fullScreen to Rich Editor, positioned before the first wrapping.
+  $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-fullscreen-to-rich-editor');
+  if ($first_wrapping_position != -1 || $first_wrapping_position = 0) {
+    $recipe_data['config']['actions']['editor.editor.full_html']['addItemToToolbar']['position'] = $first_wrapping_position;
+  }
+  $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
   RecipeRunner::processRecipe($recipe);
 
-  // Add fullScreen to Rich Editor.
-  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-fullscreen-to-rich-editor');
+  // Add showBlocks to Rich Editor, positioned before the first wrapping.
+  $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-showblocks-to-rich-editor');
+  if ($first_wrapping_position != -1 || $first_wrapping_position = 0) {
+    $recipe_data['config']['actions']['editor.editor.full_html']['addItemToToolbar']['position'] = $first_wrapping_position;
+  }
+  $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
+  RecipeRunner::processRecipe($recipe);
+
+  // Get the postion for the Remove Format button.
+  $remove_format_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', 'removeFormat');
+
+  // Add a divider as (vertical separator) after removeFormat in the Rich Editor.
+  $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-divider-to-rich-editor');
+  if ($remove_format_position != -1) {
+    $recipe_data['config']['actions']['editor.editor.full_html']['addItemToToolbar']['position'] = $remove_format_position + 1;
+  }
+  $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
   RecipeRunner::processRecipe($recipe);
 
   // Add specialCharacters to Rich Editor.
-  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-specialcharacters-to-rich-editor');
+  $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-specialcharacters-to-rich-editor');
+  if ($first_wrapping_position != -1) {
+    $recipe_data['config']['actions']['editor.editor.full_html']['addItemToToolbar']['position'] = $remove_format_position + 2;
+  }
+  $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
   RecipeRunner::processRecipe($recipe);
 
-  // Add wproofreader to Rich Editor.
+  // Add a divider as (vertical separator) at the end of all items in the Rich Editor.
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-divider-to-rich-editor');
+  RecipeRunner::processRecipe($recipe);
+
+  // Add wproofreader at the end of all items in the Rich Editor.
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-wproofreader-to-rich-editor');
   RecipeRunner::processRecipe($recipe);
 
-  // Add findAndReplace to Rich Editor.
+  // Add findAndReplace at the end of all items in the Rich Editor.
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-findandreplace-to-rich-editor');
   RecipeRunner::processRecipe($recipe);
+
 }

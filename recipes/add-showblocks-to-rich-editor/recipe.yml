@@ -1,9 +1,10 @@
-name: Add showBlocks to Rich Editor
+name: Add Show Blocks to Rich Editor
 description: 'A recipe to manage default showBlocks button and plugin settings for the Rich Editor with CKEditor 5'
 type: optional
+install:
+  - ckeditor5_plugin_pack
 config:
   actions:
     editor.editor.full_html:
       addItemToToolbar:
         item_name: showBlocks
-        position: 16

@@ -1,0 +1,8 @@
+name: Add Divider to Simple Editor
+description: 'A recipe to add a divider as (vertical separator) to the Rich Editor with CKEditor 5'
+type: optional
+config:
+  actions:
+    editor.editor.basic_html:
+      addItemToToolbar:
+        item_name: '|'
