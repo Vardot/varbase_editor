@@ -97,16 +97,16 @@ function varbase_editor_update_100003() {
   // Get the first postion for wrapping.
   $first_wrapping_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', '-');
 
+  // Add fullScreen to Rich Editor, positioned before the first wrapping.
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'fullScreen')) {
-    // Add fullScreen to Rich Editor, positioned before the first wrapping.
     $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-fullscreen-to-rich-editor');
     VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $first_wrapping_position);
     $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
     RecipeRunner::processRecipe($recipe);
   }
 
+  // Add showBlocks to Rich Editor, positioned before the first wrapping.
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'showBlocks')) {
-    // Add showBlocks to Rich Editor, positioned before the first wrapping.
     $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-showblocks-to-rich-editor');
     VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $first_wrapping_position);
     $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
@@ -137,23 +137,28 @@ function varbase_editor_update_100003() {
     }
   }
 
+  // Add a divider as (vertical separator) at the end of all items in the Rich Editor.
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'wproofreader')
     || !VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'findAndReplace')) {
-
-    // Add a divider as (vertical separator) at the end of all items in the Rich Editor.
     $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-divider-to-rich-editor');
     RecipeRunner::processRecipe($recipe);
   }
 
+  // Add wproofreader at the end of all items in the Rich Editor.
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'wproofreader')) {
-    // Add wproofreader at the end of all items in the Rich Editor.
     $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-wproofreader-to-rich-editor');
     RecipeRunner::processRecipe($recipe);
   }
 
+  // Add findAndReplace at the end of all items in the Rich Editor.
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'findAndReplace')) {
-    // Add findAndReplace at the end of all items in the Rich Editor.
     $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-findandreplace-to-rich-editor');
+    RecipeRunner::processRecipe($recipe);
+  }
+
+  // Add wrapping at the end of all items in the Simple Editor.
+  if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.basic_html', '-')) {
+    $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-wrapping-to-simple-editor');
     RecipeRunner::processRecipe($recipe);
   }
 

@@ -14,7 +14,6 @@ dependencies:
     - media
     - pathologic
     - slick
-    - token_filter
 name: 'Simple editor'
 format: basic_html
 weight: -9
@@ -30,10 +29,10 @@ filters:
       height: 500px
       width: 700px
       font_size: 10pt
-      line_numbers: '1'
-      print_margins: '1'
-      show_invisibles: '0'
-      use_wrap_mode: '1'
+      line_numbers: 1
+      print_margins: 1
+      show_invisibles: 0
+      use_wrap_mode: 1
   blazy_filter:
     id: blazy_filter
     provider: blazy
@@ -185,10 +184,3 @@ filters:
       override: false
       preserve_keys: false
       visible_items: null
-  token_filter:
-    id: token_filter
-    provider: token_filter
-    status: false
-    weight: 0
-    settings:
-      replace_empty: '0'

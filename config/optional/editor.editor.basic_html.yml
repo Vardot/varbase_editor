@@ -30,6 +30,7 @@ settings:
       - sourceEditing
       - '|'
       - code
+      - '-'
   plugins:
     ckeditor5_heading:
       enabled_headings:
@@ -135,7 +136,7 @@ image_upload:
   status: true
   scheme: public
   directory: inline-images
-  max_size: ''
+  max_size: null
   max_dimensions:
     width: null
     height: null

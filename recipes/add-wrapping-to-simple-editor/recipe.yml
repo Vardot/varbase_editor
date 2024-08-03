@@ -1,0 +1,8 @@
+name: Add Wrapping to Simple Editor
+description: 'A recipe to to add wrapping to the Simple Editor with CKEditor 5'
+type: optional
+config:
+  actions:
+    editor.editor.basic_html:
+      addItemToToolbar:
+        item_name: '-'
