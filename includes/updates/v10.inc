@@ -118,15 +118,15 @@ function varbase_editor_update_100003() {
       // Get the postion for the Remove Format button.
       $remove_format_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', 'removeFormat');
 
-      // Add specialCharacters after removeFormat in Rich Editor.
-      $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-specialcharacters-to-rich-editor');
+      // Add a divider as (vertical separator) after removeFormat in the Rich Editor.
+      $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-divider-to-rich-editor');
       VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $remove_format_position + 1);
       $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
       RecipeRunner::processRecipe($recipe);
 
-      // Add a divider as (vertical separator) after removeFormat in the Rich Editor.
-      $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-divider-to-rich-editor');
-      VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $remove_format_position + 1);
+      // Add specialCharacters after removeFormat in Rich Editor.
+      $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-specialcharacters-to-rich-editor');
+      VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $remove_format_position + 2);
       $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
       RecipeRunner::processRecipe($recipe);
     }

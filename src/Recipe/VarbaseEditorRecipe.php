@@ -73,12 +73,13 @@ class VarbaseEditorRecipe {
     if (is_array($data)) {
       $data = SerializationYaml::encode($data);
     }
-    $recipes_dir = DRUPAL_ROOT . '/recipes';
+    $temp_recipes_dir = \Drupal::service('file_system')->getTempDirectory() . '/recipes';
+
     if ($machine_name === NULL) {
-      $dir = uniqid($recipes_dir . '/');
+      $dir = uniqid($temp_recipes_dir . '/');
     }
     else {
-      $dir = $recipes_dir . '/' . $machine_name;
+      $dir = $temp_recipes_dir . '/' . $machine_name;
     }
     mkdir($dir, recursive: TRUE);
     file_put_contents($dir . '/recipe.yml', $data);
