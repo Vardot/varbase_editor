@@ -196,77 +196,53 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: 'Display 1'
-          element: '<h2 class="display-1">'
-        -
-          label: 'Display 2'
-          element: '<h2 class="display-2">'
-        -
-          label: 'Display 3'
-          element: '<h3 class="display-3">'
-        -
-          label: 'Display 4'
-          element: '<h4 class="display-4">'
-        -
           label: Callout
-          element: '<div class="bs-callout">'
+          element: '<p class="bs-callout">'
         -
           label: 'Callout danger'
-          element: '<div class="bs-callout bs-callout-danger">'
+          element: '<p class="bs-callout bs-callout-danger">'
         -
           label: 'Callout warning'
-          element: '<div class="bs-callout bs-callout-warning">'
+          element: '<p class="bs-callout bs-callout-warning">'
         -
           label: 'Callout Info'
-          element: '<div class="bs-callout bs-callout-info">'
-        -
-          label: Well
-          element: '<div class="well">'
-        -
-          label: 'Well large'
-          element: '<div class="well well-lg">'
-        -
-          label: 'Well small'
-          element: '<div class="well well-sm">'
+          element: '<p class="bs-callout bs-callout-info">'
         -
           label: 'Alert success'
-          element: '<div class="alert alert-success">'
+          element: '<p class="alert alert-success">'
         -
           label: 'Alert info'
-          element: '<div class="alert alert-info">'
+          element: '<p class="alert alert-info">'
         -
           label: 'Alert warning'
-          element: '<div class="alert alert-warning">'
+          element: '<p class="alert alert-warning">'
         -
           label: 'Alert danger'
+          element: '<p class="alert alert-danger">'
+        -
+          label: div/Callout
+          element: '<div class="bs-callout">'
+        -
+          label: 'div/Callout danger'
+          element: '<div class="bs-callout bs-callout-danger">'
+        -
+          label: 'div/Callout warning'
+          element: '<div class="bs-callout bs-callout-warning">'
+        -
+          label: 'div/Callout Info'
+          element: '<div class="bs-callout bs-callout-info">'
+        -
+          label: 'div/Alert success'
+          element: '<div class="alert alert-success">'
+        -
+          label: 'div/Alert info'
+          element: '<div class="alert alert-info">'
+        -
+          label: 'div/Alert warning'
+          element: '<div class="alert alert-warning">'
+        -
+          label: 'div/Alert danger'
           element: '<div class="alert alert-danger">'
-        -
-          label: 'Card primary'
-          element: '<div class="card bg-primary">'
-        -
-          label: 'Card success'
-          element: '<div class="card bg-success">'
-        -
-          label: 'Card info'
-          element: '<div class="card bg-info">'
-        -
-          label: 'Card warning'
-          element: '<div class="card bg-warning">'
-        -
-          label: 'Card danger'
-          element: '<div class="card bg-danger">'
-        -
-          label: 'Card header'
-          element: '<div class="card-header">'
-        -
-          label: 'Card title'
-          element: '<div class="card-title">'
-        -
-          label: 'Card body'
-          element: '<div class="card-body">'
-        -
-          label: 'Card footer'
-          element: '<div class="card-footer">'
     ckeditor_bidi_ckeditor5:
       rtl_default: false
     editor_advanced_link_link:
