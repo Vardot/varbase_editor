@@ -196,6 +196,18 @@ settings:
     ckeditor5_style:
       styles:
         -
+          label: 'Display 1'
+          element: '<h2 class="display-1">'
+        -
+          label: 'Display 2'
+          element: '<h2 class="display-2">'
+        -
+          label: 'Display 3'
+          element: '<h3 class="display-3">'
+        -
+          label: 'Display 4'
+          element: '<h4 class="display-4">'
+        -
           label: Callout
           element: '<p class="bs-callout">'
         -
@@ -219,30 +231,6 @@ settings:
         -
           label: 'Alert danger'
           element: '<p class="alert alert-danger">'
-        -
-          label: div/Callout
-          element: '<div class="bs-callout">'
-        -
-          label: 'div/Callout danger'
-          element: '<div class="bs-callout bs-callout-danger">'
-        -
-          label: 'div/Callout warning'
-          element: '<div class="bs-callout bs-callout-warning">'
-        -
-          label: 'div/Callout Info'
-          element: '<div class="bs-callout bs-callout-info">'
-        -
-          label: 'div/Alert success'
-          element: '<div class="alert alert-success">'
-        -
-          label: 'div/Alert info'
-          element: '<div class="alert alert-info">'
-        -
-          label: 'div/Alert warning'
-          element: '<div class="alert alert-warning">'
-        -
-          label: 'div/Alert danger'
-          element: '<div class="alert alert-danger">'
     ckeditor_bidi_ckeditor5:
       rtl_default: false
     editor_advanced_link_link:
