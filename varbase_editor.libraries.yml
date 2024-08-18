@@ -1,0 +1,4 @@
+ckeditor5: 
+  css:
+    theme:
+      css/theme/varbase-editor.ckeditor5.admin.css: {}

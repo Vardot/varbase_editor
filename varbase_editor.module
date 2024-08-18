@@ -22,3 +22,13 @@ function varbase_editor_editor_js_settings_alter(array &$settings) {
     $settings['editor']['formats']['full_html']['editorSettings']['format_tags'] = $format_tags;
   }
 }
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function varbase_editor_library_info_alter(array &$libraries, $module) {
+  // Varbase Editor custom style fixes for CKEditor5.
+  if ($module === 'ckeditor5' && isset($libraries['internal.drupal.ckeditor5.stylesheets'])) {
+    $libraries['internal.drupal.ckeditor5.stylesheets']['dependencies'][] = 'varbase_editor/ckeditor5';
+  }
+}

@@ -1,0 +1,5 @@
+
+// Hide ck-disabled and ck-off Block Styles when selecting an HTML tag.
+.ck-disabled.ck-off {
+  display: none !important;
+}
