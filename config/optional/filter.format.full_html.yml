@@ -16,7 +16,6 @@ dependencies:
     - media
     - pathologic
     - slick
-    - token_filter
 name: 'Rich editor'
 format: full_html
 weight: -10
@@ -32,26 +31,25 @@ filters:
       height: 500px
       width: 700px
       font_size: 10pt
-      line_numbers: '1'
-      show_invisibles: '0'
-      print_margins: '1'
-      auto_complete: true
-      use_wrap_mode: '1'
+      line_numbers: 1
+      print_margins: 1
+      show_invisibles: 0
+      use_wrap_mode: 1
   blazy_filter:
     id: blazy_filter
     provider: blazy
     status: false
     weight: -35
     settings:
+      media_switch: ''
+      hybrid_style: ''
+      box_style: ''
+      box_media_style: ''
+      box_caption: ''
       filter_tags:
         img: img
         iframe: '0'
-      media_switch: ''
-      box_style: ''
-      box_media_style: ''
-      hybrid_style: ''
       use_data_uri: '0'
-      box_caption: ''
   editor_file_reference:
     id: editor_file_reference
     provider: editor
@@ -94,7 +92,7 @@ filters:
     status: false
     weight: -41
     settings:
-      allowed_html: '<div class="bs-callout bs-callout-danger bs-callout-warning bs-callout-info alert alert-success alert-info alert-warning alert-danger"> <span> <p class="bs-callout bs-callout-danger bs-callout-warning bs-callout-info alert alert-success alert-info alert-warning alert-danger">'
+      allowed_html: '<div> <span> <h2 class="display-1 display-2 display-3 display-4 display-5 display-6"> <h3 class="display-1 display-2 display-3 display-4 display-5 display-6"> <h4 class="display-1 display-2 display-3 display-4 display-5 display-6"> <h5 class="display-1 display-2 display-3 display-4 display-5 display-6"> <h6 class="display-1 display-2 display-3 display-4 display-5 display-6"> <p class="bs-callout alert alert-success bs-callout-info alert-info bs-callout-warning alert-warning bs-callout-danger alert-danger">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_escape:
@@ -164,11 +162,10 @@ filters:
     status: false
     weight: 4
     settings:
-      optionset: default
-      media_switch: ''
       caption:
         alt: '0'
         title: '0'
+      optionset: default
       layout: ''
       background: false
       box_caption: ''
@@ -177,6 +174,7 @@ filters:
       loading: ''
       box_style: ''
       image_style: ''
+      media_switch: ''
       ratio: ''
       thumbnail_style: ''
       grid: ''
@@ -201,10 +199,3 @@ filters:
       override: false
       preserve_keys: false
       visible_items: null
-  token_filter:
-    id: token_filter
-    provider: token_filter
-    status: false
-    weight: 0
-    settings:
-      replace_empty: '0'

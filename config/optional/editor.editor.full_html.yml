@@ -196,38 +196,116 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: 'Display 1'
+          label: 'Display 1 (h2)'
           element: '<h2 class="display-1">'
         -
-          label: 'Display 2'
+          label: 'Display 2 (h2)'
           element: '<h2 class="display-2">'
         -
-          label: 'Display 3'
+          label: 'Display 3 (h2)'
+          element: '<h2 class="display-3">'
+        -
+          label: 'Display 4 (h2)'
+          element: '<h2 class="display-4">'
+        -
+          label: 'Display 5 (h2)'
+          element: '<h2 class="display-5">'
+        -
+          label: 'Display 6 (h2)'
+          element: '<h2 class="display-6">'
+        -
+          label: 'Display 1 (h3)'
+          element: '<h3 class="display-1">'
+        -
+          label: 'Display 2 (h3)'
+          element: '<h3 class="display-2">'
+        -
+          label: 'Display 3 (h3)'
           element: '<h3 class="display-3">'
         -
-          label: 'Display 4'
+          label: 'Display 4 (h3)'
+          element: '<h3 class="display-4">'
+        -
+          label: 'Display 5 (h3)'
+          element: '<h3 class="display-5">'
+        -
+          label: 'Display 6 (h3)'
+          element: '<h3 class="display-6">'
+        -
+          label: 'Display 1 (h4)'
+          element: '<h4 class="display-1">'
+        -
+          label: 'Display 2 (h4)'
+          element: '<h4 class="display-2">'
+        -
+          label: 'Display 3 (h4)'
+          element: '<h4 class="display-3">'
+        -
+          label: 'Display 4 (h4)'
           element: '<h4 class="display-4">'
+        -
+          label: 'Display 5 (h4)'
+          element: '<h4 class="display-5">'
+        -
+          label: 'Display 6 (h4)'
+          element: '<h4 class="display-6">'
+        -
+          label: 'Display 1 (h5)'
+          element: '<h5 class="display-1">'
+        -
+          label: 'Display 2 (h5)'
+          element: '<h5 class="display-2">'
+        -
+          label: 'Display 3 (h5)'
+          element: '<h5 class="display-3">'
+        -
+          label: 'Display 4 (h5)'
+          element: '<h5 class="display-4">'
+        -
+          label: 'Display 5 (h5)'
+          element: '<h5 class="display-5">'
+        -
+          label: 'Display 6 (h5)'
+          element: '<h5 class="display-6">'
+        -
+          label: 'Display 1 (h6)'
+          element: '<h6 class="display-1">'
+        -
+          label: 'Display 2 (h6)'
+          element: '<h6 class="display-2">'
+        -
+          label: 'Display 3 (h6)'
+          element: '<h6 class="display-3">'
+        -
+          label: 'Display 4 (h6)'
+          element: '<h6 class="display-4">'
+        -
+          label: 'Display 5 (h6)'
+          element: '<h6 class="display-5">'
+        -
+          label: 'Display 6 (h6)'
+          element: '<h6 class="display-6">'
         -
           label: Callout
           element: '<p class="bs-callout">'
         -
-          label: 'Callout danger'
-          element: '<p class="bs-callout bs-callout-danger">'
-        -
-          label: 'Callout warning'
-          element: '<p class="bs-callout bs-callout-warning">'
+          label: 'Alert success'
+          element: '<p class="alert alert-success">'
         -
           label: 'Callout Info'
           element: '<p class="bs-callout bs-callout-info">'
         -
-          label: 'Alert success'
-          element: '<p class="alert alert-success">'
-        -
           label: 'Alert info'
           element: '<p class="alert alert-info">'
         -
+          label: 'Callout warning'
+          element: '<p class="bs-callout bs-callout-warning">'
+        -
           label: 'Alert warning'
           element: '<p class="alert alert-warning">'
+        -
+          label: 'Callout danger'
+          element: '<p class="bs-callout bs-callout-danger">'
         -
           label: 'Alert danger'
           element: '<p class="alert alert-danger">'
