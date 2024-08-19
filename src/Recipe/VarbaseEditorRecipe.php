@@ -152,4 +152,27 @@ class VarbaseEditorRecipe {
     return TRUE;
   }
 
+  /**
+   * Is the block styles in the text format not changed.
+   *
+   * @param string $editorConfigName
+   *   The editor config name.
+   * @param array $blockStyles
+   *   The CKEditor 5 styles for the text format.
+   *
+   * @return bool
+   *   true when old config is not changed yet.
+   */
+  public static function blockStylesNotChanged(string $editorConfigName, array $blockStyles): bool {
+    $currentBlockStyles = \Drupal::service('config.factory')->getEditable($editorConfigName)->get('settings.plugins.ckeditor5_style.styles');
+
+    if ($blockStyles === $currentBlockStyles) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+
+  }
+
 }

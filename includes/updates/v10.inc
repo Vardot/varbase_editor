@@ -187,3 +187,27 @@ function varbase_editor_update_100004() {
   }
 
 }
+
+/**
+ * Issue #3466509: Change the list of styles for heading with display, callout, alert.
+ *
+ * And remove leftover BS3 and BS4 legacy classes and logic in favor of the new logic in Bootstrap 5.
+ */
+function varbase_editor_update_100005() {
+
+  $full_html_block_styles = [
+    ['label' => 'Display 1', 'element' => '<h2 class="display-1">'], ['label' => 'Display 2', 'element' => '<h2 class="display-2">'], ['label' => 'Display 3', 'element' => '<h3 class="display-3">'], ['label' => 'Display 4', 'element' => '<h4 class="display-4">'],
+    ['label' => 'Callout', 'element' => '<div class="bs-callout">'], ['label' => 'Callout danger', 'element' => '<div class="bs-callout bs-callout-danger">'], ['label' => 'Callout warning', 'element' => '<div class="bs-callout bs-callout-warning">'], ['label' => 'Callout Info', 'element' => '<div class="bs-callout bs-callout-info">'],
+    ['label' => 'Well', 'element' => '<div class="well">'], ['label' => 'Well large', 'element' => '<div class="well well-lg">'], ['label' => 'Well small', 'element' => '<div class="well well-sm">'], ['label' => 'Alert success', 'element' => '<div class="alert alert-success">'], ['label' => 'Alert info', 'element' => '<div class="alert alert-info">'], ['label' => 'Alert warning', 'element' => '<div class="alert alert-warning">'], ['label' => 'Alert danger', 'element' => '<div class="alert alert-danger">'],
+    ['label' => 'Card primary', 'element' => '<div class="card bg-primary">'], ['label' => 'Card success', 'element' => '<div class="card bg-success">'], ['label' => 'Card info', 'element' => '<div class="card bg-info">'], ['label' => 'Card warning', 'element' => '<div class="card bg-warning">'], ['label' => 'Card danger', 'element' => '<div class="card bg-danger">'], ['label' => 'Card header', 'element' => '<div class="card-header">'],
+    ['label' => 'Card title', 'element' => '<div class="card-title">'], ['label' => 'Card body', 'element' => '<div class="card-body">'], ['label' => 'Card footer', 'element' => '<div class="card-footer">'],
+  ];
+
+  // Apply the CKEditor 5 style changes on the Rich Editor text format when old config is not changed.
+  if (VarbaseEditorRecipe::blockStylesNotChanged('editor.editor.full_html', $full_html_block_styles)) {
+    $module_path = Drupal::service('module_handler')->getModule('varbase_editor')->getPath();
+    $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_editor_update_100005');
+    RecipeRunner::processRecipe($recipe);
+  }
+
+}
