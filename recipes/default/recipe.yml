@@ -11,6 +11,7 @@ install:
   - extlink
   - editor_advanced_link
   - ckeditor_media_embed
+  - edit_media_modal
   - linkit
   - pathologic
   - token

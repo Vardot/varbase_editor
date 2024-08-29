@@ -211,3 +211,16 @@ function varbase_editor_update_100005() {
   }
 
 }
+
+/**
+ * Issue #3471017: Add Edit Media Entity in Modal module.
+ *
+ * And enable by default.
+ */
+function varbase_editor_update_100006() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_editor')->getPath();
+
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_editor_update_100006');
+  RecipeRunner::processRecipe($recipe);
+
+}

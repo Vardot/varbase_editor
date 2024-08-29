@@ -1,0 +1,5 @@
+name: varbase_editor_update_100006
+description: 'Issue #3471017: Add Edit Media Entity in Modal module and enable by default'
+type: update
+install:
+  - edit_media_modal
