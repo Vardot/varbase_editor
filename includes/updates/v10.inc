@@ -224,3 +224,32 @@ function varbase_editor_update_100006() {
   RecipeRunner::processRecipe($recipe);
 
 }
+
+/**
+ * Issue #3471411: Reorder Heading and Style Buttons in CKEditor Toolbar items.
+ */
+function varbase_editor_update_100007() {
+
+  $editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.full_html');
+  $editor_data = $editor_config->get();
+
+  $reordered_full_html_toolbar_items = [];
+  foreach ($editor_data['settings']['toolbar']['items'] as $toolbar_item) {
+
+    if ($toolbar_item == 'style') {
+      $reordered_full_html_toolbar_items[] = 'heading';
+      $reordered_full_html_toolbar_items[] = 'style';
+    }
+    elseif ($toolbar_item == 'heading') {
+      // Ignore, do nothing, as it was added before the style.
+    }
+    else {
+      $reordered_full_html_toolbar_items[] = $toolbar_item;
+    }
+  }
+
+  $editor_data['settings']['toolbar']['items'] = $reordered_full_html_toolbar_items;
+
+  $editor_config->setData($editor_data)->save(TRUE);
+
+}

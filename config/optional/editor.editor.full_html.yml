@@ -29,8 +29,8 @@ settings:
       - showBlocks
       - fullScreen
       - '-'
-      - style
       - heading
+      - style
       - '|'
       - bold
       - italic
