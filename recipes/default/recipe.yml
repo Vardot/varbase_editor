@@ -27,6 +27,7 @@ install:
 config:
   import:
     ace_editor: '*'
+    pathologic: '*'
     editor_advanced_link: '*'
     ckeditor_media_embed: '*'
     ckeditor5_paste_filter: '*'
@@ -40,22 +41,12 @@ config:
       - linkit.linkit_profile.linkit_all_nodes
   actions:
     extlink.settings:
-      simple_config_update:
+      simpleConfigUpdate:
         extlink_alert_text: ''
         extlink_target: true
-        extlink_mailto_class: '0'
-        extlink_class: '0'
     pathologic.settings:
-      simple_config_update:
-        protocol_style: path
-    ace_editor.settings:
-      simple_config_update:
-        theme: idle_fingers
-        syntax: html
-        height: auto
-        width: '700px'
-        font_size: '9pt'
-        show_invisibles: false
+      simpleConfigUpdate:
+        protocol_style: 'path'
     user.role.editor:
       grantPermissions:
         - 'use text format basic_html'
