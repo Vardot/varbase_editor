@@ -30,7 +30,7 @@
     "drupal/core": "~10.3.0 || ~11.0.0",
     "vardot/varbase-patches": "~10",
     "drupal/pathologic": "~2",
-    "drupal/ckeditor_bidi": "~4",
+    "drupal/ckeditor_bidi": "~5",
     "drupal/ace_editor": "~2",
     "drupal/extlink": "~1 || ~2",
     "drupal/linkit": "~6.1.0",
