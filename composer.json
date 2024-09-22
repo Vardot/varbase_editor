@@ -41,7 +41,7 @@
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
     "drupal/blazy": "~2 || ~3",
-    "drupal/slick": "~2",
+    "drupal/slick": "~2 || ~3",
     "drupal/entity_embed": "~1",
     "drupal/ckeditor5_paste_filter": "~1",
     "drupal/ckeditor5_plugin_pack": "~1.0",
