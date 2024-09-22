@@ -40,7 +40,7 @@
     "drupal/anchor_link": "~3",
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
-    "drupal/blazy": "~2",
+    "drupal/blazy": "~2 || ~3",
     "drupal/slick": "~2",
     "drupal/entity_embed": "~1",
     "drupal/ckeditor5_paste_filter": "~1",
