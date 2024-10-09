@@ -6,12 +6,12 @@ const autoprefixer = require('autoprefixer');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
     // ################################################
     // SCSS
     // ################################################
-    // Theme for Varbase editor - CKEdtor5 admin style fixes.
+    // Theme for Varbase editor - CKEditor admin style fixes.
     'theme/varbase-editor.ckeditor5.admin': ['./scss/theme/varbase-editor.ckeditor5.admin.scss'],
   },
   output: {

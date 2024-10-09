@@ -1,4 +1,12 @@
-ckeditor5: 
+ckeditor5:
   css:
     theme:
-      css/theme/varbase-editor.ckeditor5.admin.css: {}
+      css/theme/varbase-editor.ckeditor5.admin.css: {  }
+ckeditor5-media-resize:
+  js:
+    js/varbase-editor.ckeditor5.media-image.admin.js: {  }
+    js/varbase-editor.ckeditor5.media-dropdown.admin.js: {  }
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/jquery

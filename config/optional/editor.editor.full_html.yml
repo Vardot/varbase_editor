@@ -311,6 +311,13 @@ settings:
           element: '<p class="alert alert-danger">'
     ckeditor_bidi_ckeditor5:
       rtl_default: false
+    ckeditor_media_resize_mediaResize:
+      apply_image_styles: true
+      image_styles:
+        - cke_media_resize_small
+        - cke_media_resize_medium
+        - cke_media_resize_large
+        - cke_media_resize_xl
     editor_advanced_link_link:
       enabled_attributes:
         - id

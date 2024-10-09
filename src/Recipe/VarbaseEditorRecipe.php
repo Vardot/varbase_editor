@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Drupal\varbase_editor\Recipe;
 
-use Symfony\Component\Yaml\Yaml;
 use Drupal\Component\Serialization\Yaml as SerializationYaml;
 use Drupal\Core\Recipe\Recipe;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Contains helper methods for interacting with CKEdiotr 5 recipes.
@@ -88,7 +88,7 @@ class VarbaseEditorRecipe {
   }
 
   /**
-   * Get item postion in an editor.
+   * Get item position in an editor.
    *
    * @param string $editorConfigName
    *   The editor config name.
@@ -96,35 +96,34 @@ class VarbaseEditorRecipe {
    *   The item name.
    *
    * @return int
+   *   Return the item position as an integer number.
    */
-  public static function getItemPostion(string $editorConfigName, string $itemName): int {
+  public static function getItemPosition(string $editorConfigName, string $itemName): int {
     $full_html_toolbar_items = \Drupal::service('config.factory')->getEditable($editorConfigName)->get('settings.toolbar.items');
 
-    $item_postion = -1;
+    $item_position = -1;
     if (isset($full_html_toolbar_items) && is_array($full_html_toolbar_items)) {
       foreach ($full_html_toolbar_items as $item_index => $item) {
         if ($item == $itemName) {
-          $item_postion = $item_index;
+          $item_position = $item_index;
           break;
         }
       }
     }
 
-    return $item_postion;
+    return $item_position;
 
   }
 
   /**
-   * Set Item Postion in an editor.
+   * Set Item Position in an editor.
    *
    * @param array $recipeData
    *   The data array for a recipe.
    * @param string $editorConfigName
    *   The editor config name.
    * @param int $itemPosition
-   *   The postion of the item.
-   *
-   * @return void
+   *   The position of the item.
    */
   public static function setItemPosition(array &$recipeData, string $editorConfigName, int $itemPosition): void {
     if ($itemPosition != -1) {
@@ -138,14 +137,14 @@ class VarbaseEditorRecipe {
    * @param string $editorConfigName
    *   The editor config name.
    * @param string $itemName
-   *   The item name
+   *   The item name.
    *
    * @return bool
    *   true when found.
    */
   public static function itemFoundInToolbar(string $editorConfigName, string $itemName): bool {
 
-    if (self::getItemPostion($editorConfigName, $itemName) == -1) {
+    if (self::getItemPosition($editorConfigName, $itemName) == -1) {
       return FALSE;
     }
 

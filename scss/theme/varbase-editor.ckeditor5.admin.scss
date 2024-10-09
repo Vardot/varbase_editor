@@ -7,3 +7,27 @@
     }
   }
 }
+
+.ck-editor {
+  figure {
+    &.ck-widget_with-resizer {
+
+      .media {
+        min-width: auto !important;
+      }
+
+      &:has(.media--view-mode-original),
+      &:has(.media--view-mode-large) {
+        width: 100%;
+      }
+
+      &:has(.media--view-mode-medium) {
+        width: 50%;
+      }
+
+      &:has(.media--view-mode-small) {
+        width: 25%;
+      }
+    }
+  }
+}

@@ -2,3 +2,19 @@
   display: none !important;
 }
 
+.ck-editor figure.ck-widget_with-resizer .media {
+  min-width: auto !important;
+}
+
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-original),
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-large) {
+  width: 100%;
+}
+
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-medium) {
+  width: 50%;
+}
+
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-small) {
+  width: 25%;
+}

@@ -306,3 +306,131 @@ function varbase_editor_requirements($phase) {
 
   return $requirements;
 }
+
+/**
+ * Merges two allowed HTML strings used in CKEditor 5's filter settings.
+ *
+ * This function combines two strings of allowed HTML tags and attributes, ensuring:
+ * - Duplicate tags are eliminated.
+ * - Tags with attributes are merged if they appear in both strings with different attributes.
+ * - If a tag appears without attributes but exists with attributes, the version with attributes is preferred.
+ *
+ * This is useful for configuring CKEditor's "Limit allowed HTML tags and correct faulty HTML" filter.
+ * Supports custom XML tags such as `drupal-*`.
+ *
+ * @param string $allowed_html1
+ *   The first string of allowed HTML tags.
+ * @param string $allowed_html2
+ *   The second string of allowed HTML tags.
+ *
+ * @return string
+ *   A string containing the merged and unique allowed HTML tags, where attributes are combined when both versions have them.
+ */
+function varbase_editor__merge_allowed_html(string $allowed_html1, string $allowed_html2): string {
+  // Combine the two strings.
+  $merged_string = $allowed_html1 . ' ' . $allowed_html2;
+
+  // Split the string into individual tags, allowing custom XML tags like 'drupal-*'.
+  preg_match_all('/<[\w-]+(\s+[^>]+)?>/', $merged_string, $matches);
+
+  $unique_tags = [];
+
+  foreach ($matches[0] as $tag) {
+    // Extract the tag name and its attributes.
+    preg_match('/<([\w-]+)(\s+[^>]*)?>/', $tag, $tag_parts);
+
+    if (isset($tag_parts[1])) {
+      // The tag name (e.g., "div", "span", "drupal-media").
+      $tag_name = $tag_parts[1];
+      $attributes = isset($tag_parts[2]) ? trim($tag_parts[2]) : '';
+
+      // If the tag is already seen and has attributes, merge the attributes.
+      if (isset($unique_tags[$tag_name])) {
+        // Extract existing attributes.
+        preg_match('/<[^>]+\s([^>]+)>/', $unique_tags[$tag_name], $existing_parts);
+        $existing_attributes = isset($existing_parts[1]) ? $existing_parts[1] : '';
+
+        // Combine unique attributes.
+        if ($attributes) {
+          $combined_attributes = varbase_editor__merge_attributes($existing_attributes, $attributes);
+          $unique_tags[$tag_name] = "<{$tag_name} {$combined_attributes}>";
+        }
+      }
+      else {
+        // Add the tag as a unique entry.
+        $unique_tags[$tag_name] = $tag;
+      }
+    }
+  }
+
+  // Join the unique tags back into a single string.
+  $final_string = implode(' ', $unique_tags);
+
+  // Return the merged string with unique tags and merged attributes.
+  return $final_string;
+}
+
+/**
+ * Helper function to merge two sets of HTML tag attributes.
+ *
+ * This function combines attributes from two versions of the same tag, ensuring that:
+ * - Duplicate attributes are removed.
+ * - Class attributes are merged, while other attributes are replaced by the more recent version.
+ *
+ * @param string $attributes1
+ *   The first set of attributes.
+ * @param string $attributes2
+ *   The second set of attributes.
+ *
+ * @return string
+ *   The combined attributes, with duplicate and conflicting attributes resolved.
+ */
+function varbase_editor__merge_attributes(string $attributes1, string $attributes2): string {
+  // Parse attributes into key-value pairs.
+  $attr1 = varbase_editor__parse_attributes($attributes1);
+  $attr2 = varbase_editor__parse_attributes($attributes2);
+
+  // Merge attributes, ensuring unique values for class attributes.
+  foreach ($attr2 as $key => $value) {
+    if ($key === 'class') {
+      // Merge classes uniquely.
+      $merged_classes = array_unique(array_merge(explode(' ', $attr1['class'] ?? ''), explode(' ', $value)));
+      $attr1['class'] = trim(implode(' ', $merged_classes));
+    }
+    else {
+      // Override or add new attributes.
+      $attr1[$key] = $value;
+    }
+  }
+
+  // Convert attributes back to string format.
+  $merged_attributes = [];
+  foreach ($attr1 as $key => $value) {
+    $merged_attributes[] = "{$key}=\"{$value}\"";
+  }
+
+  return implode(' ', $merged_attributes);
+}
+
+/**
+ * Helper function to parse HTML attributes into key-value pairs.
+ *
+ * @param string $attributes
+ *   The string of HTML attributes.
+ *
+ * @return array
+ *   An associative array of attribute keys and their corresponding values.
+ */
+function varbase_editor__parse_attributes(string $attributes): array {
+  $result = [];
+  preg_match_all('/(\w+)=("[^"]*"|\'[^\']*\')/', $attributes, $matches, PREG_SET_ORDER);
+
+  foreach ($matches as $match) {
+    $key = $match[1];
+    // Remove quotes around attribute values.
+    $value = trim($match[2], '"\'');
+    $result[$key] = $value;
+  }
+
+  return $result;
+}

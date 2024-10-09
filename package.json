@@ -12,8 +12,8 @@
     "Varbase",
     "Varbase Editor",
     "Editor",
-		"CKEditor",
-		"ACE Editor"
+    "CKEditor",
+    "ACE Editor"
   ],
   "author": "Vardot",
   "scripts": {

@@ -12,7 +12,7 @@ use Drupal\varbase_editor\Recipe\VarbaseEditorRecipe;
 /**
  * Issue #3405819: Add the Anchor Link ~3 module.
  *
- * Configure the CKEditor 5 Rich Editor text format to use it
+ * Configure the CKEditor 5 Rich Editor text format to use it.
  */
 function varbase_editor_update_100001() {
   if (!\Drupal::moduleHandler()->moduleExists('anchor_link')) {
@@ -94,8 +94,8 @@ function varbase_editor_update_100003() {
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_editor_update_100003');
   RecipeRunner::processRecipe($recipe);
 
-  // Get the first postion for wrapping.
-  $first_wrapping_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', '-');
+  // Get the first position for wrapping.
+  $first_wrapping_position = VarbaseEditorRecipe::getItemPosition('editor.editor.full_html', '-');
 
   // Add fullScreen to Rich Editor, positioned before the first wrapping.
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'fullScreen')) {
@@ -115,10 +115,11 @@ function varbase_editor_update_100003() {
 
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'specialCharacters')) {
     if (VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'removeFormat')) {
-      // Get the postion for the Remove Format button.
-      $remove_format_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', 'removeFormat');
+      // Get the position for the Remove Format button.
+      $remove_format_position = VarbaseEditorRecipe::getItemPosition('editor.editor.full_html', 'removeFormat');
 
-      // Add a divider as (vertical separator) after removeFormat in the Rich Editor.
+      // Add a divider as (vertical separator) after removeFormat
+      // in the Rich Editor.
       $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-divider-to-rich-editor');
       VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $remove_format_position + 1);
       $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
@@ -137,7 +138,8 @@ function varbase_editor_update_100003() {
     }
   }
 
-  // Add a divider as (vertical separator) at the end of all items in the Rich Editor.
+  // Add a divider as (vertical separator) at the end of all items
+  // in the Rich Editor.
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'wproofreader')
     || !VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'findAndReplace')) {
     $recipe = Recipe::createFromDirectory($module_path . '/recipes/add-divider-to-rich-editor');
@@ -176,10 +178,11 @@ function varbase_editor_update_100004() {
   RecipeRunner::processRecipe($recipe);
 
   if (!VarbaseEditorRecipe::itemFoundInToolbar('editor.editor.full_html', 'Emoji')) {
-    // Get the postion for thespecialCharacters button.
-    $special_characters_position = VarbaseEditorRecipe::getItemPostion('editor.editor.full_html', 'specialCharacters');
+    // Get the position for the specialCharacters button.
+    $special_characters_position = VarbaseEditorRecipe::getItemPosition('editor.editor.full_html', 'specialCharacters');
 
-    // Add a divider as (vertical separator) after removeFormat in the Rich Editor.
+    // Add a divider as (vertical separator) after removeFormat
+    // in the Rich Editor.
     $recipe_data = VarbaseEditorRecipe::getRecipeData($module_path . '/recipes/add-emoji-to-rich-editor');
     VarbaseEditorRecipe::setItemPosition($recipe_data, 'editor.editor.full_html', $special_characters_position + 1);
     $recipe = VarbaseEditorRecipe::createRecipe($recipe_data);
@@ -189,21 +192,51 @@ function varbase_editor_update_100004() {
 }
 
 /**
- * Issue #3466509: Change the list of styles for heading with display, callout, alert.
+ * Issue #3466509: Change the list of styles for heading.
  *
- * And remove leftover BS3 and BS4 legacy classes and logic in favor of the new logic in Bootstrap 5.
+ * With display, callout, alert. And remove leftover BS3 and BS4 legacy
+ * classes and logic in favor of the new logic in Bootstrap 5.
  */
 function varbase_editor_update_100005() {
 
   $full_html_block_styles = [
-    ['label' => 'Display 1', 'element' => '<h2 class="display-1">'], ['label' => 'Display 2', 'element' => '<h2 class="display-2">'], ['label' => 'Display 3', 'element' => '<h3 class="display-3">'], ['label' => 'Display 4', 'element' => '<h4 class="display-4">'],
-    ['label' => 'Callout', 'element' => '<div class="bs-callout">'], ['label' => 'Callout danger', 'element' => '<div class="bs-callout bs-callout-danger">'], ['label' => 'Callout warning', 'element' => '<div class="bs-callout bs-callout-warning">'], ['label' => 'Callout Info', 'element' => '<div class="bs-callout bs-callout-info">'],
-    ['label' => 'Well', 'element' => '<div class="well">'], ['label' => 'Well large', 'element' => '<div class="well well-lg">'], ['label' => 'Well small', 'element' => '<div class="well well-sm">'], ['label' => 'Alert success', 'element' => '<div class="alert alert-success">'], ['label' => 'Alert info', 'element' => '<div class="alert alert-info">'], ['label' => 'Alert warning', 'element' => '<div class="alert alert-warning">'], ['label' => 'Alert danger', 'element' => '<div class="alert alert-danger">'],
-    ['label' => 'Card primary', 'element' => '<div class="card bg-primary">'], ['label' => 'Card success', 'element' => '<div class="card bg-success">'], ['label' => 'Card info', 'element' => '<div class="card bg-info">'], ['label' => 'Card warning', 'element' => '<div class="card bg-warning">'], ['label' => 'Card danger', 'element' => '<div class="card bg-danger">'], ['label' => 'Card header', 'element' => '<div class="card-header">'],
-    ['label' => 'Card title', 'element' => '<div class="card-title">'], ['label' => 'Card body', 'element' => '<div class="card-body">'], ['label' => 'Card footer', 'element' => '<div class="card-footer">'],
+    // Headings.
+    ['label' => 'Display 1', 'element' => '<h2 class="display-1">'],
+    ['label' => 'Display 2', 'element' => '<h2 class="display-2">'],
+    ['label' => 'Display 3', 'element' => '<h3 class="display-3">'],
+    ['label' => 'Display 4', 'element' => '<h4 class="display-4">'],
+
+    // Callouts.
+    ['label' => 'Callout', 'element' => '<div class="bs-callout">'],
+    ['label' => 'Callout danger', 'element' => '<div class="bs-callout bs-callout-danger">'],
+    ['label' => 'Callout warning', 'element' => '<div class="bs-callout bs-callout-warning">'],
+    ['label' => 'Callout Info', 'element' => '<div class="bs-callout bs-callout-info">'],
+
+    // Wells.
+    ['label' => 'Well', 'element' => '<div class="well">'],
+    ['label' => 'Well large', 'element' => '<div class="well well-lg">'],
+    ['label' => 'Well small', 'element' => '<div class="well well-sm">'],
+
+    // Alerts.
+    ['label' => 'Alert success', 'element' => '<div class="alert alert-success">'],
+    ['label' => 'Alert info', 'element' => '<div class="alert alert-info">'],
+    ['label' => 'Alert warning', 'element' => '<div class="alert alert-warning">'],
+    ['label' => 'Alert danger', 'element' => '<div class="alert alert-danger">'],
+
+    // Cards.
+    ['label' => 'Card primary', 'element' => '<div class="card bg-primary">'],
+    ['label' => 'Card success', 'element' => '<div class="card bg-success">'],
+    ['label' => 'Card info', 'element' => '<div class="card bg-info">'],
+    ['label' => 'Card warning', 'element' => '<div class="card bg-warning">'],
+    ['label' => 'Card danger', 'element' => '<div class="card bg-danger">'],
+    ['label' => 'Card header', 'element' => '<div class="card-header">'],
+    ['label' => 'Card title', 'element' => '<div class="card-title">'],
+    ['label' => 'Card body', 'element' => '<div class="card-body">'],
+    ['label' => 'Card footer', 'element' => '<div class="card-footer">'],
   ];
 
-  // Apply the CKEditor 5 style changes on the Rich Editor text format when old config is not changed.
+  // Apply the CKEditor 5 style changes on the Rich Editor text format
+  // when old config is not changed.
   if (VarbaseEditorRecipe::blockStylesNotChanged('editor.editor.full_html', $full_html_block_styles)) {
     $module_path = Drupal::service('module_handler')->getModule('varbase_editor')->getPath();
     $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_editor_update_100005');
@@ -252,4 +285,92 @@ function varbase_editor_update_100007() {
 
   $editor_config->setData($editor_data)->save(TRUE);
 
+}
+
+/**
+ * Issue #3460610: Add CKEditor Media Resize module.
+ *
+ * And integrate it with Dynamic Responsive Image (Drimage) – Improved.
+ */
+function varbase_editor_update_100008() {
+  // Check if the ckeditor_media_resize module is not already installed.
+  if (!\Drupal::moduleHandler()->moduleExists('ckeditor_media_resize')) {
+    // Install the ckeditor_media_resize module.
+    \Drupal::service('module_installer')->install(['ckeditor_media_resize'], FALSE);
+  }
+
+  // Load the configuration for the Full HTML text format.
+  $full_html_editor_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
+
+  // Check if the configuration is available.
+  if ($full_html_editor_config) {
+    $full_html_editor_config_data = $full_html_editor_config->get();
+
+    // Check if the ckeditor_media_resize filter is not already added.
+    if (!isset($full_html_editor_config_data['filters']['ckeditor_media_resize'])) {
+      // Add ckeditor_media_resize as a dependency for the Full HTML text format.
+      $full_html_editor_config_data['dependencies']['module'][] = 'ckeditor_media_resize';
+
+      // Enable the "Limit allowed HTML tags and correct faulty HTML" filter.
+      $new_allowed_html = '<a id target rel class="ck-anchor" href title data-entity-type data-entity-uuid data-entity-substitution> <br> <p class="bs-callout alert alert-success bs-callout-info alert-info bs-callout-warning alert-warning bs-callout-danger alert-danger text-align-left text-align-center text-align-right text-align-justify"> <h2 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h3 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h4 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h5 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h6 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <div class="text-align-left text-align-center text-align-right text-align-justify"> <span> <strong> <em> <u> <code class="language-*"> <pre class="text-align-left text-align-center text-align-right text-align-justify"> <s> <sub> <sup> <blockquote> <ul> <ol reversed start> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align data-media-width> <figure class> <oembed url> <drupal-entity alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode data-embed-button="gallery media node" data-entity-type="media node">';
+
+      // Merge the new allowed HTML tags with the existing ones if they already exist.
+      if ($full_html_editor_config_data['filters']['filter_html']['settings']['allowed_html'] == '') {
+        $final_allowed_html = $new_allowed_html;
+      }
+      else {
+        $old_allowed_html = $full_html_editor_config_data['filters']['filter_html']['settings']['allowed_html'];
+        $final_allowed_html = varbase_editor__merge_allowed_html($old_allowed_html, $new_allowed_html);
+      }
+
+      // Enable the filter and set the allowed HTML tags.
+      $full_html_editor_config_data['filters']['filter_html']['status'] = TRUE;
+      $full_html_editor_config_data['filters']['filter_html']['settings']['allowed_html'] = $final_allowed_html;
+
+      // The ckeditor_media_resize filter needs to run before the Embed media filter.
+      $filter_resize_media_weight = -40;
+      if (isset($full_html_editor_config_data['filters']['media_embed'])
+        && $full_html_editor_config_data['filters']['media_embed']['status'] == TRUE) {
+
+        $filter_resize_media_weight = ((int) $full_html_editor_config_data['filters']['media_embed']['weight']) - 1;
+      }
+
+      // Enable the ckeditor_media_resize filter in the Full HTML text format.
+      $full_html_editor_config_data['filters']['filter_resize_media'] = [
+        'id' => 'filter_resize_media',
+        'provider' => 'ckeditor_media_resize',
+        'status' => TRUE,
+        'weight' => $filter_resize_media_weight,
+        'settings' => [],
+      ];
+
+      // Save the updated configuration.
+      $full_html_editor_config->setData($full_html_editor_config_data)->save(TRUE);
+    }
+  }
+
+  // Load the configuration for the Full HTML editor.
+  $editor_full_html_config = \Drupal::service('config.factory')->getEditable('editor.editor.full_html');
+
+  // Check if the configuration is available.
+  if ($editor_full_html_config) {
+    $editor_full_html_config_data = $editor_full_html_config->get();
+
+    // Check if the ckeditor_media_resize_mediaResize plugin is not already added.
+    if (!isset($editor_full_html_config_data['settings']['plugins']['ckeditor_media_resize_mediaResize'])) {
+      // Add the ckeditor_media_resize_mediaResize plugin with its settings.
+      $editor_full_html_config_data['settings']['plugins']['ckeditor_media_resize_mediaResize'] = [
+        'apply_image_styles' => TRUE,
+        'image_styles' => [
+          'cke_media_resize_small',
+          'cke_media_resize_medium',
+          'cke_media_resize_large',
+          'cke_media_resize_xl',
+        ],
+      ];
+
+      // Save the updated configuration.
+      $editor_full_html_config->setData($editor_full_html_config_data)->save(TRUE);
+    }
+  }
 }
