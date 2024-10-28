@@ -83,7 +83,30 @@ class VarbaseFilterResizeMedia extends FilterResizeMedia {
         $width,
         $attribute_value,
       ] = $this->getStyleAttributeFromNode($node);
-      $node->setAttribute('style', $attribute_value);
+
+      // If the parent DOM node of the current media wrapper is a <figure>, 
+      // set it as 'figure-resized' and apply the resize styles.
+      if ($node->parentNode->nodeName == 'figure') {
+        $node->parentNode->setAttribute('style', $attribute_value);
+        $parentNodeCssClasses = $node->parentNode->getAttribute('class');
+        $parentNodeAttributeClassValue = 'figure-resized';
+        if (isset($parentNodeCssClasses)) {
+          if (strpos($parentNodeCssClasses, 'figure-resized') == FALSE) {
+            $parentNodeAttributeClassValue = $parentNodeCssClasses . ' figure-resized';
+          }
+          else {
+            $parentNodeAttributeClassValue = $parentNodeCssClasses;
+          }
+        }
+
+        // Set the width to the figure element.
+        $node->parentNode->setAttribute('class', $parentNodeAttributeClassValue);
+
+      }
+      else {
+        // Apply the resize style directly to the current node.
+        $node->setAttribute('style', $attribute_value);
+      }
 
       // Set a class that allows to style resized media.
       $node->setAttribute(
@@ -108,7 +131,6 @@ class VarbaseFilterResizeMedia extends FilterResizeMedia {
    */
   private function getStyleAttributeFromNode(\DOMNode $node): array {
     $width = $node->getAttribute($this->resizeWidthAttribute);
-    $node->removeAttribute($this->resizeWidthAttribute);
     $attribute_value = $node->getAttribute('style');
 
     // Replace existing width style with new one.
