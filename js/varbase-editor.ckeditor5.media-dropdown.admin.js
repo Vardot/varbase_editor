@@ -6,13 +6,13 @@
 
         // Function to update the 'View mode' dropdown
         function updateViewModeDropdown(isImageMedia) {
-          const viewModeDropdown = $('.ck-toolbar-container').find('[class="ck ck-button ck-off ck-button_with-text ck-dropdown__button"]').closest('.ck.ck-dropdown');
+          const viewModeDropdown = $('.ck-balloon-panel.ck-toolbar-container').find('[data-cke-tooltip-text="View mode"]').closest('.ck.ck-dropdown');
           viewModeDropdown.css('display', isImageMedia ? 'none' : 'inline-block');
         }
 
         // Function to update the 'Resize media image' dropdown
         function updateResizeOptionsDropdown(isImageMedia) {
-          const resizeOptionsDropdown = $('.ck-toolbar-container').find('.ck-dropdown__button.ck-resize-image-button').closest('.ck.ck-dropdown');
+          const resizeOptionsDropdown = $('.ck-balloon-panel.ck-toolbar-container').find('.ck-dropdown__button.ck-resize-image-button').closest('.ck.ck-dropdown');
           resizeOptionsDropdown.css('display', isImageMedia ? 'inline-block' : 'none');
         }
 

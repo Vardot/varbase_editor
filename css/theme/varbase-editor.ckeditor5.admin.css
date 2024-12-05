@@ -6,7 +6,7 @@
   min-width: auto !important;
 }
 
-.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-original), .ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-large) {
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-large) {
   width: 100%;
 }
 
@@ -16,5 +16,9 @@
 
 .ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-small) {
   width: 25%;
+}
+
+.ck-balloon-panel .ck-dropdown__button:not(.ck-resize-image-button) {
+  display: none;
 }
 

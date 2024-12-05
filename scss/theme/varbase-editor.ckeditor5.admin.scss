@@ -16,7 +16,6 @@
         min-width: auto !important;
       }
 
-      &:has(.media--view-mode-original),
       &:has(.media--view-mode-large) {
         width: 100%;
       }
@@ -29,5 +28,11 @@
         width: 25%;
       }
     }
+  }
+}
+
+.ck-balloon-panel {
+  .ck-dropdown__button:not(.ck-resize-image-button) {
+    display: none;
   }
 }

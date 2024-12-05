@@ -67,6 +67,11 @@ function varbase_editor_library_info_alter(array &$libraries, $module) {
   if ($module === 'ckeditor_media_resize' && isset($libraries['editor'])) {
     $libraries['editor']['dependencies'][] = 'varbase_editor/ckeditor5-media-resize';
   }
+
+  if ($module === 'layout_builder' && isset($libraries['drupal.layout_builder'])) {
+    $libraries['drupal.layout_builder']['dependencies'][] = 'varbase_editor/ckeditor5';
+    $libraries['drupal.layout_builder']['dependencies'][] = 'varbase_editor/ckeditor5-media-resize';
+  }
 }
 
 /**
