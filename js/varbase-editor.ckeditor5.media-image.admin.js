@@ -28,7 +28,7 @@
                   // Ensure that the commands are executed only once.
                   if (resizeCommand.value == null) {
                     // Execute commands.
-                    viewModeCommand.execute({ value: 'original', group: 'viewMode' });
+                    viewModeCommand.execute({ value: 'large', group: 'viewMode' });
                     resizeCommand.execute({ width: '50%' });
                   }
                 }
