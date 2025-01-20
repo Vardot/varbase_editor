@@ -189,6 +189,8 @@ settings:
           weight: 3
           search: '<a name="OLE_LINK[^"]*">(.*?)<\/a>'
           replace: $1
+    ckeditor5_plugin_pack_find_and_replace__find_and_replace:
+      ui_type: dialog
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<div>'
@@ -309,8 +311,6 @@ settings:
         -
           label: 'Alert danger'
           element: '<p class="alert alert-danger">'
-    ckeditor_bidi_ckeditor5:
-      rtl_default: false
     ckeditor_media_resize_mediaResize:
       apply_image_styles: true
       image_styles:

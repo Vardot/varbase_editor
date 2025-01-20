@@ -138,9 +138,10 @@ filters:
       local_settings:
         protocol_style: full
         local_paths: ''
+        keep_language_prefix: true
   filter_resize_media:
     id: filter_resize_media
-    provider: ckeditor_media_resize
+    provider: varbase_editor
     status: true
     weight: -40
     settings: {  }
@@ -187,6 +188,7 @@ filters:
         title: '0'
       optionset: default
       layout: ''
+      admin_uri: '/admin/config/content/formats/manage/full_html?destination=/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax&_wrapper_format=drupal_ajax'
       background: false
       box_caption: ''
       box_caption_custom: ''
