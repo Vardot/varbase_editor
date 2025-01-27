@@ -189,6 +189,8 @@ settings:
           weight: 3
           search: '<a name="OLE_LINK[^"]*">(.*?)<\/a>'
           replace: $1
+    ckeditor5_plugin_pack_find_and_replace__find_and_replace:
+      ui_type: dialog
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<div>'
