@@ -35,7 +35,7 @@
     "drupal/extlink": "~2",
     "drupal/linkit": "~7",
     "drupal/editor_advanced_link": "~2.2.0",
-    "drupal/ckeditor_media_embed": "~2",
+    "vardot/ckeditor_media_embed": "~2",
     "drupal/ckeditor_media_resize": "~1",
     "drupal/edit_media_modal": "~2",
     "drupal/anchor_link": "~3",
