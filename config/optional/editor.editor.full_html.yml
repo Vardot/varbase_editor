@@ -192,9 +192,7 @@ settings:
     ckeditor5_plugin_pack_find_and_replace__find_and_replace:
       ui_type: dialog
     ckeditor5_sourceEditing:
-      allowed_tags:
-        - '<div>'
-        - '<span>'
+      allowed_tags: {  }
     ckeditor5_style:
       styles:
         -
