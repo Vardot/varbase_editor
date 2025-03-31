@@ -35,7 +35,7 @@ Can be installed with any Drupal site.
  Even if installed with the Minimal or Standard profile.
 However, using it with [Varbase](https://www.drupal.org/project/varbase) gives you way much more cool stuff!
 
-## [Varbase documentation](https://docs.varbase.vardot.com/dev-docs/understanding-varbase/core-components/varbase-editor)
+## [Varbase documentation](https://docs.varbase.vardot.com/developers/understanding-varbase/core-components/varbase-editor)
 Check out Varbase documentation for more details.
 
 Join Our Slack Team for Feedback and Support
