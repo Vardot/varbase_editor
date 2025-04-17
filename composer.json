@@ -28,7 +28,7 @@
   },
   "require": {
     "drupal/core": ">=11.1",
-    "vardot/varbase-patches": "10.1.x-dev",
+    "vardot/varbase-patches": "~10.1.0",
     "drupal/pathologic": "~2",
     "drupal/ckeditor_bidi": "~5",
     "drupal/ace_editor": "~2",
