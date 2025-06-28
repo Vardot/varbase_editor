@@ -20,10 +20,6 @@
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-    },
-    "assets": {
-      "type": "composer",
-      "url": "https://asset-packagist.org"
     }
   },
   "require": {
@@ -41,7 +37,6 @@
     "drupal/token_filter": "~2",
     "drupal/ckeditor5_paste_filter": "~1",
     "npm-asset/ace-builds": "~1",
-    "npm-asset/northernco--ckeditor5-anchor-drupal": "*",
     "npm-asset/ckeditor--ckeditor5-media-embed": "*"
   }
 }
