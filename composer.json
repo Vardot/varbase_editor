@@ -4,7 +4,6 @@
   "type": "drupal-module",
   "homepage": "https://www.drupal.org/project/varbase_editor",
   "license": "GPL-2.0-or-later",
-  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Vardot",
@@ -15,12 +14,6 @@
   "support": {
     "issues": "http://drupal.org/project/issues/varbase_editor",
     "source": "http://cgit.drupalcode.org/varbase_editor"
-  },
-  "repositories": {
-    "drupal": {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    }
   },
   "require": {
     "drupal/core": "~10.5.0 || ~11.2.0",
@@ -43,8 +36,6 @@
     "drupal/ckeditor5_paste_filter": "~1",
     "drupal/ckeditor5_plugin_pack": "~1.0",
     "drupal/ckeditor5_premium_features": "~1.4.0",
-    "drupal/ckeditor_emoji": "~2",
-    "npm-asset/ace-builds": "~1",
-    "npm-asset/ckeditor--ckeditor5-media-embed": "*"
+    "drupal/ckeditor_emoji": "~2"
   }
 }
