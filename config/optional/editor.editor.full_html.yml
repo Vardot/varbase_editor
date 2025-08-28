@@ -264,8 +264,6 @@ settings:
         -
           label: 'Panel footer'
           element: '<p class="panel-footer">'
-    ckeditor_bidi_ckeditor5:
-      rtl_default: false
     editor_advanced_link_link:
       enabled_attributes:
         - aria-label
@@ -283,7 +281,7 @@ image_upload:
   status: true
   scheme: public
   directory: inline-images
-  max_size: ''
+  max_size: null
   max_dimensions:
     width: null
     height: null

@@ -12,10 +12,10 @@ dependencies:
     - ckeditor_media_embed
     - editor
     - entity_embed
+    - linkit
     - media
     - pathologic
     - slick
-    - token_filter
 name: 'Simple editor'
 format: basic_html
 weight: -9
@@ -31,11 +31,10 @@ filters:
       height: 500px
       width: 700px
       font_size: 10pt
-      line_numbers: '1'
-      show_invisibles: '0'
-      print_margins: '1'
-      auto_complete: '1'
-      use_wrap_mode: '1'
+      line_numbers: true
+      show_invisibles: false
+      print_margins: true
+      use_wrap_mode: true
   blazy_filter:
     id: blazy_filter
     provider: blazy
@@ -93,7 +92,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dd> <dl> <dt> <span> <img src alt height width data-*> <a hreflang accesskey target href title id rel data-entity-type data-entity-uuid data-entity-substitution> <blockquote cite> <ol type start> <ul type> <drupal-entity data-entity-type data-embed-button alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode> <drupal-media title data-entity-type data-entity-uuid alt data-view-mode data-caption data-align> <strong> <em> <u> <code> <li>'
+      allowed_html: '<br> <p> <h2> <h3> <h4> <h5> <h6> <strong> <em> <u> <blockquote> <a href title id target="_blank" rel> <ul> <ol start> <li> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align> <drupal-entity alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode data-embed-button="gallery media node" data-entity-type="media node">'
       filter_html_help: false
       filter_html_nofollow: false
   filter_html_escape:
@@ -132,6 +131,14 @@ filters:
     weight: -48
     settings:
       filter_url_length: 72
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: 0
+    settings:
+      title: true
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -156,12 +163,42 @@ filters:
     status: false
     weight: 4
     settings:
+      caption:
+        alt: '0'
+        title: '0'
       optionset: default
+      layout: ''
+      admin_uri: '/test/v9x01x11t1/docroot/admin/config/content/formats/manage/basic_html?destination=/test/v9x01x11t1/docroot/admin/config/content/formats'
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      responsive_image_style: ''
+      box_style: ''
+      image_style: ''
       media_switch: ''
-  token_filter:
-    id: token_filter
-    provider: token_filter
-    status: false
-    weight: 0
-    settings:
-      replace_empty: '0'
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: ''
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      preserve_keys: false
+      visible_items: null

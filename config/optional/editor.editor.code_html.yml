@@ -1,4 +1,3 @@
-uuid: c7caad38-37e0-45b4-a61e-45b70decc019
 langcode: en
 status: true
 dependencies:
@@ -208,4 +207,5 @@ settings:
   print_margins: true
   auto_complete: true
   use_wrap_mode: true
-image_upload: {  }
+image_upload:
+  status: false

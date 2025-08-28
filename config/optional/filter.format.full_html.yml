@@ -1,4 +1,3 @@
-uuid: a42c52f3-f11f-477f-9446-ffad7f1a7e8a
 langcode: en
 status: true
 dependencies:
@@ -13,10 +12,10 @@ dependencies:
     - ckeditor_media_embed
     - editor
     - entity_embed
+    - linkit
     - media
     - pathologic
     - slick
-    - token_filter
 name: 'Rich editor'
 format: full_html
 weight: -10
@@ -32,11 +31,10 @@ filters:
       height: 500px
       width: 700px
       font_size: 10pt
-      line_numbers: '1'
-      show_invisibles: '0'
-      print_margins: '1'
-      auto_complete: '1'
-      use_wrap_mode: '1'
+      line_numbers: true
+      show_invisibles: false
+      print_margins: true
+      use_wrap_mode: true
   blazy_filter:
     id: blazy_filter
     provider: blazy
@@ -125,6 +123,7 @@ filters:
       local_settings:
         protocol_style: full
         local_paths: ''
+        keep_language_prefix: true
   filter_url:
     id: filter_url
     provider: filter
@@ -132,6 +131,14 @@ filters:
     weight: -45
     settings:
       filter_url_length: 72
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: 0
+    settings:
+      title: true
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -158,10 +165,27 @@ filters:
     settings:
       optionset: default
       media_switch: ''
-  token_filter:
-    id: token_filter
-    provider: token_filter
-    status: false
-    weight: 0
-    settings:
-      replace_empty: '0'
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: ''
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      preserve_keys: false
+      visible_items: null
