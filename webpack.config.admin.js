@@ -1,5 +1,5 @@
 const path = require('path');
-const isDev = (process.env.NODE_ENV !== 'production');
+const isDev = process.env.NODE_ENV !== 'production';
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
@@ -12,11 +12,13 @@ module.exports = {
     // SCSS
     // ################################################
     // Theme for Varbase editor - CKEditor admin style fixes.
-    'theme/varbase-editor.ckeditor5.admin': ['./scss/theme/varbase-editor.ckeditor5.admin.scss'],
+    'theme/varbase-editor.ckeditor5.admin': [
+      './scss/theme/varbase-editor.ckeditor5.admin.scss',
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'css'),
-    pathinfo: true,
+    pathinfo: false,
     publicPath: '../../',
   },
   module: {
@@ -25,11 +27,12 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/,
         exclude: /sprite\.svg$/,
         type: 'javascript/auto',
-        use: [{
+        use: [
+          {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]', //?[contenthash]
-              outputPath: '../../'
+              name: '[path][name].[ext]', // ?[contenthash]
+              outputPath: '../../',
             },
           },
           {
@@ -45,22 +48,21 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              name: '[name].[ext]?[hash]',
-            }
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: isDev,
               importLoaders: 2,
-              url: (url) => {
-                // Don't handle sprite svg
-                if (url.includes('sprite.svg')) {
-                  return false;
-                }
+              url: {
+                filter: (url) => {
+                  // Don't handle sprite svg
+                  if (url.includes('sprite.svg')) {
+                    return false;
+                  }
 
-                return true;
+                  return true;
+                },
               },
             },
           },
@@ -71,15 +73,18 @@ module.exports = {
               postcssOptions: {
                 plugins: [
                   autoprefixer(),
-                  ['postcss-perfectionist', {
-                    format: 'expanded',
-                    indentSize: 2,
-                    trimLeadingZero: true,
-                    zeroLengthNoUnit: false,
-                    maxAtRuleLength: false,
-                    maxSelectorLength: false,
-                    maxValueLength: false,
-                  }]
+                  [
+                    'postcss-perfectionist',
+                    {
+                      format: 'expanded',
+                      indentSize: 2,
+                      trimLeadingZero: true,
+                      zeroLengthNoUnit: false,
+                      maxAtRuleLength: false,
+                      maxSelectorLength: false,
+                      maxValueLength: false,
+                    },
+                  ],
                 ],
               },
             },
@@ -100,20 +105,27 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: [
-      path.join(__dirname, 'node_modules'),
-    ],
+    modules: [path.join(__dirname, 'node_modules')],
     extensions: ['.js', '.json'],
   },
   plugins: [
     new RemoveEmptyScriptsPlugin(),
     new CleanWebpackPlugin({
-      cleanStaleWebpackAssets: false
+      cleanStaleWebpackAssets: false,
     }),
     new MiniCssExtractPlugin(),
   ],
   watchOptions: {
     aggregateTimeout: 300,
-    ignored: ['**/*.woff', '**/*.json', '**/*.woff2', '**/*.jpg', '**/*.png', '**/*.svg', 'node_modules', 'images'],
-  }
+    ignored: [
+      '**/*.woff',
+      '**/*.json',
+      '**/*.woff2',
+      '**/*.jpg',
+      '**/*.png',
+      '**/*.svg',
+      'node_modules',
+      'images',
+    ],
+  },
 };
