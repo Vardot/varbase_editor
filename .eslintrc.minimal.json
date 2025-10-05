@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:yml/recommended"
+  ],
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "yml/indent": ["error", 2]
+  }
+}

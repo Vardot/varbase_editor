@@ -88,7 +88,7 @@ function varbase_editor_update_90004() {
         }
         else {
           $editor_data['settings']['plugins'] = [
-              'ckeditor5_paste_filter_pasteFilter' => $paste_filter_config,
+            'ckeditor5_paste_filter_pasteFilter' => $paste_filter_config,
           ];
         }
         $editor_config->setData($editor_data)->save(TRUE);
