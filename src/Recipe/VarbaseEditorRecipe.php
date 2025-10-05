@@ -9,52 +9,52 @@ use Drupal\Core\Recipe\Recipe;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * Contains helper methods for interacting with CKEdiotr 5 recipes.
+ * Contains helper methods for interacting with CKEditor 5 recipes.
  */
 class VarbaseEditorRecipe {
 
   /**
    * Get Recipe as String.
    *
-   * @param string $recipyPath
+   * @param string $recipePath
    *   The path to the recipe folder.
    *
    * @return string
    *   Get text content of the recipe.yml file.
    */
-  public static function getRecipeString(string $recipyPath): string {
-    if (!str_ends_with($recipyPath, '/recipe.yml')) {
-      if (!str_ends_with($recipyPath, '/')) {
-        $recipyPath = $recipyPath . '/recipe.yml';
+  public static function getRecipeString(string $recipePath): string {
+    if (!str_ends_with($recipePath, '/recipe.yml')) {
+      if (!str_ends_with($recipePath, '/')) {
+        $recipePath = $recipePath . '/recipe.yml';
       }
       else {
-        $recipyPath = $recipyPath . 'recipe.yml';
+        $recipePath = $recipePath . 'recipe.yml';
       }
     }
 
-    return file_get_contents($recipyPath);
+    return file_get_contents($recipePath);
   }
 
   /**
    * Get Recipe as array.
    *
-   * @param string $recipyPath
+   * @param string $recipePath
    *   The path to the recipe folder.
    *
    * @return array
    *   Get array data for the recipe.
    */
-  public static function getRecipeData(string $recipyPath): array {
-    if (!str_ends_with($recipyPath, '/recipe.yml')) {
-      if (str_ends_with($recipyPath, '/')) {
-        $recipyPath .= 'recipe.yml';
+  public static function getRecipeData(string $recipePath): array {
+    if (!str_ends_with($recipePath, '/recipe.yml')) {
+      if (str_ends_with($recipePath, '/')) {
+        $recipePath .= 'recipe.yml';
       }
       else {
-        $recipyPath .= '/recipe.yml';
+        $recipePath .= '/recipe.yml';
       }
     }
 
-    return (array) Yaml::parse(file_get_contents($recipyPath));
+    return (array) Yaml::parse(file_get_contents($recipePath));
   }
 
   /**
@@ -132,7 +132,7 @@ class VarbaseEditorRecipe {
   }
 
   /**
-   * Item foudn in Toolbar.
+   * Item found in Toolbar.
    *
    * @param string $editorConfigName
    *   The editor config name.
