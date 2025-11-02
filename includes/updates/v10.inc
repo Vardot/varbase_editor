@@ -374,3 +374,39 @@ function varbase_editor_update_100008() {
     }
   }
 }
+
+/**
+ * [#3555624] fix: Add media_edit_media_modal plugin configuration to basic_html and full_html editors.
+ */
+function varbase_editor_update_100009() {
+  $config_factory = \Drupal::configFactory();
+  $editors = ['basic_html', 'full_html'];
+
+  $default_config = [
+    'editMediaModal' => [
+      'dialogSettings' => [
+        'height' => '80%',
+      ],
+      'extras' => [
+        'skipAccessCheck' => FALSE,
+      ],
+      'editMediaModalForms' => [],
+    ],
+  ];
+
+  foreach ($editors as $editor_id) {
+    $editor_config = $config_factory->getEditable('editor.editor.' . $editor_id);
+    if (!$editor_config->isNew()) {
+      $editor_data = $editor_config->get();
+
+      // Only add if not already configured or empty.
+      if (!isset($editor_data['settings']['plugins']['media_edit_media_modal'])
+          || empty($editor_data['settings']['plugins']['media_edit_media_modal'])) {
+        $editor_data['settings']['plugins']['media_edit_media_modal'] = $default_config;
+        $editor_config->setData($editor_data)->save(TRUE);
+
+        \Drupal::logger('varbase_editor')->info('Added media_edit_media_modal configuration to @editor editor.', ['@editor' => $editor_id]);
+      }
+    }
+  }
+}

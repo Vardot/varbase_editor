@@ -19,6 +19,7 @@ dependencies:
     - pathologic
     - slick
     - token_filter
+    - varbase_editor
 name: 'Rich editor'
 format: full_html
 weight: -10
@@ -37,6 +38,7 @@ filters:
       line_numbers: true
       show_invisibles: false
       print_margins: true
+      auto_complete: true
       use_wrap_mode: true
   blazy_filter:
     id: blazy_filter
@@ -44,15 +46,15 @@ filters:
     status: false
     weight: -33
     settings:
-      media_switch: ''
-      hybrid_style: ''
-      box_style: ''
-      box_media_style: ''
-      box_caption: ''
       filter_tags:
         img: img
         iframe: '0'
+      media_switch: ''
+      box_style: ''
+      box_media_style: ''
+      hybrid_style: ''
       use_data_uri: '0'
+      box_caption: ''
   ckeditor5_premium_features_collaboration_filter:
     id: ckeditor5_premium_features_collaboration_filter
     provider: ckeditor5_premium_features
@@ -159,6 +161,7 @@ filters:
     weight: -41
     settings:
       title: true
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -183,10 +186,11 @@ filters:
     status: false
     weight: -31
     settings:
+      optionset: default
+      media_switch: ''
       caption:
         alt: '0'
         title: '0'
-      optionset: default
       layout: ''
       admin_uri: '/admin/config/content/formats/manage/full_html?destination=/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax&_wrapper_format=drupal_ajax'
       background: false
@@ -196,7 +200,6 @@ filters:
       loading: ''
       box_style: ''
       image_style: ''
-      media_switch: ''
       ratio: ''
       thumbnail_style: ''
       grid: ''
