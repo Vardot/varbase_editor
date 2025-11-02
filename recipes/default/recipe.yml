@@ -32,6 +32,7 @@ config:
     editor_advanced_link: '*'
     ckeditor_media_embed: '*'
     ckeditor_media_resize: '*'
+    edit_media_modal: '*'
     ckeditor5_paste_filter: '*'
     varbase_editor:
       - filter.format.basic_html

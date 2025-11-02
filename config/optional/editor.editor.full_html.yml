@@ -329,6 +329,13 @@ settings:
     linkit_extension:
       linkit_enabled: true
       linkit_profile: linkit_all_nodes
+    media_edit_media_modal:
+      editMediaModal:
+        dialogSettings:
+          height: 80%
+        extras:
+          skipAccessCheck: false
+        editMediaModalForms: {  }
     media_media:
       allow_view_mode_override: true
 image_upload:
