@@ -26,7 +26,7 @@
     "drupal/editor_advanced_link": "~2.3.0",
     "drupal/ckeditor_media_embed": "~2",
     "drupal/ckeditor_media_resize": "~1",
-    "drupal/edit_media_modal": "~2",
+    "drupal/edit_media_modal": "~2.1.0",
     "drupal/anchor_link": "~3",
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
