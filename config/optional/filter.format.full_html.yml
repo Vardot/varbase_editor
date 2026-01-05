@@ -38,7 +38,6 @@ filters:
       line_numbers: true
       show_invisibles: false
       print_margins: true
-      auto_complete: true
       use_wrap_mode: true
   blazy_filter:
     id: blazy_filter
@@ -46,15 +45,15 @@ filters:
     status: false
     weight: -33
     settings:
+      media_switch: ''
+      hybrid_style: ''
+      box_style: ''
+      box_media_style: ''
+      box_caption: ''
       filter_tags:
         img: img
         iframe: '0'
-      media_switch: ''
-      box_style: ''
-      box_media_style: ''
-      hybrid_style: ''
       use_data_uri: '0'
-      box_caption: ''
   ckeditor5_premium_features_collaboration_filter:
     id: ckeditor5_premium_features_collaboration_filter
     provider: ckeditor5_premium_features
@@ -103,7 +102,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<a id target rel class="ck-anchor" href title data-entity-type data-entity-uuid data-entity-substitution> <br> <p class="bs-callout alert alert-success bs-callout-info alert-info bs-callout-warning alert-warning bs-callout-danger alert-danger text-align-left text-align-center text-align-right text-align-justify"> <h2 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h3 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h4 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h5 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h6 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <div class="text-align-left text-align-center text-align-right text-align-justify"> <span> <strong> <em> <u> <code class="language-*"> <pre class="text-align-left text-align-center text-align-right text-align-justify"> <s> <sub> <sup> <blockquote> <ul> <ol reversed start> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align data-media-width> <figure class> <oembed url> <drupal-entity alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode data-embed-button="gallery media node" data-entity-type="media node">'
+      allowed_html: '<a id target rel class="ck-anchor" href title data-entity-type data-entity-uuid data-entity-substitution> <br> <p class="bs-callout alert alert-success bs-callout-info alert-info bs-callout-warning alert-warning bs-callout-danger alert-danger text-align-left text-align-center text-align-right text-align-justify"> <h2 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h3 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h4 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h5 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <h6 class="display-1 display-2 display-3 display-4 display-5 display-6 text-align-left text-align-center text-align-right text-align-justify"> <table class="table table-striped table-hover table-bordered"> <strong> <em> <u> <code class="language-*"> <pre class="text-align-left text-align-center text-align-right text-align-justify"> <s> <sub> <sup> <blockquote> <ul> <ol reversed start> <li> <hr> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align data-media-width> <figure class> <oembed url> <drupal-entity alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode data-embed-button="gallery media node" data-entity-type="media node">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_escape:
@@ -186,11 +185,10 @@ filters:
     status: false
     weight: -31
     settings:
-      optionset: default
-      media_switch: ''
       caption:
         alt: '0'
         title: '0'
+      optionset: default
       layout: ''
       admin_uri: '/admin/config/content/formats/manage/full_html?destination=/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax&_wrapper_format=drupal_ajax'
       background: false
@@ -200,6 +198,7 @@ filters:
       loading: ''
       box_style: ''
       image_style: ''
+      media_switch: ''
       ratio: ''
       thumbnail_style: ''
       grid: ''

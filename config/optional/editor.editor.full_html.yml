@@ -115,6 +115,7 @@ settings:
       properties:
         reversed: true
         startIndex: true
+        styles: false
       multiBlock: true
     ckeditor5_paste_filter_pasteFilter:
       enabled: true
@@ -309,6 +310,15 @@ settings:
         -
           label: 'Alert danger'
           element: '<p class="alert alert-danger">'
+        -
+          label: 'Table Striped'
+          element: '<table class="table table-striped">'
+        -
+          label: 'Table hover'
+          element: '<table class="table table-hover">'
+        -
+          label: 'Table Bordered'
+          element: '<table class="table table-bordered">'
     ckeditor_media_resize_mediaResize:
       apply_image_styles: true
       image_styles:
