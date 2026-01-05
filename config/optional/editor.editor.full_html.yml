@@ -115,6 +115,7 @@ settings:
       properties:
         reversed: true
         startIndex: true
+        styles: false
       multiBlock: true
     ckeditor5_paste_filter_pasteFilter:
       enabled: true
@@ -192,9 +193,7 @@ settings:
     ckeditor5_plugin_pack_find_and_replace__find_and_replace:
       ui_type: dialog
     ckeditor5_sourceEditing:
-      allowed_tags:
-        - '<div>'
-        - '<span>'
+      allowed_tags: {  }
     ckeditor5_style:
       styles:
         -
@@ -311,8 +310,15 @@ settings:
         -
           label: 'Alert danger'
           element: '<p class="alert alert-danger">'
-    ckeditor_bidi_ckeditor5:
-      rtl_default: false
+        -
+          label: 'Table Striped'
+          element: '<table class="table table-striped">'
+        -
+          label: 'Table hover'
+          element: '<table class="table table-hover">'
+        -
+          label: 'Table Bordered'
+          element: '<table class="table table-bordered">'
     ckeditor_media_resize_mediaResize:
       apply_image_styles: true
       image_styles:

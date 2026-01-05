@@ -17,7 +17,3 @@
 .ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-small) {
   width: 25%;
 }
-
-.ck-balloon-panel .ck-dropdown__button:not(.ck-resize-image-button) {
-  display: none;
-}
