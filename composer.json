@@ -34,7 +34,7 @@
     "drupal/slick": "~2 || ~3",
     "drupal/entity_embed": "~1",
     "drupal/ckeditor5_paste_filter": "~1",
-    "drupal/ckeditor5_plugin_pack": "~1.4.0",
+    "drupal/ckeditor5_plugin_pack": "~1.5.0",
     "drupal/ckeditor_emoji": "~2"
   }
 }
