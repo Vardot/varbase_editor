@@ -120,7 +120,7 @@ settings:
     ckeditor5_sourceEditing:
       allowed_tags: {  }
     ckeditor_bidi_ckeditor5:
-      rtl_default: false
+      switch_only: false
     editor_advanced_link_link:
       enabled_attributes:
         - id
