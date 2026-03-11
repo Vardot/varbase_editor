@@ -190,6 +190,8 @@ settings:
           replace: $1
     ckeditor5_sourceEditing:
       allowed_tags: {  }
+    ckeditor_bidi_ckeditor5:
+      switch_only: false
     ckeditor5_style:
       styles:
         -
