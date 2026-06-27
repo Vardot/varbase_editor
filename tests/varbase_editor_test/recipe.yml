@@ -1,0 +1,5 @@
+name: 'Varbase Editor Test'
+description: 'Provisions a Standard site with Varbase Editor (Basic/Full HTML on CKEditor 5) for the automated tests.'
+type: 'Testing'
+install:
+  - varbase_editor
