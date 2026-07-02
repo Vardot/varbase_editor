@@ -2,8 +2,9 @@
 
 /**
  * @file
- * Provisions the Media scaffolding that Varbase Editor's Rich editor
- * (full_html) format depends on, for the webship-js test site.
+ * Provisions the Media scaffolding for the Varbase Editor webship-js test site.
+ *
+ * Creates what the Rich editor (full_html) format config depends on.
  *
  * On a full Varbase site the media view modes (media.large / medium / small /
  * original) and the image media type come from Varbase Media. The plain test
