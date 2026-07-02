@@ -110,11 +110,16 @@ webship-js-test:
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install standard
         --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
         --site-name="Varbase Editor Test" -y
-    # Provision Varbase Editor (+ its CKEditor 5 plugin stack) through the test
-    # recipe. Media + Media Library are provided by the Standard profile, so the
-    # media-embed dependencies resolve on the test site.
-    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT recipe
-        $CI_PROJECT_DIR/tests/varbase_editor_test -y
+    # Provision Varbase Editor and its CKEditor 5 plugin stack with a module
+    # install (drush pm:install), not `drush recipe`. Media + Media Library come
+    # from the Standard profile. Module install gracefully skips any of Varbase
+    # Editor's optional config that would conflict with the Standard profile's
+    # own basic_html / full_html formats, whereas the recipe applier aborts on
+    # such a mismatch. The tests/varbase_editor_test recipe is kept as the
+    # declarative manifest of this module set.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT pm:install -y
+        varbase_editor ace_editor blazy slick entity_embed pathologic token
+        token_filter linkit ckeditor_media_embed ckeditor_media_resize
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
     - !reference [.fragments, node_playwright]
   script:
