@@ -111,18 +111,33 @@ webship-js-test:
     - |
       find "$CI_PROJECT_DIR/$_WEB_ROOT" -path '*varbase*' -name '*.info.yml' -print0 \
         | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.4\.0/core_version_requirement: ^11.3 || ^11.4/'
-    # embed 1.10 ships a backward-compat class Drupal\entity_embed\Plugin\
-    # CKEditor5Plugin\EmbedCKEditor5PluginBase inside its OWN src/ tree (wrong
-    # module for that namespace). With both embed and entity_embed enabled the
-    # file is discovered twice and PHP fatals with a duplicate class declaration.
-    # Relocate the file into entity_embed/src so the class resolves once via
-    # entity_embed's PSR-4 namespace (upstream embed/entity_embed packaging bug,
-    # unrelated to the ~11.4 core bump; belongs in an embed issue + varbase-patches).
+    # embed 1.10 ships an abstract class in embed/src/Plugin/CKEditor5Plugin/
+    # EmbedCKEditor5PluginBase.php that declares the namespace
+    # Drupal\entity_embed\Plugin\CKEditor5Plugin (i.e. a file living under the
+    # embed module but carrying the entity_embed namespace). When both embed and
+    # entity_embed are enabled the CKEditor 5 plugin discovery scans it under the
+    # embed namespace while the entity_embed plugins autoload the same FQCN,
+    # loading the file twice and fataling with a duplicate class declaration.
+    # Rewrite the file so it only declares the class once (guarded), which is a
+    # no-op if a fixed embed release lands. Upstream embed/entity_embed packaging
+    # bug, unrelated to the ~11.4 core bump - belongs in an embed issue +
+    # vardot/varbase-patches; guarded here so the browser test can run.
     - |
-      SHIM_SRC="$CI_PROJECT_DIR/$_WEB_ROOT/modules/contrib/embed/src/Plugin/CKEditor5Plugin/EmbedCKEditor5PluginBase.php"
-      SHIM_DST="$CI_PROJECT_DIR/$_WEB_ROOT/modules/contrib/entity_embed/src/Plugin/CKEditor5Plugin/EmbedCKEditor5PluginBase.php"
-      if [ -f "$SHIM_SRC" ] && [ ! -f "$SHIM_DST" ]; then
-        mkdir -p "$(dirname "$SHIM_DST")" && mv "$SHIM_SRC" "$SHIM_DST"
+      SHIM="$CI_PROJECT_DIR/$_WEB_ROOT/modules/contrib/embed/src/Plugin/CKEditor5Plugin/EmbedCKEditor5PluginBase.php"
+      if [ -f "$SHIM" ] && ! grep -q "class_exists(EmbedCKEditor5PluginBase::class" "$SHIM"; then
+        php -r '
+          $f = $argv[1];
+          $s = file_get_contents($f);
+          // Wrap the abstract class declaration in a class_exists guard so a
+          // second inclusion of this file is a no-op instead of a fatal.
+          $s = preg_replace(
+            "/\nabstract class EmbedCKEditor5PluginBase /",
+            "\nif (!class_exists(__NAMESPACE__ . \"\\\\\\\\EmbedCKEditor5PluginBase\", FALSE)) {\nabstract class EmbedCKEditor5PluginBase ",
+            $s, 1
+          );
+          $s .= "\n}\n";
+          file_put_contents($f, $s);
+        ' "$SHIM" || true
       fi
     # Varbase Editor's hook_install() applies its recipes/default recipe, which
     # imports Varbase Editor's own Simple editor / Rich editor / HTML code
