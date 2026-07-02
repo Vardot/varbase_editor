@@ -97,6 +97,10 @@ webship-js-test:
   before_script:
     - !reference [.fragments, web_db]
     - git config --global --add safe.directory "$CI_PROJECT_DIR" || true
+    # Applying Varbase Editor's recipes/default (installs the whole CKEditor 5
+    # plugin + premium stack) is memory-heavy; raise the CLI memory_limit so the
+    # recipe apply does not hit the default limit.
+    - echo 'memory_limit = -1' > /usr/local/etc/php/conf.d/zz-memory.ini 2>/dev/null || echo 'memory_limit = -1' > /etc/php/*/cli/conf.d/99-memory.ini 2>/dev/null || true
     # Drupal core 11.4.0 (released 2026-07-01) is not yet installable through the
     # drupal.org Composer facade used by CI, so the composer job resolves to the
     # latest available 11.3.x. The static jobs (phpcs, phpstan, composer-lint)
@@ -107,19 +111,34 @@ webship-js-test:
     - |
       find "$CI_PROJECT_DIR/$_WEB_ROOT" -path '*varbase*' -name '*.info.yml' -print0 \
         | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.4\.0/core_version_requirement: ^11.3 || ^11.4/'
-    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install standard
+    # Varbase Editor's hook_install() applies its recipes/default recipe, which
+    # imports Varbase Editor's own basic_html / full_html / code_html CKEditor 5
+    # formats and grants text-format permissions to the Varbase roles. Install
+    # on the MINIMAL profile (not Standard) so those formats do not clash with a
+    # profile-provided basic_html/full_html, then satisfy the two runtime
+    # prerequisites the module's hook_requirements()/recipe expect on a full
+    # Varbase site: the front-end libraries and the Varbase user roles.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install minimal
         --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
         --site-name="Varbase Editor Test" -y
-    # Provision Varbase Editor and its CKEditor 5 plugin stack with a module
-    # install (drush pm:install), not `drush recipe`. Media + Media Library come
-    # from the Standard profile. Module install gracefully skips any of Varbase
-    # Editor's optional config that would conflict with the Standard profile's
-    # own basic_html / full_html formats, whereas the recipe applier aborts on
-    # such a mismatch. The tests/varbase_editor_test recipe is kept as the
-    # declarative manifest of this module set.
-    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT pm:install -y
-        varbase_editor ace_editor blazy slick entity_embed pathologic token
-        token_filter linkit ckeditor_media_embed ckeditor_media_resize
+    # Provide the JS libraries hook_requirements() checks for (ACE Editor and the
+    # CKEditor 5 Anchor Drupal build). Stubs are enough to satisfy the
+    # file_exists() guards on the headless test site.
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ace/src
+        $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ckeditor5-anchor-drupal/build
+    - echo '// ace' > $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ace/src/ace.js
+    - echo '// anchor-drupal' > $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ckeditor5-anchor-drupal/build/anchor-drupal.js
+    # Pre-create the Varbase roles that recipes/default grants permissions to
+    # (on a full Varbase site these come from the profile).
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create site_admin -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create content_admin -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create editor -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create seo_admin -y || true
+    # Provision Varbase Editor through the test recipe (install: [varbase_editor]).
+    # Enabling the module runs its recipes/default recipe, which installs the full
+    # CKEditor 5 plugin stack and imports the Varbase text formats.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT recipe
+        $CI_PROJECT_DIR/tests/varbase_editor_test -y
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
     - !reference [.fragments, node_playwright]
   script:
@@ -149,3 +168,9 @@ composer:
     - composer config --no-plugins allow-plugins.tbachert/spi true || true
     - composer config --no-plugins allow-plugins.vardot/varbase-patches true || true
     - composer require --no-update vardot/varbase-patches:~10.1.0
+    # Varbase Editor's recipes/default recipe (applied by hook_install) enables a
+    # few CKEditor 5 Premium Features submodules (fullscreen, wproofreader, ...)
+    # that ship in drupal/ckeditor5_premium_features. That package is provided by
+    # the Varbase profile on a full site, not by the module; pull it into the CI
+    # build so the recipe's module list resolves for the browser test job.
+    - composer require --no-update drupal/ckeditor5_premium_features:*

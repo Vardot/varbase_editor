@@ -1,42 +1,5 @@
 name: 'Varbase Editor Test'
-description: 'Provisions a Standard site with Varbase Editor and its CKEditor 5 text formats (Simple/Basic HTML on CKEditor 5) for the automated webship-js tests.'
+description: 'Provisions a Minimal site with Varbase Editor for the automated webship-js tests. Enabling varbase_editor runs its recipes/default recipe, which installs the CKEditor 5 plugin stack and imports the Varbase Basic HTML / Full HTML / HTML code text formats on CKEditor 5.'
 type: 'Testing'
-# Install Varbase Editor plus the CKEditor 5 plugin modules that gate its
-# optional text-format configuration. Only the composer-installable plugin
-# modules that the basic_html / code_html formats depend on are installed here,
-# keeping the browser job inside the runner time limit. The full_html format
-# additionally needs ckeditor5_premium_features (a premium, non-installable
-# module), so it is intentionally left out of the test provisioning.
 install:
-  - node
-  - editor
-  - filter
-  - media
-  - media_library
-  - ckeditor5
   - varbase_editor
-  - ace_editor
-  - blazy
-  - slick
-  - entity_embed
-  - pathologic
-  - token
-  - token_filter
-  - linkit
-  - ckeditor_media_embed
-  - ckeditor_media_resize
-config:
-  import:
-    ace_editor: '*'
-    pathologic: '*'
-    ckeditor_media_embed: '*'
-    ckeditor_media_resize: '*'
-    # The Standard profile already ships basic_html / full_html on CKEditor 5;
-    # importing Varbase Editor's own basic_html would conflict with the existing
-    # (different) core config, so only the Varbase-specific formats that do not
-    # exist on Standard are imported here (the HTML code format + Linkit
-    # profile). Enabling the varbase_editor module still verifies clean install.
-    varbase_editor:
-      - filter.format.code_html
-      - editor.editor.code_html
-      - linkit.linkit_profile.linkit_all_nodes
