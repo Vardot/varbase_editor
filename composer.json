@@ -1,40 +1,50 @@
 {
-  "name": "drupal/varbase_editor",
-  "description": "Editor profile and settings to be used in most websites.",
-  "type": "drupal-module",
-  "homepage": "https://www.drupal.org/project/varbase_editor",
-  "license": "GPL-2.0-or-later",
-  "authors": [
-    {
-      "name": "Vardot",
-      "homepage": "https://www.drupal.org/vardot",
-      "role": "Maintainer"
+    "name": "drupal/varbase_editor",
+    "description": "Editor profile and settings to be used in most websites.",
+    "type": "drupal-module",
+    "homepage": "https://www.drupal.org/project/varbase_editor",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Vardot",
+            "homepage": "https://www.drupal.org/vardot",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "http://drupal.org/project/issues/varbase_editor",
+        "source": "http://cgit.drupalcode.org/varbase_editor"
+    },
+    "require": {
+        "drupal/core": "~11.4.0",
+        "vardot/varbase-patches": "~10.1.0",
+        "drupal/pathologic": "~2",
+        "drupal/ckeditor_bidi": "~5",
+        "drupal/ace_editor": "~2",
+        "drupal/extlink": "~2",
+        "drupal/linkit": "~7",
+        "drupal/editor_advanced_link": "~2.3.0",
+        "drupal/ckeditor_media_embed": "~2",
+        "drupal/ckeditor_media_resize": "~1",
+        "drupal/edit_media_modal": "~2.1.0",
+        "drupal/anchor_link": "~3",
+        "drupal/token": "~1",
+        "drupal/token_filter": "~2",
+        "drupal/blazy": "~3",
+        "drupal/slick": "~3",
+        "drupal/entity_embed": "~1",
+        "drupal/ckeditor5_paste_filter": "~1",
+        "drupal/ckeditor5_plugin_pack": "~1.5.0",
+        "drupal/ckeditor_emoji": "~2"
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/runtime": true,
+            "vardot/varbase-patches": true,
+            "cweagans/composer-patches": true,
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "oomphinc/composer-installers-extender": true
+        }
     }
-  ],
-  "support": {
-    "issues": "http://drupal.org/project/issues/varbase_editor",
-    "source": "http://cgit.drupalcode.org/varbase_editor"
-  },
-  "require": {
-    "drupal/core": "~11.4.0",
-    "vardot/varbase-patches": "~10.1.0",
-    "drupal/pathologic": "~2",
-    "drupal/ckeditor_bidi": "~5",
-    "drupal/ace_editor": "~2",
-    "drupal/extlink": "~2",
-    "drupal/linkit": "~7",
-    "drupal/editor_advanced_link": "~2.3.0",
-    "drupal/ckeditor_media_embed": "~2",
-    "drupal/ckeditor_media_resize": "~1",
-    "drupal/edit_media_modal": "~2.1.0",
-    "drupal/anchor_link": "~3",
-    "drupal/token": "~1",
-    "drupal/token_filter": "~2",
-    "drupal/blazy": "~3",
-    "drupal/slick": "~3",
-    "drupal/entity_embed": "~1",
-    "drupal/ckeditor5_paste_filter": "~1",
-    "drupal/ckeditor5_plugin_pack": "~1.5.0",
-    "drupal/ckeditor_emoji": "~2"
-  }
 }
