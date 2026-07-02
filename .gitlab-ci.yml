@@ -112,13 +112,16 @@ webship-js-test:
       find "$CI_PROJECT_DIR/$_WEB_ROOT" -path '*varbase*' -name '*.info.yml' -print0 \
         | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.4\.0/core_version_requirement: ^11.3 || ^11.4/'
     # Varbase Editor's hook_install() applies its recipes/default recipe, which
-    # imports Varbase Editor's own basic_html / full_html / code_html CKEditor 5
-    # formats and grants text-format permissions to the Varbase roles. Install
-    # on the MINIMAL profile (not Standard) so those formats do not clash with a
-    # profile-provided basic_html/full_html, then satisfy the two runtime
-    # prerequisites the module's hook_requirements()/recipe expect on a full
-    # Varbase site: the front-end libraries and the Varbase user roles.
-    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install minimal
+    # imports Varbase Editor's own Simple editor / Rich editor / HTML code
+    # CKEditor 5 formats, installs the full CKEditor 5 plugin + premium stack, and
+    # grants text-format permissions to the Varbase roles. Install on the STANDARD
+    # profile so the Media types / media view modes that Varbase Editor's config
+    # depends on (core.entity_view_mode.media.*, the image media type) already
+    # exist, then satisfy the remaining prerequisites the module expects from a
+    # full Varbase site (libraries + Varbase roles) and remove the Standard
+    # profile's own basic_html / full_html formats so recipes/default can import
+    # Varbase Editor's identically-named formats without a config-mismatch abort.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install standard
         --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
         --site-name="Varbase Editor Test" -y
     # Provide the JS libraries hook_requirements() checks for (ACE Editor and the
@@ -134,6 +137,20 @@ webship-js-test:
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create content_admin -y || true
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create editor -y || true
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create seo_admin -y || true
+    # Remove the Standard profile's basic_html / full_html formats + their
+    # CKEditor 5 editors so Varbase Editor's recipes/default can import its own
+    # identically-named formats (recipe config import aborts on a mismatch with
+    # existing config, but is happy to create it fresh).
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete editor.editor.basic_html -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete editor.editor.full_html -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete filter.format.basic_html -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete filter.format.full_html -y || true
+    # Provision the Media scaffolding (media view modes + image media type) that
+    # Varbase Editor's Rich editor (full_html) format depends on and that a full
+    # Varbase site gets from Varbase Media.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT pm:install media media_library -y
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT php:script
+        $CI_PROJECT_DIR/tests/varbase_editor_test/provision-media.php
     # Provision Varbase Editor through the test recipe (install: [varbase_editor]).
     # Enabling the module runs its recipes/default recipe, which installs the full
     # CKEditor 5 plugin stack and imports the Varbase text formats.
