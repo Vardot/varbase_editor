@@ -4,3 +4,14 @@ node_modules
 
 # Ignore Yarn files
 .yarn/
+
+# Ignore the local GitLab CI runner working directory (gitlab-ci-local).
+.gitlab-ci-local/
+
+# Ignore webship-js test artifacts (keep the .gitkeep placeholders only).
+/tests/reports/*
+!/tests/reports/.gitkeep
+/tests/screenshots/*
+!/tests/screenshots/.gitkeep
+/tests/videos/*
+!/tests/videos/.gitkeep
