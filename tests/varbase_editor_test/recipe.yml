@@ -31,9 +31,12 @@ config:
     pathologic: '*'
     ckeditor_media_embed: '*'
     ckeditor_media_resize: '*'
+    # The Standard profile already ships basic_html / full_html on CKEditor 5;
+    # importing Varbase Editor's own basic_html would conflict with the existing
+    # (different) core config, so only the Varbase-specific formats that do not
+    # exist on Standard are imported here (the HTML code format + Linkit
+    # profile). Enabling the varbase_editor module still verifies clean install.
     varbase_editor:
-      - filter.format.basic_html
       - filter.format.code_html
-      - editor.editor.basic_html
       - editor.editor.code_html
       - linkit.linkit_profile.linkit_all_nodes
