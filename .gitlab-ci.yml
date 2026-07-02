@@ -111,6 +111,19 @@ webship-js-test:
     - |
       find "$CI_PROJECT_DIR/$_WEB_ROOT" -path '*varbase*' -name '*.info.yml' -print0 \
         | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.4\.0/core_version_requirement: ^11.3 || ^11.4/'
+    # embed 1.10 ships a backward-compat class Drupal\entity_embed\Plugin\
+    # CKEditor5Plugin\EmbedCKEditor5PluginBase inside its OWN src/ tree (wrong
+    # module for that namespace). With both embed and entity_embed enabled the
+    # file is discovered twice and PHP fatals with a duplicate class declaration.
+    # Relocate the file into entity_embed/src so the class resolves once via
+    # entity_embed's PSR-4 namespace (upstream embed/entity_embed packaging bug,
+    # unrelated to the ~11.4 core bump; belongs in an embed issue + varbase-patches).
+    - |
+      SHIM_SRC="$CI_PROJECT_DIR/$_WEB_ROOT/modules/contrib/embed/src/Plugin/CKEditor5Plugin/EmbedCKEditor5PluginBase.php"
+      SHIM_DST="$CI_PROJECT_DIR/$_WEB_ROOT/modules/contrib/entity_embed/src/Plugin/CKEditor5Plugin/EmbedCKEditor5PluginBase.php"
+      if [ -f "$SHIM_SRC" ] && [ ! -f "$SHIM_DST" ]; then
+        mkdir -p "$(dirname "$SHIM_DST")" && mv "$SHIM_SRC" "$SHIM_DST"
+      fi
     # Varbase Editor's hook_install() applies its recipes/default recipe, which
     # imports Varbase Editor's own Simple editor / Rich editor / HTML code
     # CKEditor 5 formats, installs the full CKEditor 5 plugin + premium stack, and
