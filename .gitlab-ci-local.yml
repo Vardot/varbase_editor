@@ -105,6 +105,6 @@ phpstan:
   script:
     - cd /drupal
     - |
-      printf 'parameters:\n  level: 0\n  fileExtensions:\n    - php\n    - module\n    - inc\n    - install\n    - theme\n    - profile\n  ignoreErrors:\n    - "#^Unsafe usage of new static#"\n' > phpstan-local.neon
+      printf 'parameters:\n  level: 0\n  reportUnmatchedIgnoredErrors: false\n  fileExtensions:\n    - php\n    - module\n    - inc\n    - install\n    - theme\n    - profile\n  ignoreErrors:\n    - "#^Unsafe usage of new static#"\n' > phpstan-local.neon
     - php -d memory_limit=2G ./vendor/bin/phpstan analyse -c phpstan-local.neon web/modules/custom/varbase_editor --no-progress
   allow_failure: false

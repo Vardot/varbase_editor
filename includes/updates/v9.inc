@@ -5,8 +5,6 @@
  * Contains varbase_editor_update_9###(s) hook updates.
  */
 
-use Vardot\Installer\ModuleInstallerFactory;
-
 /**
  * Issue #3264253: Disable Blazy per individual Video iframe.
  *
@@ -32,7 +30,6 @@ function varbase_editor_update_90002() {
     if (\Drupal::moduleHandler()->moduleExists('varbase_update_helper')
       && \Drupal::moduleHandler()->moduleExists('varbase_core')) {
 
-      /** @var \Drupal\update_helper\Updater $updateHelper */
       $updateHelper = \Drupal::service('update_helper.updater');
 
       // Execute configuration update definitions with logging of success.
@@ -55,8 +52,13 @@ function varbase_editor_update_90002() {
 function varbase_editor_update_90003() {
   // Set the weight of the module after installation of list of modules.
   // To make sure that any hook or event subscriber worker
-  // after all used modules.
-  ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_editor');
+  // after all used modules. The Module Installer Factory ships with Varbase
+  // Core on a full Varbase site; guard the call so this update is a no-op when
+  // Varbase Editor is used standalone.
+  $module_installer_factory = 'Vardot\\Installer\\ModuleInstallerFactory';
+  if (class_exists($module_installer_factory)) {
+    call_user_func([$module_installer_factory, 'setModuleWeightAfterInstallation'], 'varbase_editor');
+  }
 }
 
 /**
