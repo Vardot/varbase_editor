@@ -1,3 +1,16 @@
+################################################################################
+# GitLab CI for the Varbase Editor module (10.1.x line - Drupal ~11.4).
+#
+# Two halves:
+#   1. The standard Drupal CI validation jobs (composer-lint, cspell, eslint,
+#      phpcs, phpstan, stylelint) provided by the drupalci templates, run
+#      strictly (allow_failure:false) against the Drupal ~11.4 target.
+#   2. A webship-js BDD browser-test job (Playwright + Cucumber-js) that runs
+#      the tests/features/drupal/** suite against a freshly installed Drupal
+#      Standard site provisioned by the tests/varbase_editor_test recipe (which
+#      installs Varbase Editor and its CKEditor 5 plugin stack).
+################################################################################
+
 include:
   - project: $_GITLAB_TEMPLATES_REPO
     ref: $_GITLAB_TEMPLATES_REF
@@ -5,27 +18,204 @@ include:
       - "/includes/include.drupalci.main.yml"
       - "/includes/include.drupalci.variables.yml"
       - "/includes/include.drupalci.workflows.yml"
-composer:
-  script:
-    - composer config minimum-stability dev
-    - composer config repositories.drupal composer https://packages.drupal.org/8
-    - composer config --no-plugins allow-plugins.composer/installers true
-    - composer config --no-plugins allow-plugins.drupal/core-composer-scaffold true
-    - composer config --no-plugins allow-plugins.cweagans/composer-patches true
-    - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true
-    - composer config --no-plugins allow-plugins.phpstan/extension-installer true
-    - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-    - composer require --no-update cweagans/composer-patches:~1
-    - composer install -vvv
+
+variables:
+  # The 10.1.x branch targets Drupal core 11.4 only. Pin the core version and
+  # ignore the project's info.yml core_version_requirement when resolving it.
+  DRUPAL_CORE: "11.4.0"
+  IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
+  # Make every drupalci validate job blocking (stylelint et al. default to
+  # allow_failure:true). Combined with the per-job allow_failure:false overrides
+  # below, the whole pipeline gates strictly.
+  _ALL_VALIDATE_ALLOW_FAILURE: "0"
+  COMPOSER_FLAGS: "--no-strict-lock"
+  COMPOSER_MEMORY_LIMIT: "-1"
+  # No yarn.lock is committed; Yarn 4 defaults to immutable installs and would
+  # refuse to create one. Allow lockfile creation in CI for every job.
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+
+# = Validate stage (all blocking) =
+# Force EVERY drupalci validate job to gate. _ALL_VALIDATE_ALLOW_FAILURE=0
+# flips the template default (stylelint and a few others default to
+# allow_failure:true) to blocking; the explicit per-job overrides below make the
+# intent unmissable and cover jobs that read their own _*_ALLOW_FAILURE var.
 composer-lint:
-  allow_failure: true
+  allow_failure: false
 cspell:
-  allow_failure: true
+  allow_failure: false
 eslint:
-  allow_failure: true
+  allow_failure: false
 phpcs:
-  allow_failure: true
+  allow_failure: false
 phpstan:
-  allow_failure: true
-phpunit:
-  allow_failure: true
+  allow_failure: false
+stylelint:
+  allow_failure: false
+
+# = Reusable before_script fragments (via !reference) =
+.fragments:
+  web_db: &web_db
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/sites/default/files
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/sites/simpletest
+    - chmod -R 777 $CI_PROJECT_DIR/$_WEB_ROOT/sites/default/files
+    - chmod -R 777 $CI_PROJECT_DIR/$_WEB_ROOT/sites/simpletest
+    - rm -rf /var/www/html && ln -s $CI_PROJECT_DIR/$_WEB_ROOT /var/www/html
+    - chown -R www-data:www-data $CI_PROJECT_DIR
+    - service apache2 start
+    - export SIMPLETEST_DB=mysql://$MYSQL_USER:$MYSQL_PASSWORD@database/$MYSQL_DATABASE
+  node_playwright: &node_playwright
+    - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+    - apt-get install -y nodejs
+    - node --version && npm --version
+    - 'test -f .yarnrc.yml || echo "nodeLinker: node-modules" > .yarnrc.yml'
+    # Back up cucumber.js - webship-js's postinstall can clobber it under yarn 4.
+    - cp cucumber.js .cucumber.js.bak
+    - corepack enable
+    - yarn install
+    - cp .cucumber.js.bak cucumber.js && rm .cucumber.js.bak
+    - ./node_modules/.bin/playwright install --with-deps chromium
+
+# = webship-js BDD - Drupal Standard profile + varbase_editor_test recipe =
+webship-js-test:
+  extends: .testing-job-base
+  needs: [composer]
+  # Only the database service is needed. Playwright bundles its own Chromium,
+  # so Selenium and chromedriver are not required.
+  services:
+    - name: $_CONFIG_DOCKERHUB_ROOT/$_TARGET_DB_TYPE-$_TARGET_DB_VERSION:$_TARGET_DB_IMAGE_TAG
+      alias: database
+  variables:
+    LAUNCH_URL: "http://localhost"
+    FORCE_COLOR: "1"
+  artifacts:
+    when: always
+    paths:
+      - tests/reports/
+      - tests/screenshots/
+      - tests/videos/
+    expire_in: 7 days
+  before_script:
+    - !reference [.fragments, web_db]
+    - git config --global --add safe.directory "$CI_PROJECT_DIR" || true
+    # Applying Varbase Editor's recipes/default (installs the whole CKEditor 5
+    # plugin + premium stack) is memory-heavy; raise the CLI memory_limit so the
+    # recipe apply does not hit the default limit.
+    - echo 'memory_limit = -1' > /usr/local/etc/php/conf.d/zz-memory.ini 2>/dev/null || echo 'memory_limit = -1' > /etc/php/*/cli/conf.d/99-memory.ini 2>/dev/null || true
+    # Drupal core 11.4.0 (released 2026-07-01) is not yet installable through the
+    # drupal.org Composer facade used by CI, so the composer job resolves to the
+    # latest available 11.3.x. The static jobs (phpcs, phpstan, composer-lint)
+    # validate the 11.4 target directly; this browser job verifies the module's
+    # runtime behavior on the closest installable core. Relax the checked-out
+    # module info.yml core_version_requirement for the test site only (this does
+    # NOT change the committed ~11.4.0 requirement) so the module can enable.
+    - |
+      find "$CI_PROJECT_DIR/$_WEB_ROOT" -path '*varbase*' -name '*.info.yml' -print0 \
+        | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.4\.0/core_version_requirement: ^11.3 || ^11.4/'
+    # embed 1.10 ships an abstract class in embed/src/Plugin/CKEditor5Plugin/
+    # EmbedCKEditor5PluginBase.php that declares the namespace
+    # Drupal\entity_embed\Plugin\CKEditor5Plugin (i.e. a file living under the
+    # embed module but carrying the entity_embed namespace). When both embed and
+    # entity_embed are enabled the CKEditor 5 plugin discovery scans it under the
+    # embed namespace while the entity_embed plugins autoload the same FQCN,
+    # loading the file twice and fataling with a duplicate class declaration.
+    # Rewrite the file so it only declares the class once (guarded), which is a
+    # no-op if a fixed embed release lands. Upstream embed/entity_embed packaging
+    # bug, unrelated to the ~11.4 core bump - belongs in an embed issue +
+    # vardot/varbase-patches; guarded here so the browser test can run.
+    - |
+      SHIM="$CI_PROJECT_DIR/$_WEB_ROOT/modules/contrib/embed/src/Plugin/CKEditor5Plugin/EmbedCKEditor5PluginBase.php"
+      if [ -f "$SHIM" ] && ! grep -q "class_exists(EmbedCKEditor5PluginBase::class" "$SHIM"; then
+        php -r '
+          $f = $argv[1];
+          $s = file_get_contents($f);
+          // Wrap the abstract class declaration in a class_exists guard so a
+          // second inclusion of this file is a no-op instead of a fatal.
+          $s = preg_replace(
+            "/\nabstract class EmbedCKEditor5PluginBase /",
+            "\nif (!class_exists(__NAMESPACE__ . \"\\\\\\\\EmbedCKEditor5PluginBase\", FALSE)) {\nabstract class EmbedCKEditor5PluginBase ",
+            $s, 1
+          );
+          $s .= "\n}\n";
+          file_put_contents($f, $s);
+        ' "$SHIM" || true
+      fi
+    # Varbase Editor's hook_install() applies its recipes/default recipe, which
+    # imports Varbase Editor's own Simple editor / Rich editor / HTML code
+    # CKEditor 5 formats, installs the full CKEditor 5 plugin + premium stack, and
+    # grants text-format permissions to the Varbase roles. Install on the STANDARD
+    # profile so the Media types / media view modes that Varbase Editor's config
+    # depends on (core.entity_view_mode.media.*, the image media type) already
+    # exist, then satisfy the remaining prerequisites the module expects from a
+    # full Varbase site (libraries + Varbase roles) and remove the Standard
+    # profile's own basic_html / full_html formats so recipes/default can import
+    # Varbase Editor's identically-named formats without a config-mismatch abort.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install standard
+        --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
+        --site-name="Varbase Editor Test" -y
+    # Provide the JS libraries hook_requirements() checks for (ACE Editor and the
+    # CKEditor 5 Anchor Drupal build). Stubs are enough to satisfy the
+    # file_exists() guards on the headless test site.
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ace/src
+        $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ckeditor5-anchor-drupal/build
+    - echo '// ace' > $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ace/src/ace.js
+    - echo '// anchor-drupal' > $CI_PROJECT_DIR/$_WEB_ROOT/libraries/ckeditor5-anchor-drupal/build/anchor-drupal.js
+    # Pre-create the Varbase roles that recipes/default grants permissions to
+    # (on a full Varbase site these come from the profile).
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create site_admin -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create content_admin -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create editor -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create seo_admin -y || true
+    # Remove the Standard profile's basic_html / full_html formats + their
+    # CKEditor 5 editors so Varbase Editor's recipes/default can import its own
+    # identically-named formats (recipe config import aborts on a mismatch with
+    # existing config, but is happy to create it fresh).
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete editor.editor.basic_html -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete editor.editor.full_html -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete filter.format.basic_html -y || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:delete filter.format.full_html -y || true
+    # Provision the Media scaffolding (media view modes + image media type) that
+    # Varbase Editor's Rich editor (full_html) format depends on and that a full
+    # Varbase site gets from Varbase Media.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT pm:install media media_library -y
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT php:script
+        $CI_PROJECT_DIR/tests/varbase_editor_test/provision-media.php
+    # Provision Varbase Editor through the test recipe (install: [varbase_editor]).
+    # Enabling the module runs its recipes/default recipe, which installs the full
+    # CKEditor 5 plugin stack and imports the Varbase text formats.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT recipe
+        $CI_PROJECT_DIR/tests/varbase_editor_test -y
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
+    - !reference [.fragments, node_playwright]
+  script:
+    # cucumber.js loads only tests/features/drupal/**. Disable webship-js's auto
+    # HTML hook and run generate-reports explicitly so HTML + PDF land next to
+    # the JSON in tests/reports/.
+    - WEBSHIP_REPORT_DISABLE=1 ./node_modules/.bin/cucumber-js --config cucumber.js --tags "not @wip"
+    - node ./node_modules/webship-js/bin/generate-reports.js
+        --json tests/reports/cucumber_report.json
+        --out  tests/reports/cucumber_report.html
+        --format all
+        --pdf-out tests/reports/cucumber_report.pdf
+  allow_failure: false
+
+# Allow the Varbase stack Composer plugins in the CI build (allow-plugins lives in varbase_project, not modules).
+composer:
+  before_script:
+    - composer config --no-plugins allow-plugins.symfony/runtime true || true
+    - composer config --no-plugins allow-plugins.composer/installers true || true
+    - composer config --no-plugins allow-plugins.cweagans/composer-patches true || true
+    - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true || true
+    - composer config --no-plugins allow-plugins.drupal/core-composer-scaffold true || true
+    - composer config --no-plugins allow-plugins.drupal/core-project-message true || true
+    - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true || true
+    - composer config --no-plugins allow-plugins.phpstan/extension-installer true || true
+    - composer config --no-plugins allow-plugins.php-http/discovery true || true
+    - composer config --no-plugins allow-plugins.tbachert/spi true || true
+    - composer config --no-plugins allow-plugins.vardot/varbase-patches true || true
+    - composer require --no-update vardot/varbase-patches:~10.1.0
+    # Varbase Editor's recipes/default recipe (applied by hook_install) enables a
+    # few CKEditor 5 Premium Features submodules (fullscreen, wproofreader, ...)
+    # that ship in drupal/ckeditor5_premium_features. That package is provided by
+    # the Varbase profile on a full site, not by the module; pull it into the CI
+    # build so the recipe's module list resolves for the browser test job.
+    - composer require --no-update drupal/ckeditor5_premium_features:*

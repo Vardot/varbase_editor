@@ -376,7 +376,10 @@ function varbase_editor_update_100008() {
 }
 
 /**
- * [#3555624] fix: Add media_edit_media_modal plugin configuration to basic_html and full_html editors.
+ * Issue #3555624: Add media_edit_media_modal plugin config to the editors.
+ *
+ * Adds the media_edit_media_modal plugin configuration to the basic_html and
+ * full_html editors.
  */
 function varbase_editor_update_100009() {
   $config_factory = \Drupal::configFactory();

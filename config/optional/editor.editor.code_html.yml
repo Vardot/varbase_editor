@@ -207,4 +207,5 @@ settings:
   print_margins: true
   auto_complete: true
   use_wrap_mode: true
-image_upload: {  }
+image_upload:
+  status: false
