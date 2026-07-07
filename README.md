@@ -1,3 +1,7 @@
+[![pipeline status](https://git.drupalcode.org/project/varbase_editor/badges/9.2.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_editor/-/pipelines)
+[![Varbase Editor](https://img.shields.io/badge/Varbase%20Editor-9.2.14-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_editor/-/pipelines?ref=9.2.14)
+[![Automated Functional Testing](https://git.drupalcode.org/project/varbase_editor/badges/9.2.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_editor/-/pipelines)
+
 # Varbase Editor
 
 Integrates a rich editor into Varbase distribution.
