@@ -5,7 +5,7 @@
  * Contains varbase_editor_update_8###(s) hook updates.
  */
 
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Serialization\Yaml;
 
 /**
  * WARNING: The "Full HTML" text format was mistakenly referred to by its.
@@ -23,13 +23,13 @@ function varbase_editor_update_8001() {
   $code_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.code_html');
   $code_html_editor_config_file = \Drupal::root() . '/' . \Drupal::service('extension.list.module')->getPath('varbase_editor') . '/config/install/editor.editor.code_html.yml';
   $code_html_editor_config_content = file_get_contents($code_html_editor_config_file);
-  $code_html_editor_config_content_data = (array) Yaml::parse($code_html_editor_config_content);
+  $code_html_editor_config_content_data = (array) Yaml::decode($code_html_editor_config_content);
   $code_html_editor_config->setData($code_html_editor_config_content_data)->save();
 
   $code_html_format_config = \Drupal::service('config.factory')->getEditable('filter.format.code_html');
   $code_html_format_config_file = \Drupal::root() . '/' . \Drupal::service('extension.list.module')->getPath('varbase_editor') . '/config/install/filter.format.code_html.yml';
   $code_html_format_config_content = file_get_contents($code_html_format_config_file);
-  $code_html_format_config_content_data = (array) Yaml::parse($code_html_format_config_content);
+  $code_html_format_config_content_data = (array) Yaml::decode($code_html_format_config_content);
   $code_html_format_config->setData($code_html_format_config_content_data)->save();
 
   if (file_exists(\Drupal::root() . '/' . \Drupal::service('extension.list.module')->getPath('varbase_editor') . '/config/install/filter.format.restricted_html.yml')) {
@@ -37,13 +37,13 @@ function varbase_editor_update_8001() {
     $restricted_html_format_config = \Drupal::service('config.factory')->getEditable('filter.format.restricted_html');
     $restricted_html_format_config_file = \Drupal::root() . '/' . \Drupal::service('extension.list.module')->getPath('varbase_editor') . '/config/install/filter.format.restricted_html.yml';
     $restricted_html_format_config_content = file_get_contents($restricted_html_format_config_file);
-    $restricted_html_format_config_content_data = (array) Yaml::parse($restricted_html_format_config_content);
+    $restricted_html_format_config_content_data = (array) Yaml::decode($restricted_html_format_config_content);
     $restricted_html_format_config->setData($restricted_html_format_config_content_data)->save();
 
     $restricted_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.restricted_html');
     $restricted_html_editor_config_file = \Drupal::root() . '/' . \Drupal::service('extension.list.module')->getPath('varbase_editor') . '/config/install/editor.editor.restricted_html.yml';
     $restricted_html_editor_config_content = file_get_contents($restricted_html_editor_config_file);
-    $restricted_html_editor_config_content_data = (array) Yaml::parse($restricted_html_editor_config_content);
+    $restricted_html_editor_config_content_data = (array) Yaml::decode($restricted_html_editor_config_content);
     $restricted_html_editor_config->setData($restricted_html_editor_config_content_data)->save();
 
     $update_message = t('<b>WARNING:</b><br /><p>The "Full HTML" text format was mistakenly referred to by its machine name (restricted_html), this is confusing and wrong. Therefore, this filter has been deprecated in favor of better naming to become "HTML code" (code_html).</p><p>Please make sure to revise your content if it was using the "Full HTML" text format. You can enable it again if you like, or switch to use the new "HTML code" text format.</p>');
@@ -91,14 +91,14 @@ function varbase_editor_update_8004() {
   $full_html_editor_config = \Drupal::service('config.factory')->getEditable('editor.editor.full_html');
   $full_html_editor_config_file = \Drupal::root() . '/' . \Drupal::service('extension.list.module')->getPath('varbase_editor') . '/config/install/editor.editor.full_html.yml';
   $full_html_editor_config_content = file_get_contents($full_html_editor_config_file);
-  $full_html_editor_config_content_data = (array) Yaml::parse($full_html_editor_config_content);
+  $full_html_editor_config_content_data = (array) Yaml::decode($full_html_editor_config_content);
   $full_html_editor_config->setData($full_html_editor_config_content_data)->save();
 
   // Update "Rich editor" filter format config.
   $full_html_format_config = \Drupal::service('config.factory')->getEditable('filter.format.full_html');
   $full_html_format_config_file = \Drupal::root() . '/' . \Drupal::service('extension.list.module')->getPath('varbase_editor') . '/config/install/filter.format.full_html.yml';
   $full_html_format_config_content = file_get_contents($full_html_format_config_file);
-  $full_html_format_config_content_data = (array) Yaml::parse($full_html_format_config_content);
+  $full_html_format_config_content_data = (array) Yaml::decode($full_html_format_config_content);
   $full_html_format_config->setData($full_html_format_config_content_data)->save();
 }
 

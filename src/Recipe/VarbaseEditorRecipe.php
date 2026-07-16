@@ -6,7 +6,6 @@ namespace Drupal\varbase_editor\Recipe;
 
 use Drupal\Component\Serialization\Yaml as SerializationYaml;
 use Drupal\Core\Recipe\Recipe;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Contains helper methods for interacting with CKEditor 5 recipes.
@@ -54,7 +53,7 @@ class VarbaseEditorRecipe {
       }
     }
 
-    return (array) Yaml::parse(file_get_contents($recipePath));
+    return (array) SerializationYaml::decode(file_get_contents($recipePath));
   }
 
   /**
