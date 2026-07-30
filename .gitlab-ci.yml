@@ -24,11 +24,6 @@ variables:
   # ignore the project's info.yml core_version_requirement when resolving it.
   DRUPAL_CORE: "11.4.0"
   IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
-  # CKEditor Media Resize 1.1.0 declares core ~11.2/~11.3 only; upstream MR !30
-  # (Drupal 11.4 support, #3607786) is not released yet. Let the drupalci
-  # composer job resolve it leniently on core 11.4 - the runtime info.yml fix
-  # comes from the vardot/varbase-patches (>= 10.1.81) patch.
-  _LENIENT_ALLOW_LIST: "ckeditor_media_resize"
   # Make every drupalci validate job blocking (stylelint et al. default to
   # allow_failure:true). Combined with the per-job allow_failure:false overrides
   # below, the whole pipeline gates strictly.

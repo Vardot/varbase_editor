@@ -25,7 +25,7 @@
         "drupal/linkit": "~7",
         "drupal/editor_advanced_link": "~2.3.0",
         "drupal/ckeditor_media_embed": "~2",
-        "vardot/ckeditor_media_resize": "~2.0.0",
+        "drupal/ckeditor_media_resize": "~1.1.0",
         "drupal/edit_media_modal": "~2.1.0",
         "drupal/anchor_link": "~3",
         "drupal/token": "~1",
