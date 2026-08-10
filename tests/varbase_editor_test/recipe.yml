@@ -1,5 +1,8 @@
 name: 'Varbase Editor Test'
-description: 'Provisions a Standard site with Varbase Editor (Basic/Full HTML on CKEditor 5) for the automated tests.'
+description: 'Provisions a Standard site with Varbase Editor (Basic/Full HTML on CKEditor 5) for the automated tests, including the Article content type with a Body field so the suite does not depend on what the install profile ships.'
 type: 'Testing'
 install:
+  - node
+  - text
+  - field
   - varbase_editor
