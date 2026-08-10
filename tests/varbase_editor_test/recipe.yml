@@ -1,5 +1,5 @@
 name: 'Varbase Editor Test'
-description: 'Provisions a Minimal site with Varbase Editor for the automated webship-js tests. Enabling varbase_editor runs its recipes/default recipe, which installs the CKEditor 5 plugin stack and imports the Varbase Basic HTML / Full HTML / HTML code text formats on CKEditor 5.'
+description: 'Provisions a Minimal site with Varbase Editor for the automated varbase-e2e tests. Enabling varbase_editor runs its recipes/default recipe, which installs the CKEditor 5 plugin stack and imports the Varbase Basic HTML / Full HTML / HTML code text formats on CKEditor 5.'
 type: 'Testing'
 install:
   - varbase_editor

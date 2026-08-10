@@ -8,7 +8,7 @@ node_modules
 # Ignore the local GitLab CI runner working directory (gitlab-ci-local).
 .gitlab-ci-local/
 
-# Ignore webship-js test artifacts (keep the .gitkeep placeholders only).
+# Ignore varbase-e2e test artifacts (keep the .gitkeep placeholders only).
 /tests/reports/*
 !/tests/reports/.gitkeep
 /tests/screenshots/*
